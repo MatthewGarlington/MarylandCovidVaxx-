@@ -69,32 +69,92 @@ struct HomeView: View {
                 }
                 .blur(radius: self.active ? 20 : 0)
                 
-                ScrollView(.horizontal, showsIndicators: false) {
-                    
-                    HStack(spacing: 20) {
-                            // This gives the top SecitonView the ability to link to Contentful
-                            ForEach(totalVaccineViewModel.sections.indices, id: \.self) { index in
-                                GeometryReader { geometry in
+                    VStack(spacing: 0) {
+                        ScrollView(.horizontal, showsIndicators: false) {
+                        
+                        HStack(spacing: 20) {
+                                // This gives the top SecitonView the ability to link to Contentful
+                                ForEach(totalVaccineViewModel.sections.indices, id: \.self) { index in
+                                    GeometryReader { geometry in
+                                        
+                                        
                                     
-                                    
-                                
-                                    SectionView(index: index, section: self.totalVaccineViewModel.sections[index], width: 275, height: 275)
-                                    
-                                    .rotation3DEffect(Angle(degrees:
-                                                                Double(geometry.frame(in: .global).minX - 30) / -getAngleMulitplier(bounds: bounds)
-                                                        
-                                    ), axis: (x: 0, y: 10.0, z: 0))
+                                        SectionView(index: index, section: self.totalVaccineViewModel.sections[index], width: 275, height: 275)
+                                        
+                                        .rotation3DEffect(Angle(degrees:
+                                                                    Double(geometry.frame(in: .global).minX - 30) / -getAngleMulitplier(bounds: bounds)
+                                                            
+                                        ), axis: (x: 0, y: 10.0, z: 0))
+                                }
+                                .frame(width: 275, height: 275)
                             }
-                            .frame(width: 275, height: 275)
+                            
                         }
                         
+                        .padding(.horizontal, 30)
+                        .padding(.top, 10)
+                        .padding(.bottom, 30)
                     }
-                    
-                    .padding(30)
-                    .padding(.bottom, 30)
-                }
-                .offset(y: -30)
-                .blur(radius: self.active ? 20 : 0)
+                    .offset(y: -30)
+                        .blur(radius: self.active ? 20 : 0)
+                        
+                        ScrollView(.horizontal, showsIndicators: false) {
+                        
+                        HStack(spacing: 20) {
+                                // This gives the top SecitonView the ability to link to Contentful
+                                ForEach(totalVaccineViewModel.sectionsRowTwo.indices, id: \.self) { index in
+                                    GeometryReader { geometry in
+                                        
+                                        
+                                    
+                                        SectionSecondRowView(index: index, section: self.totalVaccineViewModel.sectionsRowTwo[index], width: 275, height: 275)
+                                        
+                                        .rotation3DEffect(Angle(degrees:
+                                                                    Double(geometry.frame(in: .global).minX - 30) / -getAngleMulitplier(bounds: bounds)
+                                                            
+                                        ), axis: (x: 0, y: 10.0, z: 0))
+                                }
+                                .frame(width: 275, height: 275)
+                            }
+                            
+                        }
+                        
+                        .padding(.horizontal, 30)
+                        .padding(.top, 10)
+                        .padding(.bottom, 30)
+                    }
+                    .offset(y: -30)
+                        .blur(radius: self.active ? 20 : 0)
+                        
+                        
+                        ScrollView(.horizontal, showsIndicators: false) {
+                        
+                        HStack(spacing: 20) {
+                                // This gives the top SecitonView the ability to link to Contentful
+                                ForEach(totalVaccineViewModel.sectionsRowThree.indices, id: \.self) { index in
+                                    GeometryReader { geometry in
+                                        
+                                        
+                                    
+                                        SectionThirdRowView(index: index, section: self.totalVaccineViewModel.sectionsRowThree[index], width: 275, height: 275)
+                                        
+                                        .rotation3DEffect(Angle(degrees:
+                                                                    Double(geometry.frame(in: .global).minX - 30) / -getAngleMulitplier(bounds: bounds)
+                                                            
+                                        ), axis: (x: 0, y: 10.0, z: 0))
+                                }
+                                .frame(width: 275, height: 275)
+                            }
+                            
+                        }
+                        
+                        .padding(.horizontal, 30)
+                        .padding(.top, 10)
+                        .padding(.bottom, 30)
+                    }
+                    .offset(y: -30)
+                        .blur(radius: self.active ? 20 : 0)
+                    }
                 
                 HStack {
                     Text("Courses")
@@ -224,6 +284,116 @@ struct SectionView: View {
         
     }
 }
+
+struct SectionSecondRowView: View {
+    @ObservedObject var store = CourseStore()
+    var index: Int
+    var section: SectionSecondRow
+    var width: CGFloat = 275
+    var height: CGFloat = 275
+  
+    
+    var body: some View {
+   
+        VStack {
+            VStack {
+                   
+                    HStack(alignment: .top) {
+                        Text(section.title)
+                            .font(.system(size: 24, weight: .bold))
+                            .frame(width: 225, alignment: .leading)
+                            .frame(height: 100)
+                            .padding(.top, 35)
+                            .foregroundColor(.white)
+                        Spacer()
+                    //    Image(uiImage: section.logo)
+                        
+                    }
+                    section.text
+                        .font(.system(size: 24, weight: .bold))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .frame(height: 75)
+                    
+                }
+            
+
+        
+        ZStack(alignment: .bottom) {
+            
+                WebImage(url: section.image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(height: 150)
+                   //.padding(.bottom, 20)
+                   //.blendMode(.darken)
+                }
+                
+        }
+        .padding(.top, 20)
+        .padding(.horizontal, 20)
+        .frame(width: width, height: height)
+        .background(Color(#colorLiteral(red: 0.7236627936, green: 0.6401972771, blue: 0.9966538548, alpha: 1)))
+        .cornerRadius(30)
+        .shadow(color: Color(#colorLiteral(red: 0.7236627936, green: 0.6401972771, blue: 0.9966538548, alpha: 1)).opacity(0.3), radius: 20, x: 0, y: 20)
+      
+        
+    }
+}
+
+struct SectionThirdRowView: View {
+    @ObservedObject var store = CourseStore()
+    var index: Int
+    var section: SectionThirdRow
+    var width: CGFloat = 275
+    var height: CGFloat = 275
+  
+    
+    var body: some View {
+   
+        VStack {
+            VStack {
+                   
+                    HStack(alignment: .top) {
+                        Text(section.title)
+                            .font(.system(size: 24, weight: .bold))
+                            .frame(width: 225, alignment: .leading)
+                            .frame(height: 100)
+                            .padding(.top, 35)
+                            .foregroundColor(.white)
+                        Spacer()
+                    //    Image(uiImage: section.logo)
+                        
+                    }
+                    section.text
+                        .font(.system(size: 24, weight: .bold))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .frame(height: 75)
+                    
+                }
+            
+
+        
+        ZStack(alignment: .bottom) {
+            
+                WebImage(url: section.image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(height: 150)
+                   //.padding(.bottom, 20)
+                   //.blendMode(.darken)
+                }
+                
+        }
+        .padding(.top, 20)
+        .padding(.horizontal, 20)
+        .frame(width: width, height: height)
+        .background(Color(#colorLiteral(red: 0.7236627936, green: 0.6401972771, blue: 0.9966538548, alpha: 1)))
+        .cornerRadius(30)
+        .shadow(color: Color(#colorLiteral(red: 0.7236627936, green: 0.6401972771, blue: 0.9966538548, alpha: 1)).opacity(0.3), radius: 20, x: 0, y: 20)
+      
+        
+    }
+}
 struct Section: Identifiable {
     var id = UUID()
     var title: String
@@ -235,10 +405,41 @@ struct Section: Identifiable {
     
 }
 
+struct SectionSecondRow: Identifiable {
+    var id = UUID()
+    var title: String
+    var text: Text
+    var image: URL
+    var logo: UIImage
+    var color: UIColor
+    
+    
+}
+
+struct SectionThirdRow: Identifiable {
+    var id = UUID()
+    var title: String
+    var text: Text
+    var image: URL
+    var logo: UIImage
+    var color: UIColor
+    
+    
+}
+
+
+
 let sectionData = [
     Section(title: "", text: Text(""), image: URL(string: "https://dl.dropbox.com/s/plbdsvq889yyc4v/Card2%402x.png?dl=0")!, logo: #imageLiteral(resourceName: "Logo1"), color: #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)),
  
     
+]
+
+let sectionRowTwoData = [
+
+    SectionSecondRow(title: "", text: Text(""), image: URL(string: "https://dl.dropbox.com/s/plbdsvq889yyc4v/Card2%402x.png?dl=0")!, logo: #imageLiteral(resourceName: "Logo1"), color: #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1))
+
+
 ]
 
 struct WatchRingsView: View {
