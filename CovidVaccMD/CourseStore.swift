@@ -63,10 +63,13 @@ func getSectionArray(id: String, completion: @escaping([Entry]) -> ()) {
     }
 }
 
+
 class CourseStore: ObservableObject {
     
     @Published var courses: [Course] = []
     @Published var sections: [Section] = []
+//    @ObservedObject var totalVaccineViewModel = TotalVaccineData()
+    
     
     // Make the Contentful API Call
     init() {
@@ -93,15 +96,17 @@ class CourseStore: ObservableObject {
         getSectionArray(id: "section") { (items) in
             items.forEach { (item) in
           
-                self.sections.append(Section(title:  item.fields["title"] as! String,
-                                             text: item.fields["subtitle"] as! String,
-                                             image: item.fields.linkedAsset(at: "image")?.url ?? URL(string: "https://dl.dropbox.com/s/9vvklb94vpaafxw/Card3%402x.png?dl=0")!,
-                                             logo: #imageLiteral(resourceName: "Logo1"),
-                                             color: .blue))
+//                self.sections.append(Section(title:  item.fields["title"] as! String,
+//                                             text: item.fields["subtitle"] as! String,
+//                                             image: item.fields.linkedAsset(at: "image")?.url ?? URL(string: "https://dl.dropbox.com/s/9vvklb94vpaafxw/Card3%402x.png?dl=0")!,
+//                                             logo: #imageLiteral(resourceName: "Logo1"),
+//                                             color: .blue))
          
                 
             }
         }
+        
+        
         
     }
     
