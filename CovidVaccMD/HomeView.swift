@@ -30,7 +30,7 @@ struct HomeView: View {
               
                 VStack {
                     HStack {
-                        Text("\(totalVaccineViewModel.recentMDVaccineTotals?.features?[0].attributes?.Metric ?? "No Reponse")")
+                        Text("Maryland Vaccination")
                           .font(.system(size: 28, weight: .bold))
                          
                         
@@ -179,44 +179,64 @@ struct SectionView: View {
   
     
     var body: some View {
+   
         VStack {
-            HStack(alignment: .top) {
-                (section.title)
-                    .font(.system(size: 24, weight: .bold))
-                    .frame(width: 160, alignment: .leading)
-                    .foregroundColor(.white)
-                Spacer()
-                Image(uiImage: section.logo)
+            VStack {
+                   
+                    HStack(alignment: .top) {
+                        Text(section.title)
+                            .font(.system(size: 24, weight: .bold))
+                            .frame(width: 225, alignment: .leading)
+                            .frame(height: 100)
+                            .padding(.top, 35)
+                            .foregroundColor(.white)
+                        Spacer()
+                    //    Image(uiImage: section.logo)
+                        
+                    }
+                    section.text
+                        .font(.system(size: 24, weight: .bold))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .frame(height: 75)
+                    
+                }
+            
+
+        
+        ZStack(alignment: .bottom) {
+            
+                WebImage(url: section.image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(height: 150)
+                   //.padding(.bottom, 20)
+                   //.blendMode(.darken)
+                }
                 
-            }
-            section.text
-                .frame(maxWidth: .infinity, alignment: .leading)
-            WebImage(url: section.image)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 210)
         }
         .padding(.top, 20)
         .padding(.horizontal, 20)
         .frame(width: width, height: height)
-        .background(section.color)
+        .background(Color(#colorLiteral(red: 0.7236627936, green: 0.6401972771, blue: 0.9966538548, alpha: 1)))
         .cornerRadius(30)
-        .shadow(color: section.color.opacity(0.3), radius: 20, x: 0, y: 20)
+        .shadow(color: Color(#colorLiteral(red: 0.7236627936, green: 0.6401972771, blue: 0.9966538548, alpha: 1)).opacity(0.3), radius: 20, x: 0, y: 20)
+      
+        
     }
 }
 struct Section: Identifiable {
     var id = UUID()
-    var title: Text
+    var title: String
     var text: Text
     var image: URL
     var logo: UIImage
-    var color: Color
+    var color: UIColor
     
     
 }
 
 let sectionData = [
-    Section(title: Text(""), text: Text(""), image: URL(string: "https://dl.dropbox.com/s/plbdsvq889yyc4v/Card2%402x.png?dl=0")!, logo: #imageLiteral(resourceName: "Logo1"), color: .blue),
+    Section(title: "", text: Text(""), image: URL(string: "https://dl.dropbox.com/s/plbdsvq889yyc4v/Card2%402x.png?dl=0")!, logo: #imageLiteral(resourceName: "Logo1"), color: #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)),
  
     
 ]
