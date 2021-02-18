@@ -19,6 +19,9 @@ struct HomeView: View {
     @State var activeView = CGSize.zero
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @State var isScrollable = false
+    @ObservedObject var totalVaccineViewModel = TotalVaccineData()
+    
+  
     
     
     var body: some View {
@@ -27,7 +30,7 @@ struct HomeView: View {
               
                 VStack {
                     HStack {
-                        Text("Watching")
+                        Text("\(totalVaccineViewModel.recentMDVaccineTotals?.features?[0].attributes?.Metric ?? "No Reponse")")
                           .font(.system(size: 28, weight: .bold))
                          
                         
@@ -70,10 +73,12 @@ struct HomeView: View {
                     
                     HStack(spacing: 20) {
                             // This gives the top SecitonView the ability to link to Contentful
-                            ForEach(store.sections.indices, id: \.self) { index in
+                            ForEach(totalVaccineViewModel.sections.indices, id: \.self) { index in
                                 GeometryReader { geometry in
                                     
-                                    SectionView(index: index, section: self.store.sections[index], width: 275, height: 275)
+                                    
+                                
+                                    SectionView(index: index, section: self.totalVaccineViewModel.sections[index], width: 275, height: 275)
                                     
                                     .rotation3DEffect(Angle(degrees:
                                                                 Double(geometry.frame(in: .global).minX - 30) / -getAngleMulitplier(bounds: bounds)
@@ -166,7 +171,7 @@ struct HomeView_Previews: PreviewProvider {
 }
 
 struct SectionView: View {
-//    @ObservedObject var store = CourseStore()
+    @ObservedObject var store = CourseStore()
     var index: Int
     var section: Section
     var width: CGFloat = 275
@@ -176,7 +181,7 @@ struct SectionView: View {
     var body: some View {
         VStack {
             HStack(alignment: .top) {
-                Text(section.title)
+                (section.title)
                     .font(.system(size: 24, weight: .bold))
                     .frame(width: 160, alignment: .leading)
                     .foregroundColor(.white)
@@ -184,7 +189,7 @@ struct SectionView: View {
                 Image(uiImage: section.logo)
                 
             }
-            Text(section.text.uppercased())
+            section.text
                 .frame(maxWidth: .infinity, alignment: .leading)
             WebImage(url: section.image)
                 .resizable()
@@ -201,8 +206,8 @@ struct SectionView: View {
 }
 struct Section: Identifiable {
     var id = UUID()
-    var title: String
-    var text: String
+    var title: Text
+    var text: Text
     var image: URL
     var logo: UIImage
     var color: Color
@@ -211,7 +216,7 @@ struct Section: Identifiable {
 }
 
 let sectionData = [
-    Section(title: "", text: "", image: URL(string: "https://dl.dropbox.com/s/plbdsvq889yyc4v/Card2%402x.png?dl=0")!, logo: #imageLiteral(resourceName: "Logo1"), color: .blue),
+    Section(title: Text(""), text: Text(""), image: URL(string: "https://dl.dropbox.com/s/plbdsvq889yyc4v/Card2%402x.png?dl=0")!, logo: #imageLiteral(resourceName: "Logo1"), color: .blue),
  
     
 ]
