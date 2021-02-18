@@ -50,7 +50,7 @@ class Api {
 
 struct MDTotalVaccine: Codable, Hashable {
     
-    
+  
     let features: [Features]?
     
     
@@ -58,6 +58,7 @@ struct MDTotalVaccine: Codable, Hashable {
 
 struct Features: Codable, Hashable {
     
+   
     let attributes: Attributes?
 }
 
@@ -71,9 +72,10 @@ struct Attributes: Codable, Hashable {
     
 }
 
+
 class TotalVaccineData: ObservableObject {
     
-    
+    @Published var sections: [Section] = []
     @Published var recentMDVaccineTotals: MDTotalVaccine?
     
     
@@ -112,12 +114,20 @@ class TotalVaccineData: ObservableObject {
                 
                 do {
                     
+               
+                    
                     self.recentMDVaccineTotals = try JSONDecoder().decode(MDTotalVaccine?.self, from: data)
                     
+                    for vaccine in self.recentMDVaccineTotals?.features ?? [] {
+                        self.sections.append(Section(title:  Text("\(vaccine.attributes?.Metric ?? "No Data")"),
+                                                     text: Text("\(vaccine.attributes?.Value ?? 0, specifier: "%.0f")"),
+                                                 image: URL(string: "https://dl.dropbox.com/s/9vvklb94vpaafxw/Card3%402x.png?dl=0")!,
+                                                 logo: #imageLiteral(resourceName: "Logo1"),
+                                                 color: .blue))
+                    }
                     
                     
-                    
-                    print(self.recentMDVaccineTotals?.features?[0].attributes?.Metric ?? "No Reponse")
+                   print(self.recentMDVaccineTotals?.features?[0].attributes?.Metric ?? "No Reponse")
                     
                     
                 } catch let jsonError {
@@ -135,6 +145,7 @@ class TotalVaccineData: ObservableObject {
         
     }
 }
+
 
 
 
