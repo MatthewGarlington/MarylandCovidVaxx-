@@ -5,16 +5,42 @@
 //  Created by Matthew Garlington on 2/18/21.
 //
 
+
 import SwiftUI
 
-struct BlurView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+struct BlurView: UIViewRepresentable {
+    
+    typealias UIViewType = UIView
+    var style: UIBlurEffect.Style
+ 
+    
+    func makeUIView(context: Context) -> UIView {
+        let view = UIView(frame: CGRect.zero)
+        view.backgroundColor = .clear
+        
+        // adding the style varible makes the blur style customizable
+        let blurEffect = UIBlurEffect(style: style)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.translatesAutoresizingMaskIntoConstraints = false
+       
+        view.insertSubview(blurView, at: 0)
+        
+        NSLayoutConstraint.activate([
+            blurView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            blurView.heightAnchor.constraint(equalTo: view.heightAnchor)
+        ])
+        
+        
+        return view
     }
-}
+    
+    func updateUIView(_ uiView: UIView, context: Context) {
+        
+    }
+    
 
-struct BlurView_Previews: PreviewProvider {
-    static var previews: some View {
-        BlurView()
-    }
+    
+    
+    
+    
 }

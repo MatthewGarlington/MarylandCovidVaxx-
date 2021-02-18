@@ -7,9 +7,24 @@
 
 import SwiftUI
 
+
 struct UpdateDetail: View {
+    
+    var update: Update = updateData[0]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            VStack {
+                Image(update.image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: .infinity)
+                Text(update.text)
+                    .frame(maxWidth: .infinity)
+            }
+            .navigationBarTitle(update.title)
+        }
+        .listStyle(PlainListStyle())
     }
 }
 

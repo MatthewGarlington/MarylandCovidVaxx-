@@ -5,16 +5,10 @@
 //  Created by Matthew Garlington on 2/18/21.
 //
 
-import SwiftUI
+import Foundation
 
-struct Keys: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+//
+let contentfulKey = "GgbVB3YT5SpC4Je6egEp9RcWs9lkPispB6XWEgEunlw"
+let contentfulSpaceId = "jeq8io41y7m4"
 
-struct Keys_Previews: PreviewProvider {
-    static var previews: some View {
-        Keys()
-    }
-}
+

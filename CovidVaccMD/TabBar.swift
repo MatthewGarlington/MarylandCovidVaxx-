@@ -8,13 +8,26 @@
 import SwiftUI
 
 struct TabBar: View {
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView {
+            Home().tabItem {
+                Image(systemName: "play.circle.fill")
+                Text("Home")
+            }
+            CourseList().tabItem {
+                Image(systemName: "rectangle.stack.fill")
+                Text("Courses")
+                
+            }
+        }
+        //.edgesIgnoringSafeArea(.top)
     }
 }
 
 struct TabBar_Previews: PreviewProvider {
     static var previews: some View {
-        TabBar()
+        TabBar().environmentObject(UserStore())
     }
 }
+

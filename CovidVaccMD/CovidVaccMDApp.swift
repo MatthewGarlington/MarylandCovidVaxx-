@@ -7,11 +7,24 @@
 
 import SwiftUI
 
+
+
+
+
+
 @main
-struct CovidVaccMDApp: App {
+
+struct Design_CodeAppApp: App {
+    
+  
+    
+  
+   
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Home()
+                .environmentObject(UserStore())
+            
         }
     }
 }

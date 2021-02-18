@@ -6,15 +6,23 @@
 //
 
 import SwiftUI
+import Combine
 
-struct DataStore: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+
+class DataStore: ObservableObject {
+    
+    @Published var posts: [Post] = []
+    
+    init() {
+        getPosts()
+        
     }
-}
-
-struct DataStore_Previews: PreviewProvider {
-    static var previews: some View {
-        DataStore()
+    
+    func getPosts() {
+        
+        Api().getPosts { (posts) in
+        self.posts = posts
+            
+        }
     }
 }
