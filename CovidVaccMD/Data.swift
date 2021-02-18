@@ -78,6 +78,8 @@ class TotalVaccineData: ObservableObject {
     @Published var sections: [Section] = []
     @Published var recentMDVaccineTotals: MDTotalVaccine?
     
+    let titles = ["First Doses Given", "24 Hour Change of First Doses Given:", "Percent Vaccinated", "All Doses Administered", "Total Doses Distributed", "Second Doses given", "24 Hour Change in Second Doses given", "Percent of Second Doses", "All Dose Distributed", "First Dose Distributed", "Second Doses Distributed" , ""]
+    var index2 = 0
     
     init() {
         
@@ -119,15 +121,17 @@ class TotalVaccineData: ObservableObject {
                     self.recentMDVaccineTotals = try JSONDecoder().decode(MDTotalVaccine?.self, from: data)
                     
                     for vaccine in self.recentMDVaccineTotals?.features ?? [] {
-                        self.sections.append(Section(title:  Text("\(vaccine.attributes?.Metric ?? "No Data")"),
+                        self.sections.append(Section(title:  self.titles[self.index2],
                                                      text: Text("\(vaccine.attributes?.Value ?? 0, specifier: "%.0f")"),
-                                                 image: URL(string: "https://dl.dropbox.com/s/9vvklb94vpaafxw/Card3%402x.png?dl=0")!,
+                                                 image: URL(string: "https://static.vecteezy.com/system/resources/previews/000/952/527/non_2x/coronavirus-character-get-vaccination-vector.jpg")!,
                                                  logo: #imageLiteral(resourceName: "Logo1"),
                                                  color: .blue))
+                        
+                        self.index2 = self.index2 + 1
                     }
                     
                     
-                   print(self.recentMDVaccineTotals?.features?[0].attributes?.Metric ?? "No Reponse")
+                    print(self.recentMDVaccineTotals?.features?.count)
                     
                     
                 } catch let jsonError {
