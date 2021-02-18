@@ -75,10 +75,12 @@ struct Attributes: Codable, Hashable {
 
 class TotalVaccineData: ObservableObject {
     
+    @Published var sectionsRowTwo: [SectionSecondRow] = []
     @Published var sections: [Section] = []
+    @Published var sectionsRowThree: [SectionThirdRow] = []
     @Published var recentMDVaccineTotals: MDTotalVaccine?
     
-    let titles = ["First Doses Given", "24 Hour Change of First Doses Given:", "Percent Vaccinated", "All Doses Administered", "Total Doses Distributed", "Second Doses given", "24 Hour Change in Second Doses given", "Percent of Second Doses", "All Dose Distributed", "First Dose Distributed", "Second Doses Distributed" , ""]
+    let titles = ["Number 1st Dose Given", "24 Hour Change of 1st Doses Given:", "Percent of Population 1st Dose Received", "Number 2nd Dose Received", "24 Hour Change of 2nd Doses Given", "Percent of Population 2nd Dose Received", "All Doses Administered", "Doses Recieved", "All Dose Distributed", "1st Dose Distributed", "2nd Doses Distributed" , ""]
     var index2 = 0
     
     init() {
@@ -120,18 +122,107 @@ class TotalVaccineData: ObservableObject {
                     
                     self.recentMDVaccineTotals = try JSONDecoder().decode(MDTotalVaccine?.self, from: data)
                     
-                    for vaccine in self.recentMDVaccineTotals?.features ?? [] {
-                        self.sections.append(Section(title:  self.titles[self.index2],
-                                                     text: Text("\(vaccine.attributes?.Value ?? 0, specifier: "%.0f")"),
-                                                 image: URL(string: "https://static.vecteezy.com/system/resources/previews/000/952/527/non_2x/coronavirus-character-get-vaccination-vector.jpg")!,
-                                                 logo: #imageLiteral(resourceName: "Logo1"),
-                                                 color: .blue))
+               //     for vaccine in self.recentMDVaccineTotals?.features ?? [] {
+//                        self.sections.append(Section(title:  self.titles[0],
+//                                                     text: Text("\(self.recentMDVaccineTotals?.features?[0].attributes?.Value ?? 0, specifier: "%.0f")"),
+//                                                     image: URL(string: "https://static.vecteezy.com/system/resources/previews/000/952/527/non_2x/coronavirus-character-get-vaccination-vector.jpg")!,
+//                                                     logo: #imageLiteral(resourceName: "Logo1"),
+//                                                     color: .blue))
+//
+//                        self.sections.append(Section(title:  self.titles[1],
+//                                                 text: Text("+\(self.recentMDVaccineTotals?.features?[1].attributes?.Value ?? 0, specifier: "%.0f")"),
+//                                                 image: URL(string: "https://static.vecteezy.com/system/resources/previews/000/952/527/non_2x/coronavirus-character-get-vaccination-vector.jpg")!,
+//                                                 logo: #imageLiteral(resourceName: "Logo1"),
+//                                                 color: .blue))
+//                        self.sections.append(Section(title:  self.titles[2],
+//                                             text: Text("\(self.recentMDVaccineTotals?.features?[2].attributes?.Value ?? 0, specifier: "%.2f")%"),
+//                                             image: URL(string: "https://static.vecteezy.com/system/resources/previews/000/952/527/non_2x/coronavirus-character-get-vaccination-vector.jpg")!,
+//                                             logo: #imageLiteral(resourceName: "Logo1"),
+//                                             color: .blue))
+//                        self.sections.append(Section(title:  self.titles[3],
+//                                             text: Text("\(self.recentMDVaccineTotals?.features?[3].attributes?.Value ?? 0, specifier: "%.0f")"),
+//                                             image: URL(string: "https://static.vecteezy.com/system/resources/previews/000/952/527/non_2x/coronavirus-character-get-vaccination-vector.jpg")!,
+//                                             logo: #imageLiteral(resourceName: "Logo1"),
+//                                             color: .blue))
+//                        self.sections.append(Section(title:  self.titles[4],
+//                                             text: Text("+\(self.recentMDVaccineTotals?.features?[4].attributes?.Value ?? 0, specifier: "%.0f")"),
+//                                             image: URL(string: "https://static.vecteezy.com/system/resources/previews/000/952/527/non_2x/coronavirus-character-get-vaccination-vector.jpg")!,
+//                                             logo: #imageLiteral(resourceName: "Logo1"),
+//                                             color: .blue))
+//                        self.sections.append(Section(title:  self.titles[5],
+//                                             text: Text("\(self.recentMDVaccineTotals?.features?[5].attributes?.Value ?? 0, specifier: "%.2f")%"),
+//                                             image: URL(string: "https://static.vecteezy.com/system/resources/previews/000/952/527/non_2x/coronavirus-character-get-vaccination-vector.jpg")!,
+//                                             logo: #imageLiteral(resourceName: "Logo1"),
+//                                             color: .blue))
+                        self.sections.append(Section(title:  self.titles[6],
+                                         text: Text("\(self.recentMDVaccineTotals?.features?[6].attributes?.Value ?? 0, specifier: "%.0f")"),
+                                         image: URL(string: "https://static.vecteezy.com/system/resources/previews/000/952/527/non_2x/coronavirus-character-get-vaccination-vector.jpg")!,
+                                         logo: #imageLiteral(resourceName: "Logo1"),
+                                         color: .blue))
+                        self.sections.append(Section(title:  self.titles[7],
+                                         text: Text("\(self.recentMDVaccineTotals?.features?[7].attributes?.Value ?? 0, specifier: "%.0f")"),
+                                         image: URL(string: "https://static.vecteezy.com/system/resources/previews/000/952/527/non_2x/coronavirus-character-get-vaccination-vector.jpg")!,
+                                         logo: #imageLiteral(resourceName: "Logo1"),
+                                         color: .blue))
+                        self.sections.append(Section(title:  self.titles[8],
+                                     text: Text("\(self.recentMDVaccineTotals?.features?[8].attributes?.Value ?? 0, specifier: "%.0f")"),
+                                     image: URL(string: "https://static.vecteezy.com/system/resources/previews/000/952/527/non_2x/coronavirus-character-get-vaccination-vector.jpg")!,
+                                     logo: #imageLiteral(resourceName: "Logo1"),
+                                     color: .blue))
+//                        self.sections.append(Section(title:  self.titles[9],
+//                                 text: Text("\(self.recentMDVaccineTotals?.features?[9].attributes?.Value ?? 0, specifier: "%.0f")"),
+//                                 image: URL(string: "https://static.vecteezy.com/system/resources/previews/000/952/527/non_2x/coronavirus-character-get-vaccination-vector.jpg")!,
+//                                 logo: #imageLiteral(resourceName: "Logo1"),
+//                                 color: .blue))
+//                        self.sections.append(Section(title:  self.titles[10],
+//                             text: Text("\(self.recentMDVaccineTotals?.features?[10].attributes?.Value ?? 0, specifier: "%.0f")"),
+//                             image: URL(string: "https://static.vecteezy.com/system/resources/previews/000/952/527/non_2x/coronavirus-character-get-vaccination-vector.jpg")!,
+//                             logo: #imageLiteral(resourceName: "Logo1"),
+//                             color: .blue))
+//
                         
-                        self.index2 = self.index2 + 1
-                    }
+                       // self.index2 = self.index2 + 1
+                  //  }
                     
                     
-                    print(self.recentMDVaccineTotals?.features?.count)
+              //      print(self.recentMDVaccineTotals?.features?.count)
+                    
+                    
+                    //     for vaccine in self.recentMDVaccineTotals?.features ?? [] {
+                             self.sectionsRowTwo.append(SectionSecondRow(title:  self.titles[0],
+                                                          text: Text("\(self.recentMDVaccineTotals?.features?[0].attributes?.Value ?? 0, specifier: "%.0f")"),
+                                                          image: URL(string: "https://static.vecteezy.com/system/resources/previews/000/952/527/non_2x/coronavirus-character-get-vaccination-vector.jpg")!,
+                                                          logo: #imageLiteral(resourceName: "Logo1"),
+                                                          color: .blue))
+     
+                             self.sectionsRowTwo.append(SectionSecondRow(title:  self.titles[1],
+                                                      text: Text("+\(self.recentMDVaccineTotals?.features?[1].attributes?.Value ?? 0, specifier: "%.0f")"),
+                                                      image: URL(string: "https://static.vecteezy.com/system/resources/previews/000/952/527/non_2x/coronavirus-character-get-vaccination-vector.jpg")!,
+                                                      logo: #imageLiteral(resourceName: "Logo1"),
+                                                      color: .blue))
+                             self.sectionsRowTwo.append(SectionSecondRow(title:  self.titles[2],
+                                                  text: Text("\(self.recentMDVaccineTotals?.features?[2].attributes?.Value ?? 0, specifier: "%.2f")%"),
+                                                  image: URL(string: "https://static.vecteezy.com/system/resources/previews/000/952/527/non_2x/coronavirus-character-get-vaccination-vector.jpg")!,
+                                                  logo: #imageLiteral(resourceName: "Logo1"),
+                                                  color: .blue))
+                    
+                    
+                            
+                            self.sectionsRowThree.append(SectionThirdRow(title:  self.titles[3],
+                                                                 text: Text("\(self.recentMDVaccineTotals?.features?[3].attributes?.Value ?? 0, specifier: "%.0f")"),
+                                                                 image: URL(string: "https://static.vecteezy.com/system/resources/previews/000/952/527/non_2x/coronavirus-character-get-vaccination-vector.jpg")!,
+                                                                 logo: #imageLiteral(resourceName: "Logo1"),
+                                                                 color: .blue))
+                            self.sectionsRowThree.append(SectionThirdRow(title:  self.titles[4],
+                                                                 text: Text("+\(self.recentMDVaccineTotals?.features?[4].attributes?.Value ?? 0, specifier: "%.0f")"),
+                                                                 image: URL(string: "https://static.vecteezy.com/system/resources/previews/000/952/527/non_2x/coronavirus-character-get-vaccination-vector.jpg")!,
+                                                                 logo: #imageLiteral(resourceName: "Logo1"),
+                                                                 color: .blue))
+                            self.sectionsRowThree.append(SectionThirdRow(title:  self.titles[5],
+                                                                 text: Text("\(self.recentMDVaccineTotals?.features?[5].attributes?.Value ?? 0, specifier: "%.2f")%"),
+                                                                 image: URL(string: "https://static.vecteezy.com/system/resources/previews/000/952/527/non_2x/coronavirus-character-get-vaccination-vector.jpg")!,
+                                                                 logo: #imageLiteral(resourceName: "Logo1"),
+                                                                 color: .blue))
                     
                     
                 } catch let jsonError {
