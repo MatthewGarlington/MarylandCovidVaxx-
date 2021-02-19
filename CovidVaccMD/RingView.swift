@@ -13,7 +13,7 @@ struct RingView: View {
     var color2 = #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)
     var width: CGFloat = 200
     var height: CGFloat = 200
-    var percent: CGFloat = 88
+    var percent: Double = 88.00
     @Binding var show: Bool
     
     
@@ -28,7 +28,7 @@ struct RingView: View {
                 .frame(width: width, height: height)
             
             Circle()
-                .trim(from: show ? progress : 1, to: 1)
+                .trim(from: show ? CGFloat(progress) : CGFloat(Double(1)), to: CGFloat(Double(1)))
             .stroke(
                 LinearGradient(gradient: Gradient(colors: [Color(color1), Color(color2)]), startPoint: .topTrailing, endPoint: .bottomLeading),
                     style: StrokeStyle(lineWidth: 5 * multipler, lineCap: .round, lineJoin: .round, miterLimit: .infinity, dash: [20 ,0], dashPhase: 20))
@@ -38,8 +38,8 @@ struct RingView: View {
                 .shadow(color: Color(color2).opacity(0.1), radius: 3 * multipler, x: 0, y: 3 * multipler)
                 .animation(.easeInOut)
             
-            Text("\(Int(percent))%")
-                .font(.system(size: 14 * multipler))
+            Text("\(Double(percent), specifier: "%.2f")%")
+                .font(.system(size: 10 * multipler))
                 .fontWeight(.bold)
                 .onTapGesture {
                     self.show.toggle()
