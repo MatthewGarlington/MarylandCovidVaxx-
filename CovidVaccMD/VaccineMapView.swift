@@ -6,15 +6,59 @@
 //
 
 import SwiftUI
+import MapKit
+import LocalAuthentication
 
-struct VaccineMapView: View {
+struct MapViewMarylandAnnot: View {
+    
+
+    
+    @ObservedObject var vm = VaccineLocationsModel()
+    
+    @State private var annotations = [MKPointAnnotation]()
+    @State private var pinsArray = [MKPointAnnotation]()
+    @State private var centerCoordinate = CLLocationCoordinate2D()
+//    @State private var locations = [CodableMKPointAnnotation]()
+    @State private var showingPlaceDetails = false
+    @State private var showingEditScreen = false
+    @State private var selectedPlace: MKPointAnnotation?
+    
+   
+   
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        
+   
+    
+        ZStack {
+            
+          
+                
+            MapViewMaryland(annotations: $annotations, pinsArray: $pinsArray, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails, centerCoordinate: $centerCoordinate)
+                    .edgesIgnoringSafeArea(.all)
+                    
+                
+                
+            
+                
+        
+  
+            
+            
+        }.alert(isPresented: $showingPlaceDetails) {
+        
+        
+            Alert(title: Text(selectedPlace?.title ?? ""), message: Text(selectedPlace?.subtitle ?? ""))
+        }
+        
+            
     }
-}
+    }
+    
 
-struct VaccineMapView_Previews: PreviewProvider {
+
+struct MapViewMarylandAnnot_Previews: PreviewProvider {
     static var previews: some View {
-        VaccineMapView()
+        MapViewMarylandAnnot()
     }
 }
