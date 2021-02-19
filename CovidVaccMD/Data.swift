@@ -78,6 +78,7 @@ class TotalVaccineData: ObservableObject {
     @Published var sectionsRowTwo: [SectionSecondRow] = []
     @Published var sections: [Section] = []
     @Published var sectionsRowThree: [SectionThirdRow] = []
+    @Published var ringView: [RingView] = []
     @Published var recentMDVaccineTotals: MDTotalVaccine?
     
     let titles = ["Number 1st Dose Given", "24 Hour Change of 1st Doses Given:", "Percent of Population 1st Dose Received", "Number 2nd Dose Received", "24 Hour Change of 2nd Doses Given", "Percent of Population 2nd Dose Received", "All Doses Administered", "Doses Recieved", "All Dose Distributed", "1st Dose Distributed", "2nd Doses Distributed" , ""]
@@ -177,6 +178,9 @@ class TotalVaccineData: ObservableObject {
                                                                  image: URL(string: "https://labblog.uofmhealth.org/sites/lab/files/2020-08/CovidVaccineBlog_0.jpg")!,
                                                                  logo: #imageLiteral(resourceName: "Logo1"),
                                                                  color: .blue))
+             
+                    
+                    
                     
                     
                 } catch let jsonError {
