@@ -323,7 +323,7 @@ struct SectionSecondRowView: View {
                 WebImage(url: section.image)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(height: 150)
+                    .frame(height: 125)
                    //.padding(.bottom, 20)
                    //.blendMode(.darken)
                 }
@@ -332,9 +332,9 @@ struct SectionSecondRowView: View {
         .padding(.top, 20)
         .padding(.horizontal, 20)
         .frame(width: width, height: height)
-        .background(Color(#colorLiteral(red: 0.7236627936, green: 0.6401972771, blue: 0.9966538548, alpha: 1)))
+        .background(Color(#colorLiteral(red: 0.1078877077, green: 0.5771551132, blue: 0.8123810887, alpha: 1)))
         .cornerRadius(30)
-        .shadow(color: Color(#colorLiteral(red: 0.7236627936, green: 0.6401972771, blue: 0.9966538548, alpha: 1)).opacity(0.3), radius: 20, x: 0, y: 20)
+        .shadow(color: Color(#colorLiteral(red: 0.1078877077, green: 0.5771551132, blue: 0.8123810887, alpha: 1)).opacity(0.3), radius: 20, x: 0, y: 20)
       
         
     }
@@ -378,7 +378,7 @@ struct SectionThirdRowView: View {
                 WebImage(url: section.image)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(height: 150)
+                    .frame(height: 115)
                    //.padding(.bottom, 20)
                    //.blendMode(.darken)
                 }
@@ -387,9 +387,9 @@ struct SectionThirdRowView: View {
         .padding(.top, 20)
         .padding(.horizontal, 20)
         .frame(width: width, height: height)
-        .background(Color(#colorLiteral(red: 0.7236627936, green: 0.6401972771, blue: 0.9966538548, alpha: 1)))
+        .background(Color(#colorLiteral(red: 0.02357872203, green: 0.7047228813, blue: 0.6173975468, alpha: 1)))
         .cornerRadius(30)
-        .shadow(color: Color(#colorLiteral(red: 0.7236627936, green: 0.6401972771, blue: 0.9966538548, alpha: 1)).opacity(0.3), radius: 20, x: 0, y: 20)
+        .shadow(color: Color(#colorLiteral(red: 0.02357872203, green: 0.7047228813, blue: 0.6173975468, alpha: 1)).opacity(0.3), radius: 20, x: 0, y: 20)
       
         
     }
