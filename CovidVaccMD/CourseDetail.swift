@@ -25,6 +25,7 @@ struct CourseDetail: View {
                                 .font(.system(size: 24, weight: .bold))
                                 .foregroundColor(Color.white)
                             Text(course.subtitle)
+                                .font(.system(size: 24, weight: .bold))
                                 .foregroundColor(Color.white.opacity(0.7))
                         }
                         Spacer()
@@ -65,16 +66,135 @@ struct CourseDetail: View {
                 .shadow(color: Color(course.color).opacity(0.3), radius: 20, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: 20)
                 
                 
-                VStack(alignment: .leading, spacing: 30) {
-                    Text("Take your SwiftUI app to the App Store with advanced techniques like API data, packages, and CMS")
+                VStack(alignment: .leading, spacing: 20) {
+                    Text("Vaccine supply is dependent on the federal government’s allocation to Maryland and is subject to change. Please note that population groups are non-exhaustive and all numbers are approximate.")
                     
-                    Text("About this course")
+                    Text("PHASE 1A")
                         .font(.title)
                         .bold()
 
-                    Text("This course is unlike any other. WE care about design and want to make sure that you get better at it in the process. It was written for designers and developers who are passionate about collaborating and building real apps for ios and MacOS. While it's not one codebase for all apps, you learn once and can apply the techniques and controls to all platforms with incredible consistency and performance. It's a beginner-friendly, but it's also packed with design tricks and efficient workflows for building great user interfaces and interactions")
+                   
+                            Text("WHO:")
+                                .font(.title2)
+                                .bold()
+        
+                       
+                            
+                            Text("A​ ll licensed, registered, and certified healthcare providers; nursing home residents and staff; law enforcement, and firefighters, EMS, and other first responders; correctional healthcare staff and officers; and front line judiciary staff.")
+               
+           
+             
+                        Text("WHEN:")
+                            .font(.title2)
+                            .bold()
+                        
+                        Text("Phase 1A began in mid-late December.")
+                    
+                }
+                
+                .padding(30)
+                
+                VStack(alignment: .leading, spacing: 20) {
+                    
+                    Text("PHASE 1B")
+                        .font(.title)
+                        .bold()
 
-                    Text("Minimal coding experience required, such as in HTML and CSS. Please note that Xcode 11 and Catalina are essential. Once you get everything installed, it'll get a lot friendlier! I added a bunch of troubleshoots at the end of this page to help you navigate the issues you might encounter.")
+                   
+                            Text("WHO:")
+                                .font(.title2)
+                                .bold()
+        
+                       
+                            
+                            Text("Maryland residents who are 75 years and older; Marylanders in assisted living, independent living, developmental disabilities/behavioral health group homes, and other congregate facilities; high-risk incarcerated individuals; continuity of government vaccinations; and education, including K-12 teachers, support staff, and child care providers.")
+               
+           
+             
+                        Text("WHEN:")
+                            .font(.title2)
+                            .bold()
+                        
+                        Text("The state plans to officially enter Phase 1B on January 18.")
+                    
+                }
+                .padding(30)
+                
+                VStack(alignment: .leading, spacing: 20) {
+                    
+                    Text("PHASE 1C")
+                        .font(.title)
+                        .bold()
+
+                   
+                            Text("WHO:")
+                                .font(.title2)
+                                .bold()
+        
+                       
+                            
+                            Text("Adults age 65-74; public health and safety workers not covered in Phase 1A; and essential workers in lab services, food/agriculture production, manufacturing, the U.S. Postal Service, public transit, and grocery stores.")
+               
+           
+             
+                        Text("WHEN:")
+                            .font(.title2)
+                            .bold()
+                        
+                        Text("T​he state plans to officially enter Phase 1C on January 25.")
+                    
+                }
+                .padding(30)
+                
+                VStack(alignment: .leading, spacing: 20) {
+                    
+                    Text("PHASE 2")
+                        .font(.title)
+                        .bold()
+
+                   
+                            Text("WHO:")
+                                .font(.title2)
+                                .bold()
+        
+                       
+                            
+                            Text("A​dults 16-64 at increased risk of severe COVID-19 illness due to comorbidities; essential workers in critical utilities, transportation, logistics, infrastructure, food service, etc; and incarcerated adults. A​pproximately 1.1 million individuals.")
+               
+           
+             
+                        Text("WHEN:")
+                            .font(.title2)
+                            .bold()
+                        
+                        Text("​Phase 2 may begin after the majority of Phase 1 has been vaccinated, or the federal government’s allocation of vaccines increases.")
+                    
+                }
+                .padding(30)
+                
+                
+                VStack(alignment: .leading, spacing: 20) {
+                    
+                    Text("PHASE 3")
+                        .font(.title)
+                        .bold()
+
+                   
+                            Text("WHO:")
+                                .font(.title2)
+                                .bold()
+        
+                       
+                            
+                            Text("G​eneral population, including healthy adults ages 16-64. A​ pproximately 4 million individuals")
+               
+           
+             
+                        Text("WHEN:")
+                            .font(.title2)
+                            .bold()
+                        
+                        Text("​Phase 3 will begin once the majority of Phase 2 has been vaccinated and/or the federal government’s allocation of vaccines increases.")
                     
                 }
                 .padding(30)
@@ -90,4 +210,6 @@ struct CourseDetail_Previews: PreviewProvider {
         }
     }
 }
+
+
 
