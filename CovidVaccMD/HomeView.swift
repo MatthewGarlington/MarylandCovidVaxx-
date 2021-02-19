@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SDWebImageSwiftUI
+import MapKit
 
 struct HomeView: View {
     @Binding var showProfile: Bool
@@ -20,7 +21,14 @@ struct HomeView: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @State var isScrollable = false
     @ObservedObject var totalVaccineViewModel = TotalVaccineData()
-    
+    @ObservedObject var vm = VaccineLocationsModel()
+    @State var annotations = [MKPointAnnotation]()
+    @State var pinsArray = [MKPointAnnotation]()
+//    @State var centerCoordinate = CLLocationCoordinate2D()
+    @State var showingPlaceDetails = false
+    @State var showingEditScreen = false
+    @State var selectedPlace: MKPointAnnotation?
+//
   
     
     
@@ -39,9 +47,8 @@ struct HomeView: View {
                  //       AvatarView(showProfile: $showProfile)
                         
                         Button(action: {self.showUpdate.toggle()}) {
-                            Image(systemName: "globe")
-                //                .renderingMode(.original)
-                                .foregroundColor(.primary)
+                            Image(systemName: "mappin")
+                                .foregroundColor(Color.red)
                                 .font(.system(size: 16, weight: .medium))
                                 .frame(width: 36, height: 36)
                                 .background(Color("background3"))
@@ -51,7 +58,30 @@ struct HomeView: View {
                             
                         }
                         .sheet(isPresented: $showUpdate) {
-                           UpdateList()
+                            
+                                
+                              
+                              
+                                    
+                                    VStack {
+                                        Spacer()
+                                        MapViewMaryland(annotations: $annotations, pinsArray: $pinsArray, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails)
+                                            
+                                            .frame(width: 420, height: 700)
+                                            .cornerRadius(50)
+                                            .alert(isPresented: $showingPlaceDetails) {
+                                    
+                                    
+                                        Alert(title: Text(selectedPlace?.title ?? ""), message: Text(selectedPlace?.subtitle ?? ""))
+                                        }
+                                    }
+                                
+                                
+                            
+                            
+                        
+                           
+ 
                         }
                     }
                     .padding(.horizontal)
