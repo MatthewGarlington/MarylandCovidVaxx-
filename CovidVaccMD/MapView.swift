@@ -18,11 +18,14 @@ struct MapViewMaryland: UIViewRepresentable {
     @Binding var pinsArray: [MKPointAnnotation]
     @Binding var selectedPlace: MKPointAnnotation?
     @Binding var showingPlaceDetails: Bool
-    @Binding var centerCoordinate: CLLocationCoordinate2D
+    //@Binding var centerCoordinate: CLLocationCoordinate2D
+  //  @Binding var region: MKCoordinateRegion
   
 
     func makeUIView(context: Context) -> MKMapView {
         let mapView = MKMapView()
+        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 39.045753, longitude: -76.641273), latitudinalMeters: CLLocationDistance(exactly: 300000)!, longitudinalMeters: CLLocationDistance(exactly: 300000)!)
+        mapView.setRegion(mapView.regionThatFits(region), animated: true)
         mapView.delegate = context.coordinator
         
         
@@ -38,16 +41,8 @@ struct MapViewMaryland: UIViewRepresentable {
 
             pointAnnotation.title = vm.vaccineLocationsMD?.features?[i].attributes?.operationalhours ?? ""
     
-            
-           
-            
-            
-        
      
             mapView.addAnnotation(pointAnnotation)
-            
-            
-            
          
             
         }
@@ -64,6 +59,7 @@ struct MapViewMaryland: UIViewRepresentable {
     }
 
     func updateUIView(_ view: MKMapView, context: Context) {
+
         
         for i in stride(from: 0, through: (((vm.vaccineLocationsMD?.features?.count ?? 0)-1)), by: 1)
         {
@@ -115,7 +111,9 @@ struct MapViewMaryland: UIViewRepresentable {
             
         }
         func mapViewDidChangeVisibleRegion(_ view: MKMapView) {
-            parent.centerCoordinate = view.centerCoordinate
+        //    parent.centerCoordinate = view.centerCoordinate
+          //  parent.region = view.region
+             
             
           
          
@@ -149,8 +147,6 @@ struct MapViewMaryland: UIViewRepresentable {
             
 
             parent.selectedPlace = placemark
-            
-           
             parent.showingPlaceDetails = true
         }
         
@@ -187,6 +183,6 @@ extension MKPointAnnotation {
 
 struct MapViewMaryland_Previews: PreviewProvider {
     static var previews: some View {
-        MapViewMaryland(annotations: .constant(MKPointAnnotation.exampleArray), pinsArray: .constant(MKPointAnnotation.exampleArray), selectedPlace: .constant(MKPointAnnotation.example), showingPlaceDetails:  .constant(true), centerCoordinate: .constant(MKPointAnnotation.example.coordinate))
+        MapViewMaryland(annotations: .constant(MKPointAnnotation.exampleArray), pinsArray: .constant(MKPointAnnotation.exampleArray), selectedPlace: .constant(MKPointAnnotation.example), showingPlaceDetails:  .constant(true))
     }
 }
