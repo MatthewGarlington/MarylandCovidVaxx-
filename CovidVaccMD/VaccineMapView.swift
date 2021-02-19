@@ -7,48 +7,43 @@
 
 import SwiftUI
 import MapKit
-import LocalAuthentication
+//import LocalAuthentication
 
 struct MapViewMarylandAnnot: View {
     
 
     
     @ObservedObject var vm = VaccineLocationsModel()
+    @State var annotations = [MKPointAnnotation]()
+    @State var pinsArray = [MKPointAnnotation]()
+  //  @State var centerCoordinate = CLLocationCoordinate2D()
+    @State var showingPlaceDetails = false
+    @State var showingEditScreen = false
+    @State var selectedPlace: MKPointAnnotation?
+    @State var region = MKCoordinateRegion()
+
     
-    @State private var annotations = [MKPointAnnotation]()
-    @State private var pinsArray = [MKPointAnnotation]()
-    @State private var centerCoordinate = CLLocationCoordinate2D()
-//    @State private var locations = [CodableMKPointAnnotation]()
-    @State private var showingPlaceDetails = false
-    @State private var showingEditScreen = false
-    @State private var selectedPlace: MKPointAnnotation?
     
    
    
     var body: some View {
         
-        
+ 
    
     
-        ZStack {
-            
-          
+        VStack {
+            ZStack {
                 
-            MapViewMaryland(annotations: $annotations, pinsArray: $pinsArray, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails, centerCoordinate: $centerCoordinate)
-                    .edgesIgnoringSafeArea(.all)
+              
                     
-                
-                
-            
-                
-        
-  
+                MapViewMaryland(annotations: $annotations, pinsArray: $pinsArray, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails)
+                    
+       
+            }.alert(isPresented: $showingPlaceDetails) {
             
             
-        }.alert(isPresented: $showingPlaceDetails) {
-        
-        
-            Alert(title: Text(selectedPlace?.title ?? ""), message: Text(selectedPlace?.subtitle ?? ""))
+                Alert(title: Text(selectedPlace?.title ?? ""), message: Text(selectedPlace?.subtitle ?? ""))
+        }
         }
         
             
