@@ -38,7 +38,7 @@ struct CourseList: View {
                             .padding(.leading, 30)
                             .padding(.top, 30)
                             // Blurs the top title upon hitting the tap gesture to active on selecting a card
-                            .blur(radius: active ? 20 : 0)
+                            //.blur(radius: active ? 20 : 0)
                         
                         // Using the store before usees the observable object of the Contentful API and Combine instead of from our on array
                         VStack(spacing: 30) {
@@ -64,7 +64,7 @@ struct CourseList: View {
                                 .frame(height : horizontalSizeClass == .regular ? 80 : 280)
                                 .frame(maxWidth: self.store.courses[index].show ? 712 : getCardWidth(bounds: bounds))
                                 // This ZIndex Helps correct the Layout of cards showing on top of others during animation
-                                .zIndex(self.store.courses[index].show ? 1 : 0)
+                                .zIndex(self.store.courses[index].show ? 0 : 1)
                             }
                         }
  
