@@ -44,7 +44,7 @@ struct HomeView: View {
                         
                         Spacer()
                         
-                 //       AvatarView(showProfile: $showProfile)
+                      //  AvatarView(showProfile: $showProfile)
                         
                         Button(action: {self.showUpdate.toggle()}) {
                             Image(systemName: "mappin")
@@ -102,108 +102,146 @@ struct HomeView: View {
                 }
                 .blur(radius: self.active ? 20 : 0)
                 
-                    VStack(spacing: 0) {
-                        ScrollView(.horizontal, showsIndicators: false) {
+                    VStack {
                         
-                        HStack(spacing: 20) {
-                                // This gives the top SecitonView the ability to link to Contentful
-                                ForEach(totalVaccineViewModel.sections.indices, id: \.self) { index in
-                                    GeometryReader { geometry in
+                        HStack {
+                            Text("All Doses")
+                                .font(.title)
+                                .bold()
+                            Spacer()
+                        }.padding(.leading, 30)
+                        .offset(y: -40)
+                        .blur(radius: self.active ? 20 : 0)
+                        .padding(.bottom, 0)
+                   
+
+                        Spacer()
+                        
+                        VStack(spacing: 0) {
+                            ScrollView(.horizontal, showsIndicators: false) {
+                            
+                            HStack(spacing: 20) {
+                                    // This gives the top SecitonView the ability to link to Contentful
+                                    ForEach(totalVaccineViewModel.sections.indices, id: \.self) { index in
+                                        GeometryReader { geometry in
+                                            
+                                            
                                         
-                                        
-                                    
-                                        SectionView(index: index, section: self.totalVaccineViewModel.sections[index], width: 275, height: 275)
-                                        
-                                        .rotation3DEffect(Angle(degrees:
-                                                                    Double(geometry.frame(in: .global).minX - 30) / -getAngleMulitplier(bounds: bounds)
-                                                            
-                                        ), axis: (x: 0, y: 10.0, z: 0))
+                                            SectionView(index: index, section: self.totalVaccineViewModel.sections[index], width: 275, height: 275)
+                                            
+                                            .rotation3DEffect(Angle(degrees:
+                                                                        Double(geometry.frame(in: .global).minX - 30) / -getAngleMulitplier(bounds: bounds)
+                                                                
+                                            ), axis: (x: 0, y: 10.0, z: 0))
+                                    }
+                                    .frame(width: 275, height: 275)
                                 }
-                                .frame(width: 275, height: 275)
+                                
                             }
                             
+                            .padding(.horizontal, 30)
+                            .padding(.top, 10)
+                            .padding(.bottom, 50)
                         }
-                        
-                        .padding(.horizontal, 30)
-                        .padding(.top, 10)
-                        .padding(.bottom, 50)
-                    }
-                    .offset(y: -30)
-                        .blur(radius: self.active ? 20 : 0)
-                        
-                        ScrollView(.horizontal, showsIndicators: false) {
-                        
-                        HStack(spacing: 20) {
-                                // This gives the top SecitonView the ability to link to Contentful
-                                ForEach(totalVaccineViewModel.sectionsRowTwo.indices, id: \.self) { index in
-                                    GeometryReader { geometry in
-                                        
-                                        
+                        .offset(y: -30)
+                            .blur(radius: self.active ? 20 : 0)
+                            
+                            VStack {
+                                
+                                HStack {
+                                    Text("First Doses")
+                                        .font(.title)
+                                        .bold()
+                                    Spacer()
+                                }.padding(.leading, 30)
+                                .offset(y: -40)
+                                .blur(radius: self.active ? 20 : 0)
+                                .padding(.bottom, 0)
+                           
+
+                                Spacer()
+                                
+                                VStack(spacing: 0) {
+                                    ScrollView(.horizontal, showsIndicators: false) {
                                     
-                                        SectionSecondRowView(index: index, section: self.totalVaccineViewModel.sectionsRowTwo[index], width: 275, height: 275)
+                                    HStack(spacing: 20) {
+                                            // This gives the top SecitonView the ability to link to Contentful
+                                            ForEach(totalVaccineViewModel.sectionsRowTwo.indices, id: \.self) { index in
+                                                GeometryReader { geometry in
+                                                    
+                                                    
+                                                
+                                                    SectionSecondRowView(index: index, section: self.totalVaccineViewModel.sectionsRowTwo[index], width: 275, height: 275)
+                                                    
+                                                    .rotation3DEffect(Angle(degrees:
+                                                                                Double(geometry.frame(in: .global).minX - 30) / -getAngleMulitplier(bounds: bounds)
+                                                                        
+                                                    ), axis: (x: 0, y: 10.0, z: 0))
+                                            }
+                                            .frame(width: 275, height: 275)
+                                        }
                                         
-                                        .rotation3DEffect(Angle(degrees:
-                                                                    Double(geometry.frame(in: .global).minX - 30) / -getAngleMulitplier(bounds: bounds)
-                                                            
-                                        ), axis: (x: 0, y: 10.0, z: 0))
+                                    }
+                                    
+                                    .padding(.horizontal, 30)
+                                    .padding(.top, 10)
+                                    .padding(.bottom, 50)
                                 }
-                                .frame(width: 275, height: 275)
+                                .offset(y: -30)
+                                    .blur(radius: self.active ? 20 : 0)
+                                }
                             }
                             
-                        }
-                        
-                        .padding(.horizontal, 30)
-                        .padding(.top, 10)
-                        .padding(.bottom, 50)
-                    }
-                    .offset(y: -30)
-                        .blur(radius: self.active ? 20 : 0)
-                        
-                        
-                        ScrollView(.horizontal, showsIndicators: false) {
-                        
-                        HStack(spacing: 20) {
-                                // This gives the top SecitonView the ability to link to Contentful
-                                ForEach(totalVaccineViewModel.sectionsRowThree.indices, id: \.self) { index in
-                                    GeometryReader { geometry in
-                                        
-                                        
-                                    
-                                        SectionThirdRowView(index: index, section: self.totalVaccineViewModel.sectionsRowThree[index], width: 275, height: 275)
-                                        
-                                        .rotation3DEffect(Angle(degrees:
-                                                                    Double(geometry.frame(in: .global).minX - 30) / -getAngleMulitplier(bounds: bounds)
-                                                            
-                                        ), axis: (x: 0, y: 10.0, z: 0))
-                                }
-                                .frame(width: 275, height: 275)
-                            }
                             
+                            VStack {
+                                
+                                HStack {
+                                    Text("Second Doses")
+                                        .font(.title)
+                                        .bold()
+                                    Spacer()
+                                }.padding(.leading, 30)
+                                .offset(y: -40)
+                                .blur(radius: self.active ? 20 : 0)
+                                .padding(.bottom, 0)
+                           
+
+                                Spacer()
+                                
+                                VStack(spacing: 0) {
+                                    ScrollView(.horizontal, showsIndicators: false) {
+                                    
+                                    HStack(spacing: 20) {
+                                            // This gives the top SecitonView the ability to link to Contentful
+                                            ForEach(totalVaccineViewModel.sectionsRowThree.indices, id: \.self) { index in
+                                                GeometryReader { geometry in
+                                                    
+                                                    
+                                                
+                                                    SectionThirdRowView(index: index, section: self.totalVaccineViewModel.sectionsRowThree[index], width: 275, height: 275)
+                                                    
+                                                    .rotation3DEffect(Angle(degrees:
+                                                                                Double(geometry.frame(in: .global).minX - 30) / -getAngleMulitplier(bounds: bounds)
+                                                                        
+                                                    ), axis: (x: 0, y: 10.0, z: 0))
+                                            }
+                                            .frame(width: 275, height: 275)
+                                        }
+                                        
+                                    }
+                                    
+                                    .padding(.horizontal, 30)
+                                    .padding(.top, 10)
+                                    .padding(.bottom, 50)
+                                }
+                                .offset(y: -30)
+                                    .blur(radius: self.active ? 20 : 0)
+                                }
+                            }
                         }
-                        
-                        .padding(.horizontal, 30)
-                        .padding(.top, 10)
-                        .padding(.bottom, 50)
-                    }
-                    .offset(y: -30)
-                        .blur(radius: self.active ? 20 : 0)
                     }
                 
-//                HStack {
-//                    Text("Vaccine Phase")
-//                        .font(.title)
-//                        .bold()
-//                    Spacer()
-//                }.padding(.leading, 30)
-//                .offset(y: -60)
-//                .blur(radius: self.active ? 20 : 0)
-//
-//
-//                .padding(.bottom, 300)
-//                .offset(y: -60)
-//
-//                Spacer()
-                
+   
                 
             }
             
@@ -218,26 +256,44 @@ struct HomeView: View {
                 
                 
                 // Using the store before usees the observable object of the Contentful API and Combine instead of from our on array
-                VStack(spacing: 30) {
-                    ForEach(store.courses.indices, id: \.self) { index in
-                        GeometryReader { geometry in
-                            CourseView(
-                                show: self.$store.courses[index].show,
-                                active: self.$active, activeIndex: self.$activeIndex, course: self.store.courses[index],
-                                index: index,
-                                // Added the ability to change the color of the background upon dragging
-                                activeView: self.$activeView, bounds: bounds, isScrollable: $isScrollable)
-                                .offset(y: self.store.courses[index].show ? -geometry.frame(in: .global).minY : 0)
-                                // The Following 3 animations occur in the other cards except the card that is pressed
-                                .opacity(self.activeIndex != index && self.active ? 0 : 1)
-                                .scaleEffect(self.activeIndex != index && self.active ? 0.5 : 1)
-                                .offset(x: self.activeIndex != index && self.active ? bounds.size.width : 0)
+                VStack {
+                    
+                    HStack {
+                        Text("Vaccine Phase")
+                            .font(.title)
+                            .bold()
+                        Spacer()
+                    }.padding(.leading, 30)
+                    .offset(y: -10)
+                    .blur(radius: self.active ? 20 : 0)
+
+
+                    .padding(.bottom, 0)
+//                    .offset(y: -60)
+
+           
+                    
+                    VStack(spacing: 30) {
+                        ForEach(store.courses.indices, id: \.self) { index in
+                            GeometryReader { geometry in
+                                CourseView(
+                                    show: self.$store.courses[index].show,
+                                    active: self.$active, activeIndex: self.$activeIndex, course: self.store.courses[index],
+                                    index: index,
+                                    // Added the ability to change the color of the background upon dragging
+                                    activeView: self.$activeView, bounds: bounds, isScrollable: $isScrollable)
+                                    .offset(y: self.store.courses[index].show ? -geometry.frame(in: .global).minY : 0)
+                                    // The Following 3 animations occur in the other cards except the card that is pressed
+                                    .opacity(self.activeIndex != index && self.active ? 0 : 1)
+                                    .scaleEffect(self.activeIndex != index && self.active ? 0.5 : 1)
+                                    .offset(x: self.activeIndex != index && self.active ? bounds.size.width : 0)
+                            }
+                            // This adapts the ability to the cards to stack when the screen size is large, otherwise the normal layout
+                            .frame(height : horizontalSizeClass == .regular ? 80 : 280)
+                            .frame(maxWidth: self.store.courses[index].show ? 712 : getCardWidth(bounds: bounds))
+                            // This ZIndex Helps correct the Layout of cards showing on top of others during animation
+                            .zIndex(self.store.courses[index].show ? 0 : 1)
                         }
-                        // This adapts the ability to the cards to stack when the screen size is large, otherwise the normal layout
-                        .frame(height : horizontalSizeClass == .regular ? 80 : 280)
-                        .frame(maxWidth: self.store.courses[index].show ? 712 : getCardWidth(bounds: bounds))
-                        // This ZIndex Helps correct the Layout of cards showing on top of others during animation
-                        .zIndex(self.store.courses[index].show ? 0 : 1)
                     }
                 }
     
@@ -485,7 +541,7 @@ struct WatchRingsView: View {
         HStack(spacing: 30) {
             
             
-            HStack(spacing: 12) {
+            VStack(spacing: 12) {
                 RingView(color1: #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1), color2: #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1), width: 100, height: 100, percent:  Double(totalVaccineViewModel.recentMDVaccineTotals?.features?[2].attributes?.Value ?? Double(0)), show: .constant(true))
                 
                 VStack(alignment: .leading, spacing: 4) {
@@ -503,13 +559,13 @@ struct WatchRingsView: View {
             
             
         
-            .frame(width: 250, height: 150)
+            .frame(width: 150, height: 200)
             .padding(10)
             .background(Color("background3"))
             .cornerRadius(20)
             .modifier(ShadowModifer())
-            .padding()
-            HStack(spacing: 12) {
+            .padding(.bottom, 20)
+            VStack(spacing: 12) {
                 RingView(color1: #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1), color2: #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1), width: 100, height: 100, percent:  Double(totalVaccineViewModel.recentMDVaccineTotals?.features?[5].attributes?.Value ?? Double(0)), show: .constant(true))
                 
                 VStack(alignment: .leading, spacing: 4) {
@@ -527,12 +583,12 @@ struct WatchRingsView: View {
             
             
         
-            .frame(width: 250, height: 150)
+            .frame(width: 150, height: 200)
             .padding(10)
             .background(Color("background3"))
             .cornerRadius(20)
             .modifier(ShadowModifer())
-            .padding()
+            .padding(.bottom, 20)
             
 
 
