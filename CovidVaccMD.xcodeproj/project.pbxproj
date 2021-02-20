@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B41B28225E140AA00DD7E32 /* VaccineLocationsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B41B28125E140AA00DD7E32 /* VaccineLocationsListView.swift */; };
+		6B41B28525E140D800DD7E32 /* VaccineLocationsDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B41B28425E140D800DD7E32 /* VaccineLocationsDetails.swift */; };
 		6BEA2C4125DEB1FE0096FC12 /* CovidVaccMDApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEA2C4025DEB1FE0096FC12 /* CovidVaccMDApp.swift */; };
 		6BEA2C4325DEB1FE0096FC12 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEA2C4225DEB1FE0096FC12 /* ContentView.swift */; };
 		6BEA2C4525DEB1FF0096FC12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BEA2C4425DEB1FF0096FC12 /* Assets.xcassets */; };
@@ -42,6 +44,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6B41B28125E140AA00DD7E32 /* VaccineLocationsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineLocationsListView.swift; sourceTree = "<group>"; };
+		6B41B28425E140D800DD7E32 /* VaccineLocationsDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineLocationsDetails.swift; sourceTree = "<group>"; };
 		6BEA2C3D25DEB1FE0096FC12 /* CovidVaccMD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CovidVaccMD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BEA2C4025DEB1FE0096FC12 /* CovidVaccMDApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidVaccMDApp.swift; sourceTree = "<group>"; };
 		6BEA2C4225DEB1FE0096FC12 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -121,6 +125,8 @@
 				6BEA2C6525DEB3560096FC12 /* CourseDetail.swift */,
 				6BEA2C6825DEB3670096FC12 /* HomeView.swift */,
 				6BEA2C6B25DEB40F0096FC12 /* MenuView.swift */,
+				6B41B28125E140AA00DD7E32 /* VaccineLocationsListView.swift */,
+				6B41B28425E140D800DD7E32 /* VaccineLocationsDetails.swift */,
 				6BEA2C6E25DEB5D80096FC12 /* UpdateList.swift */,
 				6BEA2C7125DEB5F40096FC12 /* UpdateDetail.swift */,
 				6BEA2C7425DEB6080096FC12 /* UpdateStore.swift */,
@@ -229,6 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B41B28525E140D800DD7E32 /* VaccineLocationsDetails.swift in Sources */,
 				6BEA2C6625DEB3560096FC12 /* CourseDetail.swift in Sources */,
 				6BEA2C9025DEB6FF0096FC12 /* Button.swift in Sources */,
 				6BEA2C7B25DEB67B0096FC12 /* DataStore.swift in Sources */,
@@ -250,6 +257,7 @@
 				6BEA2C4125DEB1FE0096FC12 /* CovidVaccMDApp.swift in Sources */,
 				6BEA2C9325DEB70F0096FC12 /* Modifers.swift in Sources */,
 				6BEA2C7E25DEB6910096FC12 /* PostList.swift in Sources */,
+				6B41B28225E140AA00DD7E32 /* VaccineLocationsListView.swift in Sources */,
 				6BEA2C8D25DEB6EE0096FC12 /* SuccessView.swift in Sources */,
 				6BEA2C8425DEB6B20096FC12 /* BlurView.swift in Sources */,
 				6BEA2C7525DEB6080096FC12 /* UpdateStore.swift in Sources */,
