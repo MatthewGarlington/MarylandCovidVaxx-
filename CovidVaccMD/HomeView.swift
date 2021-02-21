@@ -24,11 +24,11 @@ struct HomeView: View {
     @ObservedObject var vm = VaccineLocationsModel()
     @State var annotations = [MKPointAnnotation]()
     @State var pinsArray = [MKPointAnnotation]()
-//    @State var centerCoordinate = CLLocationCoordinate2D()
     @State var showingPlaceDetails = false
     @State var showingEditScreen = false
     @State var selectedPlace: MKPointAnnotation?
-//
+    @State var showVaccineList = false
+
   
     
     
@@ -44,7 +44,25 @@ struct HomeView: View {
                         
                         Spacer()
                         
-                      //  AvatarView(showProfile: $showProfile)
+                        
+                        Button(action: {self.showVaccineList.toggle()}) {
+                            Image(systemName: "list.bullet")
+                                .foregroundColor(Color.red)
+                                .font(.system(size: 16, weight: .medium))
+                                .frame(width: 36, height: 36)
+                                .background(Color("background3"))
+                                .clipShape(Circle())
+                                .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
+                                .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
+                            
+                        }
+                        .sheet(isPresented: $showVaccineList) {
+                            
+                            VaccineLocationsListView()
+                            
+                        }
+                        
+                    
                         
                         Button(action: {self.showUpdate.toggle()}) {
                             Image(systemName: "mappin")
@@ -59,10 +77,7 @@ struct HomeView: View {
                         }
                         .sheet(isPresented: $showUpdate) {
                             
-                                
-                              
-                              
-                                    
+                                 
                                     VStack {
                                         Spacer()
                                         MapViewMaryland(annotations: $annotations, pinsArray: $pinsArray, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails)
