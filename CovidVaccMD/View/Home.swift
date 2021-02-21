@@ -14,7 +14,7 @@ struct Home: View {
     @State var showList = false
     @EnvironmentObject var user: UserStore
     
-    @ObservedObject var covidMasterModel = CovidMasterModel()
+  
     
    
   
