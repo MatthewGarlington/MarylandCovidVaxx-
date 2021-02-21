@@ -168,8 +168,8 @@ class CovidMasterModel: ObservableObject {
     @Published var allMDHeader = [MDHeader]()
     @Published var allDeaths = [MDDataDeath]()
     @Published var allMDCases = [MDCases]()
-    
-    
+    @Published var casesRowOne: [CasesRowOne] = []
+    @Published var hospitalRowTwo: [HospitalRow] = []
     
     
     init() {
@@ -212,7 +212,39 @@ class CovidMasterModel: ObservableObject {
                     self.allMDCases = try JSONDecoder().decode([MDCases].self, from: data)
                     self.allDeaths = try JSONDecoder().decode([MDDataDeath].self, from: data)
      
-                    print(self.allMDHeader[self.allMDHeader.count - 1].bedstotal ?? "")
+                
+                    // This will be the Total Row
+                    
+                    self.casesRowOne.append(CasesRowOne(title: "Total Cases",
+                                                        text: "\(self.allMDHeader[self.allMDHeader.count - 1].totalcases ?? "")",
+                                                        image: URL(string: "https://static.vecteezy.com/system/resources/previews/000/952/527/non_2x/coronavirus-character-get-vaccination-vector.jpg")!,
+                                                        logo: #imageLiteral(resourceName: "Logo1"),
+                                                        color: .blue))
+                    
+                    self.casesRowOne.append(CasesRowOne(title: "24 Hour Change in Cases",
+                                                        text: "+\(self.allMDHeader[self.allMDHeader.count - 1].casedelta ?? "")",
+                                                        image: URL(string: "https://static.vecteezy.com/system/resources/previews/000/952/527/non_2x/coronavirus-character-get-vaccination-vector.jpg")!,
+                                                        logo: #imageLiteral(resourceName: "Logo1"),
+                                                        color: .blue))
+                    
+                    
+                    
+                    self.hospitalRowTwo.append(HospitalRow(title: "Total Hospitalized",
+                                                        text: "\(self.allMDHeader[self.allMDHeader.count - 1].total_hospitalized ?? "")",
+                                                        image: URL(string: "https://static.vecteezy.com/system/resources/previews/000/952/527/non_2x/coronavirus-character-get-vaccination-vector.jpg")!,
+                                                        logo: #imageLiteral(resourceName: "Logo1"),
+                                                        color: .blue))
+                    
+                    self.hospitalRowTwo.append(HospitalRow(title: "24 Hour Change in Hospitalizations",
+                                                        text: "+\(self.allMDHeader[self.allMDHeader.count - 1].hospitalizeddelta ?? "")",
+                                                        image: URL(string: "https://static.vecteezy.com/system/resources/previews/000/952/527/non_2x/coronavirus-character-get-vaccination-vector.jpg")!,
+                                                        logo: #imageLiteral(resourceName: "Logo1"),
+                                                        color: .blue))
+                    
+                    
+                    
+                    
+                    
 
                 } catch let jsonError {
 
@@ -282,6 +314,10 @@ class VaccineLocationsModel: ObservableObject {
                     self.vaccineLocationsMD = try JSONDecoder().decode(MDVaccineLocations?.self, from: data)
                     
       
+                    
+                    
+                    
+                    
                     
                     
                 } catch let jsonError {
