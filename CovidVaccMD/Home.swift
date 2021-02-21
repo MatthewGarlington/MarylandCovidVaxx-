@@ -11,6 +11,7 @@ struct Home: View {
     @State var showProfile = false
     @State var viewState = CGSize.zero
     @State var showContent = false
+    @State var showList = false
     @EnvironmentObject var user: UserStore
   
     
@@ -32,7 +33,7 @@ struct Home: View {
             
             
 
-                HomeView(showProfile: $showProfile, showContent: $showContent, viewState: $viewState)
+            HomeView(showProfile: $showProfile, showContent: $showContent, viewState: $viewState)
 
 //
 //            MenuView(showProfile: $showProfile)
