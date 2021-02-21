@@ -13,7 +13,7 @@ struct TabBar: View {
         TabView {
             Home().tabItem {
                 Image(systemName: "play.circle.fill")
-                Text("Home")
+                Text("Vaccine")
             }
             CourseList().tabItem {
                 Image(systemName: "rectangle.stack.fill")
