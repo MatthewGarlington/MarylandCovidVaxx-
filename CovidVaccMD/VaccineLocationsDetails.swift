@@ -104,21 +104,21 @@ struct VaccineLocationsDetails: View {
                                 .frame(width: 400, height: 400)
                                 .background(
                                     ZStack {
-                                        Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1))
+                                        Color("background2")
                                         
                                         RoundedRectangle(cornerRadius: 16, style: .continuous)
-                                            .foregroundColor(Color(#colorLiteral(red: 0.8174115368, green: 0.8757289902, blue: 0.997786832, alpha: 1)))
+                                            .foregroundColor(Color("background2"))
                                             .blur(radius: 4)
                                             .offset(x: -8, y: -8)
                                         
                                         RoundedRectangle(cornerRadius: 16, style: .continuous)
-                                            .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8174115368, green: 0.8757289902, blue: 0.997786832, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                                            .fill(LinearGradient(gradient: Gradient(colors: [(Color("background2")), Color(.systemGray2)]), startPoint: .topLeading, endPoint: .bottomTrailing))
                                             .padding(2)
                                             .blur(radius: 2)
                                     }
                                 )
                                 .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-                                .shadow(color: Color(#colorLiteral(red: 0.8174115368, green: 0.8757289902, blue: 0.997786832, alpha: 1)), radius: 20, x: 20, y: 20)
+                                .shadow(color: Color("background2"), radius: 20, x: 20, y: 20)
                                 .shadow(color: Color(#colorLiteral(red: 0.4119725525, green: 0.472499907, blue: 0.9727101922, alpha: 1)), radius: 20, x: -20, y: -20)
                                 .background(Color(#colorLiteral(red: 0.1944684982, green: 0.7717260122, blue: 1, alpha: 1)))
                                 .cornerRadius(15)
