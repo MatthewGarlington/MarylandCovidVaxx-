@@ -55,8 +55,27 @@ struct VaccineLocationsListView: View {
                     .padding(.vertical, 8)
                 }
             }
+            
+             .padding(.top, 8)
+             .padding(.horizontal, 20)
+            // Lets the bottom card with the Text Field to not take up the entire width of the screen
+         //   .frame(maxWidth: 712)
+            .frame(height: 175)
+            // Adding the BlurView Modifer to give a glass appearance
+            .background(BlurView(style: .systemThinMaterial))
+            .cornerRadius(30)
+            .frame(width: 400)
+           // .frame(maxWidth: .infinity)
+            .listRowBackground(BlurView(style: .systemThinMaterial))
         }
+
+            
+
+        .navigationBarHidden(true)
     }
+      
+     
+    
 }
 }
 
