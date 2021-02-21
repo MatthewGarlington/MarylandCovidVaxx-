@@ -28,6 +28,7 @@ struct CasesView: View {
     @State var showingEditScreen = false
     @State var selectedPlace: MKPointAnnotation?
     @State var showVaccineList = false
+    @ObservedObject var casesModel = CovidMasterModel()
     
 
   
@@ -39,84 +40,14 @@ struct CasesView: View {
               
                 VStack {
                     HStack {
-                        Text("Maryland Vaccination")
+                        Text("Maryland Covid 19")
                           .font(.system(size: 28, weight: .bold))
                          
                         
                         Spacer()
                         
                         
-                        Button(action: {self.showVaccineList.toggle()}) {
-                            Image(systemName: "list.bullet")
-                                .foregroundColor(Color.red)
-                                .font(.system(size: 16, weight: .medium))
-                                .frame(width: 36, height: 36)
-                                .background(Color("background3"))
-                                .clipShape(Circle())
-                                .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
-                                .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
-                            
-                        }
-                        .sheet(isPresented: $showVaccineList) {
-                            
-                            VaccineLocationsListView()
-                      
-                        }
-                       
-                        
-
-                        
-                        
-                    
-                        
-                        Button(action: {self.showUpdate.toggle()}) {
-                            Image(systemName: "mappin")
-                                .foregroundColor(Color.red)
-                                .font(.system(size: 16, weight: .medium))
-                                .frame(width: 36, height: 36)
-                                .background(Color("background3"))
-                                .clipShape(Circle())
-                                .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
-                                .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
-                            
-                        }
-                        .sheet(isPresented: $showUpdate) {
-                            
-                                 
-                            ZStack(alignment: .bottom) {
-                                
-                                Color("background2")
-                                    .edgesIgnoringSafeArea(.all)
-                                
-                                VStack {
-                                    
-                                    Spacer()
-                                            
-                                    VStack {
-                                        Rectangle()
-                                                    .frame(width: 75, height: 5)
-                                                    .cornerRadius(3)
-                                                    .opacity(0.1)
-                                            .padding()
-                                    
-                                            Spacer()
-                                              
-                                            MapViewMaryland(annotations: $annotations, pinsArray: $pinsArray, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails)
-                                                
-                                                .frame(maxWidth: 712)
-                                                .frame(height: 750)
-                                                .cornerRadius(50)
-                                                .alert(isPresented: $showingPlaceDetails) {
-                                        
-                                        
-                                            Alert(title: Text(selectedPlace?.title ?? ""), message: Text(selectedPlace?.subtitle ?? ""))
-                                            }
-                                    }
-                                }
-                            }
-                                
- 
-                        }
+        
                     }
                     .padding(.horizontal)
                     .padding(.leading, 14)
@@ -139,7 +70,7 @@ struct CasesView: View {
                     VStack {
                         
                         HStack {
-                            Text("All Cases")
+                            Text("Case Totals")
                                 .font(.title)
                                 .bold()
                             Spacer()
@@ -151,17 +82,17 @@ struct CasesView: View {
 
                         Spacer()
                         
+                        // Case Row
                         VStack(spacing: 0) {
                             ScrollView(.horizontal, showsIndicators: false) {
-                            
+                     
                             HStack(spacing: 20) {
-                                    // This gives the top SecitonView the ability to link to Contentful
-                                    ForEach(totalVaccineViewModel.sections.indices, id: \.self) { index in
+                        
+                                    ForEach(casesModel.casesRowOne.indices, id: \.self) { index in
                                         GeometryReader { geometry in
                                             
-                                            
+                                            CaseView(index: index, cases: casesModel.casesRowOne[index])
                                         
-                                            SectionView(index: index, section: self.totalVaccineViewModel.sections[index], width: 275, height: 275)
                                             
                                             .rotation3DEffect(Angle(degrees:
                                                                         Double(geometry.frame(in: .global).minX - 30) / -getAngleMulitplier(bounds: bounds)
@@ -183,7 +114,53 @@ struct CasesView: View {
  
                         }
                     }
-                
+                    VStack {
+                        
+                        HStack {
+                            Text("Hospital Totals")
+                                .font(.title)
+                                .bold()
+                            Spacer()
+                        }.padding(.leading, 30)
+                        .offset(y: -40)
+                        .blur(radius: self.active ? 20 : 0)
+                        .padding(.bottom, 0)
+                   
+
+                        Spacer()
+                        
+                        // Hospital Row
+                        VStack(spacing: 0) {
+                            ScrollView(.horizontal, showsIndicators: false) {
+                     
+                            HStack(spacing: 20) {
+                        
+                                ForEach(casesModel.hospitalRowTwo.indices, id: \.self) { index in
+                                        GeometryReader { geometry in
+                                            
+                                            HospitalView(index: index, hospital: casesModel.hospitalRowTwo[index])
+                                        
+                                            
+                                            .rotation3DEffect(Angle(degrees:
+                                                                        Double(geometry.frame(in: .global).minX - 30) / -getAngleMulitplier(bounds: bounds)
+                                                                
+                                            ), axis: (x: 0, y: 10.0, z: 0))
+                                    }
+                                    .frame(width: 275, height: 275)
+                                }
+                                
+                            }
+                            
+                            .padding(.horizontal, 30)
+                            .padding(.top, 10)
+                            .padding(.bottom, 50)
+                        }
+                        .offset(y: -30)
+                            .blur(radius: self.active ? 20 : 0)
+                            
+ 
+                        }
+                    }
    
                 
             }
@@ -198,47 +175,47 @@ struct CasesView: View {
             .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
                 
                 
-                // Using the store before usees the observable object of the Contentful API and Combine instead of from our on array
-                VStack {
-                    
-                    HStack {
-                        Text("Vaccine Phase")
-                            .font(.title)
-                            .bold()
-                        Spacer()
-                    }.padding(.leading, 30)
-                    .offset(y: -10)
-                    .blur(radius: self.active ? 20 : 0)
-
-
-                    .padding(.bottom, 0)
-//                    .offset(y: -60)
-
-           
-                    
-                    VStack(spacing: 30) {
-                        ForEach(store.courses.indices, id: \.self) { index in
-                            GeometryReader { geometry in
-                                CourseView(
-                                    show: self.$store.courses[index].show,
-                                    active: self.$active, activeIndex: self.$activeIndex, course: self.store.courses[index],
-                                    index: index,
-                                    // Added the ability to change the color of the background upon dragging
-                                    activeView: self.$activeView, bounds: bounds, isScrollable: $isScrollable)
-                                    .offset(y: self.store.courses[index].show ? -geometry.frame(in: .global).minY : 0)
-                                    // The Following 3 animations occur in the other cards except the card that is pressed
-                                    .opacity(self.activeIndex != index && self.active ? 0 : 1)
-                                    .scaleEffect(self.activeIndex != index && self.active ? 0.5 : 1)
-                                    .offset(x: self.activeIndex != index && self.active ? bounds.size.width : 0)
-                            }
-                            // This adapts the ability to the cards to stack when the screen size is large, otherwise the normal layout
-                            .frame(height : horizontalSizeClass == .regular ? 80 : 280)
-                            .frame(maxWidth: self.store.courses[index].show ? 712 : getCardWidth(bounds: bounds))
-                            // This ZIndex Helps correct the Layout of cards showing on top of others during animation
-                            .zIndex(self.store.courses[index].show ? 0 : 1)
-                        }
-                    }
-                }
+//                // Using the store before usees the observable object of the Contentful API and Combine instead of from our on array
+//                VStack {
+//
+//                    HStack {
+//                        Text("Vaccine Phase")
+//                            .font(.title)
+//                            .bold()
+//                        Spacer()
+//                    }.padding(.leading, 30)
+//                    .offset(y: -10)
+//                    .blur(radius: self.active ? 20 : 0)
+//
+//
+//                    .padding(.bottom, 0)
+////                    .offset(y: -60)
+//
+//
+//
+//                    VStack(spacing: 30) {
+//                        ForEach(store.courses.indices, id: \.self) { index in
+//                            GeometryReader { geometry in
+//                                CourseView(
+//                                    show: self.$store.courses[index].show,
+//                                    active: self.$active, activeIndex: self.$activeIndex, course: self.store.courses[index],
+//                                    index: index,
+//                                    // Added the ability to change the color of the background upon dragging
+//                                    activeView: self.$activeView, bounds: bounds, isScrollable: $isScrollable)
+//                                    .offset(y: self.store.courses[index].show ? -geometry.frame(in: .global).minY : 0)
+//                                    // The Following 3 animations occur in the other cards except the card that is pressed
+//                                    .opacity(self.activeIndex != index && self.active ? 0 : 1)
+//                                    .scaleEffect(self.activeIndex != index && self.active ? 0.5 : 1)
+//                                    .offset(x: self.activeIndex != index && self.active ? bounds.size.width : 0)
+//                            }
+//                            // This adapts the ability to the cards to stack when the screen size is large, otherwise the normal layout
+//                            .frame(height : horizontalSizeClass == .regular ? 80 : 280)
+//                            .frame(maxWidth: self.store.courses[index].show ? 712 : getCardWidth(bounds: bounds))
+//                            // This ZIndex Helps correct the Layout of cards showing on top of others during animation
+//                            .zIndex(self.store.courses[index].show ? 0 : 1)
+//                        }
+//                    }
+//                }
     
         }
         .disabled(self.active && !self.isScrollable ? true : false)
@@ -258,6 +235,125 @@ struct CasesRowOne: Identifiable {
     
 }
 
+struct HospitalRow: Identifiable {
+    var id = UUID()
+    var title: String
+    var text: String
+    var image: URL
+    var logo: UIImage
+    var color: UIColor
+    
+    
+}
+
+struct CaseView: View {
+    @ObservedObject var store = CourseStore()
+    var index: Int
+    var cases: CasesRowOne
+    var width: CGFloat = 275
+    var height: CGFloat = 275
+  
+    
+    var body: some View {
+   
+        VStack {
+            VStack {
+                   
+                    HStack(alignment: .top) {
+                        Text(cases.title)
+                            .font(.system(size: 24, weight: .bold))
+                            .frame(width: 225, alignment: .leading)
+                            .frame(height: 100)
+                            .padding(.top, 35)
+                            .foregroundColor(.white)
+                        Spacer()
+                    //    Image(uiImage: section.logo)
+                        
+                    }
+                  Text(cases.text)
+                        .font(.system(size: 24, weight: .bold))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .frame(height: 75)
+                    
+                }
+            
+
+        
+        ZStack(alignment: .bottom) {
+            
+                WebImage(url: cases.image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(height: 150)
+                   //.padding(.bottom, 20)
+                   //.blendMode(.darken)
+                }
+                
+        }
+        .padding(.top, 20)
+        .padding(.horizontal, 20)
+        .frame(width: width, height: height)
+        .background(Color(#colorLiteral(red: 0.7236627936, green: 0.6401972771, blue: 0.9966538548, alpha: 1)))
+        .cornerRadius(30)
+        .shadow(color: Color(#colorLiteral(red: 0.7236627936, green: 0.6401972771, blue: 0.9966538548, alpha: 1)).opacity(0.3), radius: 20, x: 0, y: 20)
+      
+        
+    }
+}
+struct HospitalView: View {
+    @ObservedObject var store = CourseStore()
+    var index: Int
+    var hospital: HospitalRow
+    var width: CGFloat = 275
+    var height: CGFloat = 275
+  
+    
+    var body: some View {
+   
+        VStack {
+            VStack {
+                   
+                    HStack(alignment: .top) {
+                        Text(hospital.title)
+                            .font(.system(size: 24, weight: .bold))
+                            .frame(width: 225, alignment: .leading)
+                            .frame(height: 100)
+                            .padding(.top, 35)
+                            .foregroundColor(.white)
+                        Spacer()
+                    //    Image(uiImage: section.logo)
+                        
+                    }
+                  Text(hospital.text)
+                        .font(.system(size: 24, weight: .bold))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .frame(height: 75)
+                    
+                }
+            
+
+        
+        ZStack(alignment: .bottom) {
+            
+                WebImage(url: hospital.image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(height: 150)
+                   //.padding(.bottom, 20)
+                   //.blendMode(.darken)
+                }
+                
+        }
+        .padding(.top, 20)
+        .padding(.horizontal, 20)
+        .frame(width: width, height: height)
+        .background(Color(#colorLiteral(red: 0.7236627936, green: 0.6401972771, blue: 0.9966538548, alpha: 1)))
+        .cornerRadius(30)
+        .shadow(color: Color(#colorLiteral(red: 0.7236627936, green: 0.6401972771, blue: 0.9966538548, alpha: 1)).opacity(0.3), radius: 20, x: 0, y: 20)
+      
+        
+    }
+}
 
 
 struct CasesView_Previews: PreviewProvider {
