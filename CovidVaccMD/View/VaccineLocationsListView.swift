@@ -64,13 +64,10 @@ struct VaccineLocationsListView: View {
             // Adding the BlurView Modifer to give a glass appearance
             .background(BlurView(style: .systemThinMaterial))
             .cornerRadius(30)
-            .frame(width: 400)
+            .frame(maxWidth: .infinity)
            // .frame(maxWidth: .infinity)
             .listRowBackground(BlurView(style: .systemThinMaterial))
         }
-
-            
-
         .navigationBarHidden(true)
     }
       
