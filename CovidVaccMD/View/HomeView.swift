@@ -28,6 +28,7 @@ struct HomeView: View {
     @State var showingEditScreen = false
     @State var selectedPlace: MKPointAnnotation?
     @State var showVaccineList = false
+    
 
   
     
