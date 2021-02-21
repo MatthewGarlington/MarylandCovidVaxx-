@@ -59,8 +59,12 @@ struct HomeView: View {
                         .sheet(isPresented: $showVaccineList) {
                             
                             VaccineLocationsListView()
-                            
+                      
                         }
+                       
+                        
+
+                        
                         
                     
                         
@@ -78,24 +82,38 @@ struct HomeView: View {
                         .sheet(isPresented: $showUpdate) {
                             
                                  
-                                    VStack {
-                                        Spacer()
-                                        MapViewMaryland(annotations: $annotations, pinsArray: $pinsArray, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails)
+                            ZStack(alignment: .bottom) {
+                                
+                                Color("background2")
+                                    .edgesIgnoringSafeArea(.all)
+                                
+                                VStack {
+                                    
+                                    Spacer()
                                             
-                                            .frame(width: 420, height: 700)
-                                            .cornerRadius(50)
-                                            .alert(isPresented: $showingPlaceDetails) {
+                                    VStack {
+                                        Rectangle()
+                                                    .frame(width: 75, height: 5)
+                                                    .cornerRadius(3)
+                                                    .opacity(0.1)
+                                            .padding()
                                     
-                                    
-                                        Alert(title: Text(selectedPlace?.title ?? ""), message: Text(selectedPlace?.subtitle ?? ""))
-                                        }
+                                            Spacer()
+                                              
+                                            MapViewMaryland(annotations: $annotations, pinsArray: $pinsArray, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails)
+                                                
+                                                .frame(maxWidth: 712)
+                                                .frame(height: 750)
+                                                .cornerRadius(50)
+                                                .alert(isPresented: $showingPlaceDetails) {
+                                        
+                                        
+                                            Alert(title: Text(selectedPlace?.title ?? ""), message: Text(selectedPlace?.subtitle ?? ""))
+                                            }
                                     }
+                                }
+                            }
                                 
-                                
-                            
-                            
-                        
-                           
  
                         }
                     }
