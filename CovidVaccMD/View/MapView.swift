@@ -47,14 +47,9 @@ struct MapViewMaryland: UIViewRepresentable {
             
         }
 
-
-
         mapView.addAnnotations(annotations)
 
-
-     
-      
-        
+ 
         return mapView
     }
 
@@ -75,23 +70,15 @@ struct MapViewMaryland: UIViewRepresentable {
             pointAnnotation.coordinate = CLLocationCoordinate2D(latitude:(vm.vaccineLocationsMD?.features?[i].geometry?.coordinate.latitude ?? 0.0), longitude: (vm.vaccineLocationsMD?.features?[i].geometry?.coordinate.longitude ?? 0.0))
             pointAnnotation.subtitle = vm.vaccineLocationsMD?.features?[i].attributes?.fulladdr ?? ""
         
-           
-            
-      
      
             view.addAnnotation(pointAnnotation)
-            
-            
-            
-         
+              
             
         }
         
              
         view.addAnnotations(pinsArray)
                 
-          
-
 
     }
     
