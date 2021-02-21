@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+
+struct Post: Codable, Identifiable {
+    
+    let id = UUID()
+    var title: String
+    var body: String
+    
+}
