@@ -13,6 +13,10 @@ struct Home: View {
     @State var showContent = false
     @State var showList = false
     @EnvironmentObject var user: UserStore
+    
+    @ObservedObject var covidMasterModel = CovidMasterModel()
+    
+   
   
     
     var body: some View {
