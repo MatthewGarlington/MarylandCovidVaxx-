@@ -221,6 +221,8 @@ class CovidMasterModel: ObservableObject {
     @Published var confirmedDeaths: [DeathRow] = []
     
     
+    
+    
     init() {
         
         
@@ -260,6 +262,24 @@ class CovidMasterModel: ObservableObject {
                     self.allMDHeader = try JSONDecoder().decode([MDHeader].self, from: data)
                     self.allMDCases = try JSONDecoder().decode([MDCases].self, from: data)
                     self.allDeaths = try JSONDecoder().decode([MDDataDeath].self, from: data)
+                    
+                    
+                    // Format Date given that is a string
+                    
+                 
+                    
+                    let string = "\(self.allMDHeader[0].reportdate!)"
+
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
+                    let newString = dateFormatter.date(from:string)
+                    dateFormatter.dateStyle = .medium
+                    print(dateFormatter.string(from: newString!))
+    
+                   
+                    
+                
      
                 
                     // This will be the Total Row
