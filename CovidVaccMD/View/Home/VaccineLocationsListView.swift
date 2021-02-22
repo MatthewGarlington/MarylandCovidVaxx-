@@ -68,7 +68,7 @@ struct VaccineLocationsListView: View {
            // .frame(maxWidth: .infinity)
             .listRowBackground(BlurView(style: .systemThinMaterial))
         }
-        .navigationBarHidden(true)
+        .navigationBarHidden(false)
     }
       
      
