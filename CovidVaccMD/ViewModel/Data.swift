@@ -164,7 +164,7 @@ struct MDDataDeath: Codable, Hashable {
 
 
 
-
+// Model For Positive Cases
 struct MDPositiveCases: Codable, Hashable {
     
     
@@ -192,13 +192,118 @@ struct CaseAttributes: Codable, Hashable {
     
 }
 
+// Model For Total Confirmed Deaths
+
+struct MDTotalConfirmedDeaths: Codable, Hashable {
+    
+    
+    let features: [ConfirmedDeathsFeatures]?
+    
+    
+}
+
+struct ConfirmedDeathsFeatures: Codable, Hashable {
+    
+    
+    let attributes: ConfirmedDeathsAttributes?
+}
+
+struct ConfirmedDeathsAttributes: Codable, Hashable {
+    
+    
+    
+    let DATE: Int?
+    let Count_: Int?
+    
+    
+}
+
+class MDTotalConfirmedDeathsViewModel: ObservableObject {
+    
+    
+    @Published var confirmedDeathsData: MDTotalConfirmedDeaths?
+    @Published var confirmedDeaths: [DeathRow] = []
+
+    
+    
+    
+    
+    init() {
+        
+        
+        
+        let url = URL(string: "https://services.arcgis.com/njFNhDsUCentVYJW/arcgis/rest/services/MDCOVID19_TotalConfirmedDeathsStatewide/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json")!
+        
+        
+        let task =  URLSession.shared.dataTask(with: url) { data, response, error in
+            
+            
+            
+            // ensure there is no error for this HTTP response
+            guard error == nil else {
+                print ("error: \(error!)")
+                return
+            }
+            
+            // ensure there is data returned from this HTTP response
+            guard let data = data else {
+                print("No data")
+                return
+            }
+            
+            // Parse JSON into newJSON struct using JSONDecoder
+//                        guard let positiveCases = try? JSONDecoder().decode(MDPositiveCases?.self, from: data) else {
+//                           print("Error: Couldn't decode data into all data in MD Info")
+//                           return
+//                         }
+//            //
+//                        print("gotten json response dictionary is \n \(positiveCases)")
+            // update UI using the response here
+//
+            DispatchQueue.main.async {
+
+                do {
+                    
+                    
+
+                    self.confirmedDeathsData = try JSONDecoder().decode(MDTotalConfirmedDeaths?.self, from: data)
+    
+                
+                    self.confirmedDeaths.append(DeathRow(title: "Total Confirmed Deaths",
+                                                         text: "\(self.confirmedDeathsData?.features?[50].attributes?.Count_ ?? 0)",
+                                                         image: URL(string: "https://static.vecteezy.com/system/resources/previews/000/952/527/non_2x/coronavirus-character-get-vaccination-vector.jpg")!,
+                                                         logo: #imageLiteral(resourceName: "Logo1"),
+                                                         color: .blue))
+                    
+                    
+                    
+                    
+                    
+
+                } catch let jsonError {
+
+                    print("Decoding failed for UserDetails", jsonError)
+                }
+            }
+            
+            
+        }
+        
+        
+        // execute the HTTP request
+        task.resume()
+        
+    }
+}
+
+
 
 
 class PositiveCasesViewModel: ObservableObject {
     
     
     @Published var positiveCases: MDPositiveCases?
-  //  @Published var caseRing: [CaseRing] = []
+
     
     
     
