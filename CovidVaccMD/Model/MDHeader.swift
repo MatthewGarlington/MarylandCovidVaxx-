@@ -11,7 +11,7 @@ import Foundation
 struct MDHeader: Codable, Hashable {
     
     let filter: String?
-    let reportdate: String?
+    let reportdate: Date?
     let totalcases: String?
     let casedelta: String?
     let totaltests: String?
