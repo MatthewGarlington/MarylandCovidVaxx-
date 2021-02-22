@@ -76,6 +76,24 @@ struct CasesView: View {
                                 .font(.title)
                                 .bold()
                             Spacer()
+                            
+                            Button(action: {self.showVaccineList.toggle()}) {
+                                Image(systemName: "list.bullet")
+                                    .foregroundColor(Color.red)
+                                    .font(.system(size: 16, weight: .medium))
+                                    .frame(width: 36, height: 36)
+                                    .background(Color("background3"))
+                                    .clipShape(Circle())
+                                    .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
+                                    .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
+                                    .padding(.horizontal, 30)
+                                
+                            }
+                            .sheet(isPresented: $showVaccineList) {
+                                
+                                VaccineLocationsListView()
+                          
+                            }
                         }.padding(.leading, 30)
                         .offset(y: -40)
                         .blur(radius: self.active ? 20 : 0)
