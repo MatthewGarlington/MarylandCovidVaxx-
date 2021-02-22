@@ -69,7 +69,7 @@ struct VaccineLocationsDetails: View {
                                         
                             ZStack {
                                 
-                                VStack(alignment: .leading, spacing: 12) {
+                                VStack(alignment: .leading, spacing: 20) {
                         
                                     
                                     Text("\(vaccine.attributes?.municipality ?? "")")
@@ -83,19 +83,56 @@ struct VaccineLocationsDetails: View {
                                         .font(.subheadline)
                                         .fontWeight(.bold)
                                         .foregroundColor(.secondary)
+                              
                                     
-                                    Link("Website for Site: \(vaccine.attributes?.website_url ?? "")",
+                                    
+                                    HStack {
+                                    
+                                        Text("Email Contact:")
+                                            .bold()
+                                        
+                                        
+                                        Text("\(vaccine.attributes?.scheduling_contact_email ?? "No Email for Scheduling")")
+                                        .font(.subheadline)
+                                        .fontWeight(.bold)
+                                        .foregroundColor(.secondary)
+                                        
+                                        
+                                    }
+                                    
+                                    HStack {
+                                    
+                                        Text("Site Info:")
+                                            .bold()
+                                        
+                                        
+                                    Text("\(vaccine.attributes?.cost_notes ?? "No Notes On This Site")")
+                                            .font(.callout)
+                                            .fontWeight(.bold)
+                                            .foregroundColor(.secondary)
+                                        
+                                        
+                                    }
+                                  
+                                
+                                    HStack {
+                                        Text("Contact Phone Number:")
+                                            .fontWeight(.bold)
+                                            
+                                        Text("\(vaccine.attributes?.scheduling_contact_phone ?? "No Phone Number For Scheduling")")
+                                            .font(.subheadline)
+                                            .fontWeight(.bold)
+                                            .foregroundColor(.secondary)
+                                    }
+                                    
+                                    
+                                    Link("\(vaccine.attributes?.website_url ?? "")",
                                           destination: URL(string: "\(vaccine.attributes?.website_url ?? "https://developer.apple.com/documentation/swiftui/link")")!)
-                                    Text("Email Contact: \(vaccine.attributes?.scheduling_contact_email ?? "No Email for Scheduling")")
-                                        .font(.subheadline)
-                                        .fontWeight(.bold)
-                                        .foregroundColor(.secondary)
-                                   
-                                    Text("Contact Phone Number: \(vaccine.attributes?.scheduling_contact_phone ?? "No Phone Number For Scheduling")")
-                                        .font(.subheadline)
-                                        .fontWeight(.bold)
-                                        .foregroundColor(.secondary)
-                                        .shadow(color: Color.black.opacity(0.2), radius: 20, x: 20, y: 20)
+                                      
+                                        
+                                    
+                                    
+                               
                                     
                              
                                     
