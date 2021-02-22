@@ -14,6 +14,7 @@ struct CaseView: View {
     var cases: CasesRowOne
     var width: CGFloat = 275
     var height: CGFloat = 275
+    @State var showVaccineList = false
   
     
     var body: some View {
@@ -28,8 +29,8 @@ struct CaseView: View {
                             .frame(height: 100)
                             .padding(.top, 35)
                             .foregroundColor(.white)
-                        Spacer()
-                    //    Image(uiImage: section.logo)
+             
+          
                         
                     }
                   Text(cases.text)
@@ -62,3 +63,5 @@ struct CaseView: View {
         
     }
 }
+
+
