@@ -31,6 +31,7 @@ struct CasesView: View {
   //  @State var show: Bool
     @ObservedObject var casesModel = CovidMasterModel()
     @ObservedObject var positiveCasesViewModel = PositiveCasesViewModel()
+    @ObservedObject var confirmedDeathsViewModel = MDTotalConfirmedDeathsViewModel()
     
 
   
@@ -162,6 +163,68 @@ struct CasesView: View {
                             
  
                         }
+                        
+                        VStack {
+                            
+                            HStack {
+                                Text("Death Totals")
+                                    .font(.title)
+                                    .bold()
+                                Spacer()
+                            }.padding(.leading, 30)
+                            .offset(y: -40)
+                            .blur(radius: self.active ? 20 : 0)
+                            .padding(.bottom, 0)
+                       
+
+                            Spacer()
+                            
+                            // Case Row
+                            VStack(spacing: 0) {
+                                ScrollView(.horizontal, showsIndicators: false) {
+                         
+                                HStack(spacing: 20) {
+                            
+                                        ForEach(confirmedDeathsViewModel.confirmedDeaths.indices, id: \.self) { index in
+                                            GeometryReader { geometry in
+                                                
+                                                DeathView(index: index, deaths: confirmedDeathsViewModel.confirmedDeaths[index])
+                                            
+                                                
+                                                .rotation3DEffect(Angle(degrees:
+                                                                            Double(geometry.frame(in: .global).minX - 30) / -getAngleMulitplier(bounds: bounds)
+                                                                    
+                                                ), axis: (x: 0, y: 10.0, z: 0))
+                                        }
+                                        .frame(width: 275, height: 275)
+                                    }
+                                    
+                                    ForEach(confirmedDeathsViewModel.confirmedDeaths.indices, id: \.self) { index in
+                                        GeometryReader { geometry in
+                                            
+                                            DeathView(index: index, deaths: confirmedDeathsViewModel.confirmedDeaths[index])
+                                        
+                                            
+                                            .rotation3DEffect(Angle(degrees:
+                                                                        Double(geometry.frame(in: .global).minX - 30) / -getAngleMulitplier(bounds: bounds)
+                                                                
+                                            ), axis: (x: 0, y: 10.0, z: 0))
+                                    }
+                                    .frame(width: 275, height: 275)
+                                }
+                                    
+                                }
+                                
+                                .padding(.horizontal, 30)
+                                .padding(.top, 10)
+                                .padding(.bottom, 50)
+                            }
+                            .offset(y: -30)
+                                .blur(radius: self.active ? 20 : 0)
+                                
+     
+                            }
+                        }
                     }
    
                 
@@ -245,6 +308,17 @@ struct CasesRowOne: Identifiable {
 }
 
 struct HospitalRow: Identifiable {
+    var id = UUID()
+    var title: String
+    var text: String
+    var image: URL
+    var logo: UIImage
+    var color: UIColor
+    
+    
+}
+
+struct DeathRow: Identifiable {
     var id = UUID()
     var title: String
     var text: String
@@ -348,6 +422,61 @@ struct HospitalView: View {
         ZStack(alignment: .bottom) {
             
                 WebImage(url: hospital.image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(height: 150)
+                   //.padding(.bottom, 20)
+                   //.blendMode(.darken)
+                }
+                
+        }
+        .padding(.top, 20)
+        .padding(.horizontal, 20)
+        .frame(width: width, height: height)
+        .background(Color(#colorLiteral(red: 0.7236627936, green: 0.6401972771, blue: 0.9966538548, alpha: 1)))
+        .cornerRadius(30)
+        .shadow(color: Color(#colorLiteral(red: 0.7236627936, green: 0.6401972771, blue: 0.9966538548, alpha: 1)).opacity(0.3), radius: 20, x: 0, y: 20)
+      
+        
+    }
+}
+
+struct DeathView: View {
+    @ObservedObject var store = CourseStore()
+    var index: Int
+    var deaths: DeathRow
+    var width: CGFloat = 275
+    var height: CGFloat = 275
+  
+    
+    var body: some View {
+   
+        VStack {
+            VStack {
+                   
+                    HStack(alignment: .top) {
+                        Text(deaths.title)
+                            .font(.system(size: 24, weight: .bold))
+                            .frame(width: 225, alignment: .leading)
+                            .frame(height: 100)
+                            .padding(.top, 35)
+                            .foregroundColor(.white)
+                        Spacer()
+                    //    Image(uiImage: section.logo)
+                        
+                    }
+                  Text(deaths.text)
+                        .font(.system(size: 24, weight: .bold))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .frame(height: 75)
+                    
+                }
+            
+
+        
+        ZStack(alignment: .bottom) {
+            
+                WebImage(url: deaths.image)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(height: 150)
