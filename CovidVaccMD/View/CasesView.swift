@@ -28,7 +28,9 @@ struct CasesView: View {
     @State var showingEditScreen = false
     @State var selectedPlace: MKPointAnnotation?
     @State var showVaccineList = false
+  //  @State var show: Bool
     @ObservedObject var casesModel = CovidMasterModel()
+    @ObservedObject var positiveCasesViewModel = PositiveCasesViewModel()
     
 
   
@@ -42,12 +44,12 @@ struct CasesView: View {
                     HStack {
                         Text("Maryland Covid 19")
                           .font(.system(size: 28, weight: .bold))
-                         
-                        
+
+
                         Spacer()
-                        
-                        
-        
+
+
+
                     }
                     .padding(.horizontal)
                     .padding(.leading, 14)
@@ -57,15 +59,15 @@ struct CasesView: View {
             
                 
                 
-                ScrollView(.horizontal, showsIndicators: false) {
-                    WatchRingsView()
-                        .padding(.horizontal, 30)
-                        .padding(.bottom, 30)
-                        .onTapGesture {
-                            self.showContent = true
-                        }
-                }
-                .blur(radius: self.active ? 20 : 0)
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        CaseRingView()
+                            .padding(.horizontal, 30)
+                            .padding(.bottom, 30)
+                            .onTapGesture {
+                                self.showContent = true
+                            }
+                    }
+                    .blur(radius: self.active ? 20 : 0)
                 
                     VStack {
                         
@@ -224,6 +226,13 @@ struct CasesView: View {
     }
 }
 
+struct CasesView_Previews: PreviewProvider {
+    static var previews: some View {
+        CasesView(showProfile: .constant(false), showContent: .constant(false), viewState: .constant(.zero)).environmentObject(UserStore())
+    }
+}
+
+
 struct CasesRowOne: Identifiable {
     var id = UUID()
     var title: String
@@ -245,6 +254,9 @@ struct HospitalRow: Identifiable {
     
     
 }
+
+
+
 
 struct CaseView: View {
     @ObservedObject var store = CourseStore()
@@ -355,9 +367,85 @@ struct HospitalView: View {
     }
 }
 
+struct CaseRingView: View {
+    
+    @ObservedObject var positiveCasesViewModel = PositiveCasesViewModel()
+    
+    
+    var body: some View {
+        let epochTime2 = TimeInterval((positiveCasesViewModel.positiveCases?.features?[(positiveCasesViewModel.positiveCases?.features!.count)! - 1].attributes?.date ?? 0)) / 1000
+        let date2 = Date(timeIntervalSince1970: epochTime2)
+        let formate = date2.getFormattedDate(format: "MM-dd-yyyy")
+      
+        HStack(spacing: 30) {
+            
+            
+            VStack(spacing: 12) {
+                RingView(color1: #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1), color2: #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1), width: 100, height: 100, percent:  Double(positiveCasesViewModel.positiveCases?.features?[(positiveCasesViewModel.positiveCases?.features!.count)! - 1].attributes?.percent_positive ?? Double(0)), show: .constant(true))
+                
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Percent of Population").modifier(FontModifer(style: .subheadline))
+                    Text("Testing Positive")
+                        .bold()
+                        .modifier(FontModifer(style: .caption))
+                    
+                    
+                    VStack {
+                        Spacer()
+                        Text("Updated Last on: \(formate)")
+                            .bold()
+                            .modifier(FontModifer(style: .caption))
+                    }
+                    
+                }
+                .modifier(FontModifer())
+          
+                
+            }
+            
+            
+            
+        
+            .frame(width: 150, height: 200)
+            .padding(10)
+            .background(Color("background3"))
+            .cornerRadius(20)
+            .modifier(ShadowModifer())
+            .padding(.bottom, 20)
+            
+            
+//            VStack(spacing: 12) {
+//                RingView(color1: #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1), color2: #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1), width: 100, height: 100, percent:  Double(totalVaccineViewModel.recentMDVaccineTotals?.features?[5].attributes?.Value ?? Double(0)), show: .constant(true))
+//
+//                VStack(alignment: .leading, spacing: 4) {
+//                    Text("Percent of Population").modifier(FontModifer(style: .subheadline))
+//                    Text("2nd Doses Given")
+//                        .bold()
+//                        .modifier(FontModifer(style: .caption))
+//
+//                }
+//                .modifier(FontModifer())
+//
+//
+//            }
+            
+//
+//
+//
+//            .frame(width: 150, height: 200)
+//            .padding(10)
+//            .background(Color("background3"))
+//            .cornerRadius(20)
+//            .modifier(ShadowModifer())
+//            .padding(.bottom, 20)
+//
 
-struct CasesView_Previews: PreviewProvider {
-    static var previews: some View {
-        CasesView(showProfile: .constant(false), showContent: .constant(false), viewState: .constant(.zero)).environmentObject(UserStore())
+
+        }
     }
 }
+
+
+
+
+
