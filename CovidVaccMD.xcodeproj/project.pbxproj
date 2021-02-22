@@ -9,6 +9,30 @@
 /* Begin PBXBuildFile section */
 		6B41B28225E140AA00DD7E32 /* VaccineLocationsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B41B28125E140AA00DD7E32 /* VaccineLocationsListView.swift */; };
 		6B41B28525E140D800DD7E32 /* VaccineLocationsDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B41B28425E140D800DD7E32 /* VaccineLocationsDetails.swift */; };
+		6B473BEF25E4149D00A4B84C /* MDPositiveCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473BEE25E4149D00A4B84C /* MDPositiveCases.swift */; };
+		6B473BF225E414C200A4B84C /* MDTotalCurrentHospital.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473BF125E414C200A4B84C /* MDTotalCurrentHospital.swift */; };
+		6B473BF525E414E700A4B84C /* MDHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473BF425E414E700A4B84C /* MDHeader.swift */; };
+		6B473BF825E414FA00A4B84C /* MDCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473BF725E414FA00A4B84C /* MDCases.swift */; };
+		6B473BFB25E4150E00A4B84C /* MDDataDeath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473BFA25E4150E00A4B84C /* MDDataDeath.swift */; };
+		6B473C0425E4171C00A4B84C /* CasesRowOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473C0325E4171C00A4B84C /* CasesRowOne.swift */; };
+		6B473C0725E4173500A4B84C /* HospitalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473C0625E4173500A4B84C /* HospitalRow.swift */; };
+		6B473C0A25E4174E00A4B84C /* DeathRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473C0925E4174E00A4B84C /* DeathRow.swift */; };
+		6B473C0D25E4176D00A4B84C /* CaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473C0C25E4176D00A4B84C /* CaseView.swift */; };
+		6B473C1025E4178C00A4B84C /* HospitalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473C0F25E4178C00A4B84C /* HospitalView.swift */; };
+		6B473C1425E4186E00A4B84C /* DeathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473C1325E4186E00A4B84C /* DeathView.swift */; };
+		6B473C1725E418B500A4B84C /* CaseRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473C1625E418B500A4B84C /* CaseRingView.swift */; };
+		6B473C1B25E41C0B00A4B84C /* HomeBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473C1A25E41C0B00A4B84C /* HomeBackgroundView.swift */; };
+		6B473C1E25E41CDB00A4B84C /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473C1D25E41CDB00A4B84C /* CardView.swift */; };
+		6B473C2125E41CF300A4B84C /* BackCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473C2025E41CF300A4B84C /* BackCardView.swift */; };
+		6B473C2425E41D1A00A4B84C /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473C2325E41D1A00A4B84C /* TitleView.swift */; };
+		6B473C2725E41D3500A4B84C /* BottomCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473C2625E41D3500A4B84C /* BottomCardView.swift */; };
+		6B473C2A25E41E3200A4B84C /* SectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473C2925E41E3200A4B84C /* SectionView.swift */; };
+		6B473C2D25E41E7300A4B84C /* SectionSecondRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473C2C25E41E7300A4B84C /* SectionSecondRowView.swift */; };
+		6B473C3025E41EB000A4B84C /* SectionThirdRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473C2F25E41EB000A4B84C /* SectionThirdRowView.swift */; };
+		6B473C3325E41EE800A4B84C /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473C3225E41EE800A4B84C /* Section.swift */; };
+		6B473C3625E41F0300A4B84C /* SectionSecondRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473C3525E41F0300A4B84C /* SectionSecondRow.swift */; };
+		6B473C3925E41F2F00A4B84C /* SectionThirdRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473C3825E41F2F00A4B84C /* SectionThirdRow.swift */; };
+		6B473C3C25E41F6600A4B84C /* WatchRingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473C3B25E41F6600A4B84C /* WatchRingsView.swift */; };
 		6BDFC7E325E2EC04009ACA10 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDFC7E225E2EC04009ACA10 /* Post.swift */; };
 		6BDFC7E625E2EC4F009ACA10 /* MDVaccine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDFC7E525E2EC4F009ACA10 /* MDVaccine.swift */; };
 		6BDFC7E925E2EC81009ACA10 /* MDVaccineLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDFC7E825E2EC81009ACA10 /* MDVaccineLocations.swift */; };
@@ -46,6 +70,30 @@
 /* Begin PBXFileReference section */
 		6B41B28125E140AA00DD7E32 /* VaccineLocationsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineLocationsListView.swift; sourceTree = "<group>"; };
 		6B41B28425E140D800DD7E32 /* VaccineLocationsDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineLocationsDetails.swift; sourceTree = "<group>"; };
+		6B473BEE25E4149D00A4B84C /* MDPositiveCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDPositiveCases.swift; sourceTree = "<group>"; };
+		6B473BF125E414C200A4B84C /* MDTotalCurrentHospital.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDTotalCurrentHospital.swift; sourceTree = "<group>"; };
+		6B473BF425E414E700A4B84C /* MDHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDHeader.swift; sourceTree = "<group>"; };
+		6B473BF725E414FA00A4B84C /* MDCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDCases.swift; sourceTree = "<group>"; };
+		6B473BFA25E4150E00A4B84C /* MDDataDeath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDDataDeath.swift; sourceTree = "<group>"; };
+		6B473C0325E4171C00A4B84C /* CasesRowOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasesRowOne.swift; sourceTree = "<group>"; };
+		6B473C0625E4173500A4B84C /* HospitalRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalRow.swift; sourceTree = "<group>"; };
+		6B473C0925E4174E00A4B84C /* DeathRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathRow.swift; sourceTree = "<group>"; };
+		6B473C0C25E4176D00A4B84C /* CaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseView.swift; sourceTree = "<group>"; };
+		6B473C0F25E4178C00A4B84C /* HospitalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalView.swift; sourceTree = "<group>"; };
+		6B473C1325E4186E00A4B84C /* DeathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathView.swift; sourceTree = "<group>"; };
+		6B473C1625E418B500A4B84C /* CaseRingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseRingView.swift; sourceTree = "<group>"; };
+		6B473C1A25E41C0B00A4B84C /* HomeBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBackgroundView.swift; sourceTree = "<group>"; };
+		6B473C1D25E41CDB00A4B84C /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		6B473C2025E41CF300A4B84C /* BackCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackCardView.swift; sourceTree = "<group>"; };
+		6B473C2325E41D1A00A4B84C /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		6B473C2625E41D3500A4B84C /* BottomCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCardView.swift; sourceTree = "<group>"; };
+		6B473C2925E41E3200A4B84C /* SectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionView.swift; sourceTree = "<group>"; };
+		6B473C2C25E41E7300A4B84C /* SectionSecondRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionSecondRowView.swift; sourceTree = "<group>"; };
+		6B473C2F25E41EB000A4B84C /* SectionThirdRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionThirdRowView.swift; sourceTree = "<group>"; };
+		6B473C3225E41EE800A4B84C /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		6B473C3525E41F0300A4B84C /* SectionSecondRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionSecondRow.swift; sourceTree = "<group>"; };
+		6B473C3825E41F2F00A4B84C /* SectionThirdRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionThirdRow.swift; sourceTree = "<group>"; };
+		6B473C3B25E41F6600A4B84C /* WatchRingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchRingsView.swift; sourceTree = "<group>"; };
 		6BDFC7E225E2EC04009ACA10 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		6BDFC7E525E2EC4F009ACA10 /* MDVaccine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDVaccine.swift; sourceTree = "<group>"; };
 		6BDFC7E825E2EC81009ACA10 /* MDVaccineLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDVaccineLocations.swift; sourceTree = "<group>"; };
@@ -93,6 +141,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B473BFD25E415A000A4B84C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				6BEA2C5B25DEB3090096FC12 /* Home.swift */,
+				6BEA2C4225DEB1FE0096FC12 /* ContentView.swift */,
+				6BEA2CD125E024220096FC12 /* MapView.swift */,
+				6BEA2C6825DEB3670096FC12 /* HomeView.swift */,
+				6B41B28125E140AA00DD7E32 /* VaccineLocationsListView.swift */,
+				6B41B28425E140D800DD7E32 /* VaccineLocationsDetails.swift */,
+				6BEA2C5F25DEB3210096FC12 /* CourseList.swift */,
+				6BEA2C6525DEB3560096FC12 /* CourseDetail.swift */,
+				6BEA2C7D25DEB6910096FC12 /* PostList.swift */,
+				6BEA2C8925DEB6DB0096FC12 /* LoadingView.swift */,
+				6BEA2C8C25DEB6EE0096FC12 /* SuccessView.swift */,
+				6B473C1A25E41C0B00A4B84C /* HomeBackgroundView.swift */,
+				6B473C1D25E41CDB00A4B84C /* CardView.swift */,
+				6B473C2025E41CF300A4B84C /* BackCardView.swift */,
+				6B473C2325E41D1A00A4B84C /* TitleView.swift */,
+				6B473C2625E41D3500A4B84C /* BottomCardView.swift */,
+				6B473C2925E41E3200A4B84C /* SectionView.swift */,
+				6B473C2C25E41E7300A4B84C /* SectionSecondRowView.swift */,
+				6B473C2F25E41EB000A4B84C /* SectionThirdRowView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		6B473BFE25E415DE00A4B84C /* Cases */ = {
+			isa = PBXGroup;
+			children = (
+				6BDFC7EF25E30794009ACA10 /* CasesView.swift */,
+				6B473C0C25E4176D00A4B84C /* CaseView.swift */,
+				6B473C0F25E4178C00A4B84C /* HospitalView.swift */,
+				6B473C1325E4186E00A4B84C /* DeathView.swift */,
+			);
+			path = Cases;
+			sourceTree = "<group>";
+		};
+		6B473BFF25E415F200A4B84C /* Tab */ = {
+			isa = PBXGroup;
+			children = (
+				6BEA2C8025DEB6A10096FC12 /* TabBar.swift */,
+			);
+			path = Tab;
+			sourceTree = "<group>";
+		};
+		6B473C0025E4160F00A4B84C /* ProgressRing */ = {
+			isa = PBXGroup;
+			children = (
+				6BEA2C5725DEB2EA0096FC12 /* RingView.swift */,
+				6B473C1625E418B500A4B84C /* CaseRingView.swift */,
+				6B473C3B25E41F6600A4B84C /* WatchRingsView.swift */,
+			);
+			path = ProgressRing;
+			sourceTree = "<group>";
+		};
 		6BDFC7DD25E2E7DD009ACA10 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +215,17 @@
 				6BDFC7E225E2EC04009ACA10 /* Post.swift */,
 				6BDFC7E525E2EC4F009ACA10 /* MDVaccine.swift */,
 				6BDFC7E825E2EC81009ACA10 /* MDVaccineLocations.swift */,
+				6B473BEE25E4149D00A4B84C /* MDPositiveCases.swift */,
+				6B473BF125E414C200A4B84C /* MDTotalCurrentHospital.swift */,
+				6B473BF425E414E700A4B84C /* MDHeader.swift */,
+				6B473BF725E414FA00A4B84C /* MDCases.swift */,
+				6B473BFA25E4150E00A4B84C /* MDDataDeath.swift */,
+				6B473C0325E4171C00A4B84C /* CasesRowOne.swift */,
+				6B473C0625E4173500A4B84C /* HospitalRow.swift */,
+				6B473C0925E4174E00A4B84C /* DeathRow.swift */,
+				6B473C3225E41EE800A4B84C /* Section.swift */,
+				6B473C3525E41F0300A4B84C /* SectionSecondRow.swift */,
+				6B473C3825E41F2F00A4B84C /* SectionThirdRow.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -119,20 +233,10 @@
 		6BDFC7DF25E2E801009ACA10 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6BEA2C5B25DEB3090096FC12 /* Home.swift */,
-				6BEA2C8025DEB6A10096FC12 /* TabBar.swift */,
-				6BEA2C4225DEB1FE0096FC12 /* ContentView.swift */,
-				6BEA2C5725DEB2EA0096FC12 /* RingView.swift */,
-				6BEA2CD125E024220096FC12 /* MapView.swift */,
-				6BEA2C5F25DEB3210096FC12 /* CourseList.swift */,
-				6BEA2C6525DEB3560096FC12 /* CourseDetail.swift */,
-				6BEA2C6825DEB3670096FC12 /* HomeView.swift */,
-				6B41B28125E140AA00DD7E32 /* VaccineLocationsListView.swift */,
-				6B41B28425E140D800DD7E32 /* VaccineLocationsDetails.swift */,
-				6BEA2C7D25DEB6910096FC12 /* PostList.swift */,
-				6BEA2C8925DEB6DB0096FC12 /* LoadingView.swift */,
-				6BEA2C8C25DEB6EE0096FC12 /* SuccessView.swift */,
-				6BDFC7EF25E30794009ACA10 /* CasesView.swift */,
+				6B473C0025E4160F00A4B84C /* ProgressRing */,
+				6B473BFF25E415F200A4B84C /* Tab */,
+				6B473BFE25E415DE00A4B84C /* Cases */,
+				6B473BFD25E415A000A4B84C /* Home */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -270,32 +374,56 @@
 				6B41B28525E140D800DD7E32 /* VaccineLocationsDetails.swift in Sources */,
 				6BEA2C6625DEB3560096FC12 /* CourseDetail.swift in Sources */,
 				6BEA2C9025DEB6FF0096FC12 /* Button.swift in Sources */,
+				6B473C2125E41CF300A4B84C /* BackCardView.swift in Sources */,
+				6B473BF525E414E700A4B84C /* MDHeader.swift in Sources */,
 				6BEA2C7B25DEB67B0096FC12 /* DataStore.swift in Sources */,
 				6BEA2C7825DEB61B0096FC12 /* Data.swift in Sources */,
+				6B473C1E25E41CDB00A4B84C /* CardView.swift in Sources */,
 				6BEA2C5825DEB2EA0096FC12 /* RingView.swift in Sources */,
 				6BEA2C6F25DEB5D80096FC12 /* UpdateList.swift in Sources */,
+				6B473C1725E418B500A4B84C /* CaseRingView.swift in Sources */,
 				6BEA2C8A25DEB6DB0096FC12 /* LoadingView.swift in Sources */,
 				6BEA2CD225E024220096FC12 /* MapView.swift in Sources */,
+				6B473C0D25E4176D00A4B84C /* CaseView.swift in Sources */,
+				6B473C2425E41D1A00A4B84C /* TitleView.swift in Sources */,
 				6BDFC7E925E2EC81009ACA10 /* MDVaccineLocations.swift in Sources */,
 				6BEA2C8725DEB6C10096FC12 /* LottieView.swift in Sources */,
 				6BEA2C6925DEB3670096FC12 /* HomeView.swift in Sources */,
+				6B473BF825E414FA00A4B84C /* MDCases.swift in Sources */,
 				6BEA2C6325DEB3400096FC12 /* CourseStore.swift in Sources */,
+				6B473C3C25E41F6600A4B84C /* WatchRingsView.swift in Sources */,
 				6BDFC7E625E2EC4F009ACA10 /* MDVaccine.swift in Sources */,
 				6BEA2C8125DEB6A10096FC12 /* TabBar.swift in Sources */,
+				6B473C0425E4171C00A4B84C /* CasesRowOne.swift in Sources */,
 				6BEA2C4325DEB1FE0096FC12 /* ContentView.swift in Sources */,
+				6B473C3025E41EB000A4B84C /* SectionThirdRowView.swift in Sources */,
+				6B473C3325E41EE800A4B84C /* Section.swift in Sources */,
 				6BEA2C5525DEB2C70096FC12 /* UserStore.swift in Sources */,
+				6B473C0725E4173500A4B84C /* HospitalRow.swift in Sources */,
+				6B473C2A25E41E3200A4B84C /* SectionView.swift in Sources */,
 				6BEA2C5C25DEB3090096FC12 /* Home.swift in Sources */,
 				6BEA2C4125DEB1FE0096FC12 /* CovidVaccMDApp.swift in Sources */,
+				6B473BFB25E4150E00A4B84C /* MDDataDeath.swift in Sources */,
+				6B473C2725E41D3500A4B84C /* BottomCardView.swift in Sources */,
+				6B473BF225E414C200A4B84C /* MDTotalCurrentHospital.swift in Sources */,
+				6B473C1025E4178C00A4B84C /* HospitalView.swift in Sources */,
 				6BDFC7E325E2EC04009ACA10 /* Post.swift in Sources */,
+				6B473C3925E41F2F00A4B84C /* SectionThirdRow.swift in Sources */,
 				6BEA2C9325DEB70F0096FC12 /* Modifers.swift in Sources */,
 				6BEA2C7E25DEB6910096FC12 /* PostList.swift in Sources */,
 				6B41B28225E140AA00DD7E32 /* VaccineLocationsListView.swift in Sources */,
+				6B473BEF25E4149D00A4B84C /* MDPositiveCases.swift in Sources */,
 				6BEA2C8D25DEB6EE0096FC12 /* SuccessView.swift in Sources */,
 				6BEA2C8425DEB6B20096FC12 /* BlurView.swift in Sources */,
 				6BEA2C7525DEB6080096FC12 /* UpdateStore.swift in Sources */,
+				6B473C2D25E41E7300A4B84C /* SectionSecondRowView.swift in Sources */,
+				6B473C1425E4186E00A4B84C /* DeathView.swift in Sources */,
 				6BDFC7F025E30794009ACA10 /* CasesView.swift in Sources */,
 				6BEA2C6025DEB3210096FC12 /* CourseList.swift in Sources */,
+				6B473C0A25E4174E00A4B84C /* DeathRow.swift in Sources */,
 				6BEA2C9625DEB71E0096FC12 /* Keys.swift in Sources */,
+				6B473C3625E41F0300A4B84C /* SectionSecondRow.swift in Sources */,
+				6B473C1B25E41C0B00A4B84C /* HomeBackgroundView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

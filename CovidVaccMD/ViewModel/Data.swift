@@ -43,186 +43,12 @@ class Api {
 }
 
 
-struct MDHeader: Codable, Hashable {
-    
-    let filter: String?
-    let reportdate: String?
-    let totalcases: String?
-    let casedelta: String?
-    let totaltests: String?
-    let testsdelta: String?
-    let postestpercent: String?
-    let pospercentdiff: String?
-    let negativetests: String?
-    let negdelta: String?
-    let bedstotal: String?
-    let bedsacute: String?
-    let bedsicu: String?
-    let bedsdelta: String?
-    let total_hospitalized: String?
-    let hospitalizeddelta: String?
-    let total_released: String?
-    let releaseddelta: String?
-    
-}
 
-struct MDCases: Codable, Hashable {
-  
-    let alle: String?
-    let anne: String?
-    let balt: String?
-    let bcity: String?
-    let calv: String?
-    let caro: String?
-    let carr: String?
-    let ceci: String?
-    let char: String?
-    let dorc: String?
-    let fred: String?
-    let garr: String?
-    let harf: String?
-    let howa: String?
-    let kent: String?
-    let mont: String?
-    let prin: String?
-    let quee: String?
-    let some: String?
-    let stma: String?
-    let talb: String?
-    let wash: String?
-    let wico: String?
-    let worc: String?
-    let case0to9: String?
-    let case10to19: String?
-    let case20to29: String?
-    let case30to39: String?
-    let case40to49: String?
-    let case50to59: String?
-    let case60to69: String?
-    let case70to79: String?
-    let case80plus: String?
-    let genmale: String?
-    let genfemale: String?
-    let caseaframer: String?
-    let casewhite: String?
-    let casehispanic: String?
-    let caseasian: String?
-    let caseother: String?
+class MDCurrentlyHospitalizedViewModel: ObservableObject {
     
     
-}
-
-struct MDDataDeath: Codable, Hashable {
-    let filter: String?
-    let deathsdelta: String?
-    let deaths: String?
-    let deathdod: String?
-    let deathalle: String?
-    let deathanne: String?
-    let deathbalt: String?
-    let deathbcity: String?
-    let deathcalv: String?
-    let deathcaro: String?
-    let deathcarr: String?
-    let deathceci: String?
-    let deathchar: String?
-    let deathdorc: String?
-    let deathfred: String?
-    let deathgarr: String?
-    let deathharf: String?
-    let deathhowa: String?
-    let deathkent: String?
-    let deathmont: String?
-    let deathprin: String?
-    let deathquee: String?
-    let deathsome: String?
-    let deathstma: String?
-    let deathtalb: String?
-    let deathwash: String?
-    let deathwico: String?
-    let deathworc: String?
-    let deathunkn: String?
-    let death0to9: String?
-    let death10to19: String?
-    let death20to29: String?
-    let death30to39: String?
-    let death40to49: String?
-    let death50to59: String?
-    let death60to69: String?
-    let death70to79: String?
-    let death80plus: String?
-    let deathgenmale: String?
-    let deathgenfemale: String?
-    let deathaframer: String?
-    let deathwhite: String?
-    let deathhispanic: String?
-    let deathasian: String?
-    let deathother: String?
-    let deathnotavail: String?
-    
-}
-
-
-
-// Model For Positive Cases
-struct MDPositiveCases: Codable, Hashable {
-    
-    
-    let features: [CaseFeatures]?
-    
-    
-}
-
-struct CaseFeatures: Codable, Hashable {
-    
-    
-    let attributes: CaseAttributes?
-}
-
-struct CaseAttributes: Codable, Hashable {
-    
-    
-    
-    let date: Int?
-    let number_of_tests: Int?
-    let number_of_positives: Int?
-    let percent_positive: Double?
-    let rolling_avg: Double?
-    
-    
-}
-
-// Model For Total Confirmed Deaths
-
-struct MDTotalConfirmedDeaths: Codable, Hashable {
-    
-    
-    let features: [ConfirmedDeathsFeatures]?
-    
-    
-}
-
-struct ConfirmedDeathsFeatures: Codable, Hashable {
-    
-    
-    let attributes: ConfirmedDeathsAttributes?
-}
-
-struct ConfirmedDeathsAttributes: Codable, Hashable {
-    
-    
-    
-    let DATE: Int?
-    let Count_: Int?
-    
-    
-}
-
-class MDTotalConfirmedDeathsViewModel: ObservableObject {
-    
-    
-    @Published var confirmedDeathsData: MDTotalConfirmedDeaths?
-    @Published var confirmedDeaths: [DeathRow] = []
+    @Published var currentHospitalizedData: MDTotalCurrentHospital?
+    @Published var hospitalRowTwo: [HospitalRow] = []
 
     
     
@@ -232,7 +58,7 @@ class MDTotalConfirmedDeathsViewModel: ObservableObject {
         
         
         
-        let url = URL(string: "https://services.arcgis.com/njFNhDsUCentVYJW/arcgis/rest/services/MDCOVID19_TotalConfirmedDeathsStatewide/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json")!
+        let url = URL(string: "https://services.arcgis.com/njFNhDsUCentVYJW/arcgis/rest/services/MDCOVID19_TotalCurrentlyHospitalizedAcuteAndICU/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json")!
         
         
         let task =  URLSession.shared.dataTask(with: url) { data, response, error in
@@ -266,15 +92,19 @@ class MDTotalConfirmedDeathsViewModel: ObservableObject {
                     
                     
 
-                    self.confirmedDeathsData = try JSONDecoder().decode(MDTotalConfirmedDeaths?.self, from: data)
+                    self.currentHospitalizedData = try JSONDecoder().decode(MDTotalCurrentHospital?.self, from: data)
     
                 
-                    self.confirmedDeaths.append(DeathRow(title: "Total Confirmed Deaths",
-                                                         text: "\(self.confirmedDeathsData?.features?[50].attributes?.Count_ ?? 0)",
-                                                         image: URL(string: "https://static.vecteezy.com/system/resources/previews/000/952/527/non_2x/coronavirus-character-get-vaccination-vector.jpg")!,
+                    self.hospitalRowTwo.append(HospitalRow(title: "Current Hospitalized",
+                                                             text: "\(self.currentHospitalizedData?.features?[(self.currentHospitalizedData?.features!.count)! - 1].attributes?.Total ?? 0)",
+                                                         image: URL(string: "https://khn.org/wp-content/uploads/sites/2/2020/12/GettyImages-1263990592_1350.jpg?w=1270")!,
                                                          logo: #imageLiteral(resourceName: "Logo1"),
                                                          color: .blue))
-                    
+                    self.hospitalRowTwo.append(HospitalRow(title: "Currently in ICU",
+                                                           text: "\(self.currentHospitalizedData?.features?[(self.currentHospitalizedData?.features!.count)! - 1].attributes?.ICU ?? 0)",
+                                                         image: URL(string: "https://khn.org/wp-content/uploads/sites/2/2020/12/GettyImages-1263990592_1350.jpg?w=1270")!,
+                                                         logo: #imageLiteral(resourceName: "Logo1"),
+                                                         color: .blue))
                     
                     
                     
@@ -388,6 +218,7 @@ class CovidMasterModel: ObservableObject {
     @Published var allMDCases = [MDCases]()
     @Published var casesRowOne: [CasesRowOne] = []
     @Published var hospitalRowTwo: [HospitalRow] = []
+    @Published var confirmedDeaths: [DeathRow] = []
     
     
     init() {
@@ -446,18 +277,34 @@ class CovidMasterModel: ObservableObject {
                                                         color: .blue))
                     
                     
-                    
+                    // Hospital Row
+                
                     self.hospitalRowTwo.append(HospitalRow(title: "Total Hospitalized",
                                                         text: "\(self.allMDHeader[self.allMDHeader.count - 1].total_hospitalized ?? "")",
-                                                        image: URL(string: "https://static.vecteezy.com/system/resources/previews/000/952/527/non_2x/coronavirus-character-get-vaccination-vector.jpg")!,
+                                                        image: URL(string: "https://khn.org/wp-content/uploads/sites/2/2020/12/GettyImages-1263990592_1350.jpg?w=1270")!,
                                                         logo: #imageLiteral(resourceName: "Logo1"),
                                                         color: .blue))
                     
                     self.hospitalRowTwo.append(HospitalRow(title: "24 Hour Change in Hospitalizations",
                                                         text: "+\(self.allMDHeader[self.allMDHeader.count - 1].hospitalizeddelta ?? "")",
-                                                        image: URL(string: "https://static.vecteezy.com/system/resources/previews/000/952/527/non_2x/coronavirus-character-get-vaccination-vector.jpg")!,
+                                                        image:  URL(string: "https://khn.org/wp-content/uploads/sites/2/2020/12/GettyImages-1263990592_1350.jpg?w=1270")!,
                                                         logo: #imageLiteral(resourceName: "Logo1"),
                                                         color: .blue))
+                 
+                  
+                    //Death Row
+                    
+                    self.confirmedDeaths.append(DeathRow(title: "Total Confirmed Deaths",
+                                                         text: "\(self.allDeaths[self.allDeaths.count - 1].deaths ?? "")",
+                                                         image: URL(string: "https://labblog.uofmhealth.org/sites/lab/files/2020-08/CovidVaccineBlog_0.jpg")!,
+                                                         logo: #imageLiteral(resourceName: "Logo1"),
+                                                         color: .blue))
+                    
+                    self.confirmedDeaths.append(DeathRow(title: "24 Hour Change in Confirmed Deaths",
+                                                         text: "+\(self.allDeaths[self.allDeaths.count - 1].deathsdelta ?? "")",
+                                                         image: URL(string: "https://labblog.uofmhealth.org/sites/lab/files/2020-08/CovidVaccineBlog_0.jpg")!,
+                                                         logo: #imageLiteral(resourceName: "Logo1"),
+                                                         color: .blue))
                     
                     
                     

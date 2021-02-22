@@ -105,54 +105,9 @@ struct Home_Previews: PreviewProvider {
     }
 }
 
-struct AvatarView: View {
-    @Binding var showProfile: Bool
-    // This gives a typew of the user which allows us to show different Avatars
-    @EnvironmentObject var user: UserStore
-    var body: some View {
-        VStack {
-            if user.isLogged {
-                Button(action: { self.showProfile.toggle()}) {
-                Image("Matthew")
-                    .renderingMode(.original)
-                    .resizable()
-                    .frame(width: 36, height: 36)
-                    .clipShape(Circle())
-            }
-            } else {
-                Button(action: { self.user.showLogin.toggle()}) {
-                Image(systemName: "person")
-                    .foregroundColor(.primary)
-                    .font(.system(size: 16, weight: .medium))
-                    .frame(width: 36, height: 36)
-                    .background(Color("background3"))
-                    .clipShape(Circle())
-                    .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
-                    .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
-            }
-                
-            }
-        }
-    }
-}
+
 
 let screen = UIScreen.main.bounds
 
-struct HomeBackgroundView: View {
-    @Binding var showProfile: Bool
-    
-    
-    var body: some View {
-        VStack {
-            LinearGradient(gradient: Gradient(colors: [Color("background2"), Color("background1")]), startPoint: .top, endPoint: .bottom)
-                .frame(height: 200)
-            Spacer()
-        }
-        .background(Color("background1"))
-        
-        
-        .clipShape(RoundedRectangle(cornerRadius: showProfile ? 30 : 0, style: .continuous))
-        .shadow(color: Color.black.opacity(0.2), radius: 20, x: 0, y: 20)
-    }
-}
+
 

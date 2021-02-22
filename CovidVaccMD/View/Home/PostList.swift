@@ -35,15 +35,3 @@ struct PostList_Previews: PreviewProvider {
     }
 }
 
-
-//// This Adds the ability to view the API Data before adding the combine method
-//.onAppear {
-//
-//    // Adding the posts array and the State var allows us to manipulate the data given to us from the API
-//
-//    Api().getPosts { (posts) in
-//
-//        // Adding the posts to the State posts
-//        self.posts = posts
-//    }
-// }
