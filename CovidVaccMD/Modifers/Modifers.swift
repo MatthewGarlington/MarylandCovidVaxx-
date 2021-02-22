@@ -36,3 +36,19 @@ struct CustomFontModifer: ViewModifier {
     
 }
 
+extension String {
+    func getDateFormatterForString(dateString: String) -> String {
+        
+       
+        let dateFormatter = DateFormatter()
+            dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
+    let newString = dateFormatter.date(from: dateString)
+            dateFormatter.dateStyle = .medium
+    
+    return dateFormatter.string(from: newString!)
+    }
+}
+
+
+
