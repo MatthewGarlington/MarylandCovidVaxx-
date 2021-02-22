@@ -33,6 +33,7 @@
 		6B473C3625E41F0300A4B84C /* SectionSecondRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473C3525E41F0300A4B84C /* SectionSecondRow.swift */; };
 		6B473C3925E41F2F00A4B84C /* SectionThirdRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473C3825E41F2F00A4B84C /* SectionThirdRow.swift */; };
 		6B473C3C25E41F6600A4B84C /* WatchRingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473C3B25E41F6600A4B84C /* WatchRingsView.swift */; };
+		6B473C4125E4251D00A4B84C /* CasesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473C4025E4251D00A4B84C /* CasesList.swift */; };
 		6BDFC7E325E2EC04009ACA10 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDFC7E225E2EC04009ACA10 /* Post.swift */; };
 		6BDFC7E625E2EC4F009ACA10 /* MDVaccine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDFC7E525E2EC4F009ACA10 /* MDVaccine.swift */; };
 		6BDFC7E925E2EC81009ACA10 /* MDVaccineLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDFC7E825E2EC81009ACA10 /* MDVaccineLocations.swift */; };
@@ -94,6 +95,7 @@
 		6B473C3525E41F0300A4B84C /* SectionSecondRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionSecondRow.swift; sourceTree = "<group>"; };
 		6B473C3825E41F2F00A4B84C /* SectionThirdRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionThirdRow.swift; sourceTree = "<group>"; };
 		6B473C3B25E41F6600A4B84C /* WatchRingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchRingsView.swift; sourceTree = "<group>"; };
+		6B473C4025E4251D00A4B84C /* CasesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasesList.swift; sourceTree = "<group>"; };
 		6BDFC7E225E2EC04009ACA10 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		6BDFC7E525E2EC4F009ACA10 /* MDVaccine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDVaccine.swift; sourceTree = "<group>"; };
 		6BDFC7E825E2EC81009ACA10 /* MDVaccineLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDVaccineLocations.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				6B473C0C25E4176D00A4B84C /* CaseView.swift */,
 				6B473C0F25E4178C00A4B84C /* HospitalView.swift */,
 				6B473C1325E4186E00A4B84C /* DeathView.swift */,
+				6B473C4025E4251D00A4B84C /* CasesList.swift */,
 			);
 			path = Cases;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				6B473BF225E414C200A4B84C /* MDTotalCurrentHospital.swift in Sources */,
 				6B473C1025E4178C00A4B84C /* HospitalView.swift in Sources */,
 				6BDFC7E325E2EC04009ACA10 /* Post.swift in Sources */,
+				6B473C4125E4251D00A4B84C /* CasesList.swift in Sources */,
 				6B473C3925E41F2F00A4B84C /* SectionThirdRow.swift in Sources */,
 				6BEA2C9325DEB70F0096FC12 /* Modifers.swift in Sources */,
 				6BEA2C7E25DEB6910096FC12 /* PostList.swift in Sources */,
