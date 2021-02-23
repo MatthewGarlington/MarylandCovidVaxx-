@@ -28,8 +28,11 @@ struct CaseRingView: View {
                 
                 
                 HStack(spacing: 12) {
-                    VStack(spacing: 0) {
-                        RingView(color1: #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1), color2: #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1), width: 100, height: 100, percent:  Double(positiveCasesViewModel.positiveCases?.features?[(positiveCasesViewModel.positiveCases?.features!.count)! - 1].attributes?.rolling_avg ?? Double(0)), show: .constant(true))
+                    VStack(spacing: 15) {
+                        RingView2(color1: #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1), color2: #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1), width: 100, height: 100, percent:  Double(positiveCasesViewModel.positiveCases?.features?[(positiveCasesViewModel.positiveCases?.features!.count)! - 1].attributes?.rolling_avg ?? Double(0)), show: .constant(true))
+                        
+                        
+                       
                    
                     }
                  
