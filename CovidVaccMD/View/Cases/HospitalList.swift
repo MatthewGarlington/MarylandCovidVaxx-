@@ -97,7 +97,7 @@ struct HospitalList: View {
                     .padding(.vertical, 8)
                 
             }
-            .navigationBarTitle("History of Total Case numbers")
+            .navigationBarTitle("History of Total Hospitalizations")
             .navigationBarTitleDisplayMode(.inline)
         }
        
