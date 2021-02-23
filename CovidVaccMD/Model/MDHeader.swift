@@ -8,9 +8,9 @@
 import Foundation
 
 
-struct MDHeader: Codable, Hashable, Identifiable {
+struct MDHeader: Codable, Hashable {
     
-    var id = UUID()
+   
     let filter: String?
     let reportdate: String?
     let totalcases: String?
