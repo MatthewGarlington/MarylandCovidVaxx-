@@ -24,6 +24,4 @@ struct PercentDifferenceRow: Identifiable {
     var id = UUID()
     var text: String
 
-
-    
 }
