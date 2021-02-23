@@ -364,7 +364,7 @@ class VaccineLocationsModel: ObservableObject {
         
         
         
-        let url = URL(string: "https://services.arcgis.com/njFNhDsUCentVYJW/arcgis/rest/services/MD_Vaccination_Locations/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json")!
+        let url = URL(string: "https://services.arcgis.com/njFNhDsUCentVYJW/arcgis/rest/services/MD_Vaccination_Locations/FeatureServer/3/query?where=1%3D1&outFields=*&outSR=4326&f=json")!
         
         
         let task =  URLSession.shared.dataTask(with: url) { data, response, error in
