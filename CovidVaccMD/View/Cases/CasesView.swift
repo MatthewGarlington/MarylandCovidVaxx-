@@ -48,7 +48,13 @@ struct CasesView: View {
                           .font(.system(size: 28, weight: .bold))
 
 
-                        Spacer()
+                        
+//                        ForEach(casesModel.percentChange.indices, id: \.self) { index in
+//                         
+//                                
+//                            PercentChangeView(index: index, percent: casesModel.percentChange[index])
+//                            
+//                        }
 
 
 
@@ -62,6 +68,9 @@ struct CasesView: View {
                 
                 
                     ScrollView(.horizontal, showsIndicators: false) {
+                        
+                  
+                      
                         CaseRingView()
                             .padding(.horizontal, 30)
                             .padding(.bottom, 30)
@@ -93,6 +102,7 @@ struct CasesView: View {
                             ScrollView(.horizontal, showsIndicators: false) {
                      
                             HStack(spacing: 20) {
+                            
                         
                                     ForEach(casesModel.casesRowOne.indices, id: \.self) { index in
                                         GeometryReader { geometry in

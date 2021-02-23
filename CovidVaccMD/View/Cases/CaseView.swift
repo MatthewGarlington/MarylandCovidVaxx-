@@ -85,4 +85,27 @@ struct CaseView: View {
     }
 }
 
+struct PercentChangeView: View {
+    @ObservedObject var store = CourseStore()
+    var index: Int
+    var percent: PercentDifferenceRow
+
+  
+  
+    
+    var body: some View {
+   
+        VStack {
+       
+                   
+                  Text(percent.text)
+                        .font(.system(size: 24, weight: .bold))
+                        .frame(height: 25)
+                        .padding(.bottom, 10)
+
+      
+        }
+    }
+}
+
 

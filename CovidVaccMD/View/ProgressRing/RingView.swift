@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct RingView: View {
+    @ObservedObject var casesModel = CovidMasterModel()
     
     var color1 = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
     var color2 = #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)
@@ -15,6 +16,7 @@ struct RingView: View {
     var height: CGFloat = 200
     var percent: Double = 88.00
     @Binding var show: Bool
+
     
     
     var body: some View {
@@ -38,12 +40,19 @@ struct RingView: View {
                 .shadow(color: Color(color2).opacity(0.1), radius: 3 * multipler, x: 0, y: 3 * multipler)
                 .animation(.easeInOut)
             
+        VStack {
             Text("\(Double(percent), specifier: "%.2f")%")
-                .font(.system(size: 10 * multipler))
-                .fontWeight(.bold)
-                .onTapGesture {
-                    self.show.toggle()
+                    .font(.system(size: 10 * multipler))
+                    .fontWeight(.bold)
+                    .onTapGesture {
+                        self.show.toggle()
                 }
+            
+    
+          
+        
+            
+        }
         }
     }
 }

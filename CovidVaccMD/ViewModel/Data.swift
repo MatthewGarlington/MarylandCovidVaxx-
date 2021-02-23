@@ -225,6 +225,8 @@ class CovidMasterModel: ObservableObject {
     @Published var casesRowOne: [CasesRowOne] = []
     @Published var hospitalRowTwo: [HospitalRow] = []
     @Published var confirmedDeaths: [DeathRow] = []
+    @Published var percentChange: [PercentDifferenceRow] = []
+
     
     
     
@@ -269,6 +271,10 @@ class CovidMasterModel: ObservableObject {
                     self.allMDCases = try JSONDecoder().decode([MDCases].self, from: data)
                     self.allDeaths = try JSONDecoder().decode([MDDataDeath].self, from: data)
                     
+                    print(self.allMDHeader[300].totalcases ?? "nothing to show")
+                    
+                    
+          
                     
                     // Format Date given that is a string
                     
@@ -284,7 +290,7 @@ class CovidMasterModel: ObservableObject {
                     print(dateFormatter.string(from: newString!))
     
                    
-                    
+//                    self.percentChange.append(PercentDifferenceRow(text: "\(self.allMDHeader[self.allMDHeader.count - 1].pospercentdiff ?? "No Data")"))
                 
      
                 
