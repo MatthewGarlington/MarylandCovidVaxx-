@@ -106,6 +106,12 @@ class MDCurrentlyHospitalizedViewModel: ObservableObject {
                                                          logo: #imageLiteral(resourceName: "Logo1"),
                                                          color: .blue))
                     
+                    self.hospitalRowTwo.append(HospitalRow(title: "Currently in Acute Care",
+                                                           text: "\(self.currentHospitalizedData?.features?[(self.currentHospitalizedData?.features!.count)! - 1].attributes?.Acute ?? 0)",
+                                                         image: URL(string: "https://khn.org/wp-content/uploads/sites/2/2020/12/GettyImages-1263990592_1350.jpg?w=1270")!,
+                                                         logo: #imageLiteral(resourceName: "Logo1"),
+                                                         color: .blue))
+                    
                     
                     
                     
