@@ -47,15 +47,8 @@ struct CasesView: View {
                         Text("Maryland Covid 19")
                           .font(.system(size: 28, weight: .bold))
 
-
                         
-//                        ForEach(casesModel.percentChange.indices, id: \.self) { index in
-//                         
-//                                
-//                            PercentChangeView(index: index, percent: casesModel.percentChange[index])
-//                            
-//                        }
-
+                        Spacer()
 
 
                     }
