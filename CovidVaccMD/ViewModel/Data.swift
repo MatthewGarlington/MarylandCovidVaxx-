@@ -290,7 +290,7 @@ class CovidMasterModel: ObservableObject {
                     print(dateFormatter.string(from: newString!))
     
                    
-//                    self.percentChange.append(PercentDifferenceRow(text: "\(self.allMDHeader[self.allMDHeader.count - 1].pospercentdiff ?? "No Data")"))
+                    self.percentChange.append(PercentDifferenceRow(text: "\(self.allMDHeader[self.allMDHeader.count - 1].pospercentdiff ?? "No Data")"))
                 
      
                 
