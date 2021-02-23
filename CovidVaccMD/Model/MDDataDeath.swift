@@ -9,6 +9,7 @@ import Foundation
 
 
 struct MDDataDeath: Codable, Hashable {
+    let reportdate: String?
     let filter: String?
     let deathsdelta: String?
     let deaths: String?
