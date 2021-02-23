@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6B24D8E225E5393B00396DB3 /* HospitalList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B24D8E125E5393B00396DB3 /* HospitalList.swift */; };
+		6B24D91025E55D8100396DB3 /* DeathList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B24D90F25E55D8100396DB3 /* DeathList.swift */; };
 		6B41B28225E140AA00DD7E32 /* VaccineLocationsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B41B28125E140AA00DD7E32 /* VaccineLocationsListView.swift */; };
 		6B41B28525E140D800DD7E32 /* VaccineLocationsDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B41B28425E140D800DD7E32 /* VaccineLocationsDetails.swift */; };
 		6B473BEF25E4149D00A4B84C /* MDPositiveCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473BEE25E4149D00A4B84C /* MDPositiveCases.swift */; };
@@ -71,6 +72,7 @@
 
 /* Begin PBXFileReference section */
 		6B24D8E125E5393B00396DB3 /* HospitalList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalList.swift; sourceTree = "<group>"; };
+		6B24D90F25E55D8100396DB3 /* DeathList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathList.swift; sourceTree = "<group>"; };
 		6B41B28125E140AA00DD7E32 /* VaccineLocationsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineLocationsListView.swift; sourceTree = "<group>"; };
 		6B41B28425E140D800DD7E32 /* VaccineLocationsDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineLocationsDetails.swift; sourceTree = "<group>"; };
 		6B473BEE25E4149D00A4B84C /* MDPositiveCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDPositiveCases.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				6B473C1325E4186E00A4B84C /* DeathView.swift */,
 				6B473C4025E4251D00A4B84C /* CasesList.swift */,
 				6B24D8E125E5393B00396DB3 /* HospitalList.swift */,
+				6B24D90F25E55D8100396DB3 /* DeathList.swift */,
 			);
 			path = Cases;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				6BEA2C6925DEB3670096FC12 /* HomeView.swift in Sources */,
 				6B473BF825E414FA00A4B84C /* MDCases.swift in Sources */,
 				6BEA2C6325DEB3400096FC12 /* CourseStore.swift in Sources */,
+				6B24D91025E55D8100396DB3 /* DeathList.swift in Sources */,
 				6B473C3C25E41F6600A4B84C /* WatchRingsView.swift in Sources */,
 				6BDFC7E625E2EC4F009ACA10 /* MDVaccine.swift in Sources */,
 				6BEA2C8125DEB6A10096FC12 /* TabBar.swift in Sources */,
