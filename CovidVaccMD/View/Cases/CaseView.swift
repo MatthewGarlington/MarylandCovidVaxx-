@@ -14,7 +14,7 @@ struct CaseView: View {
     var cases: CasesRowOne
     var width: CGFloat = 275
     var height: CGFloat = 275
-    @State var showVaccineList = false
+    @State var showCaseList = false
   
     
     var body: some View {
@@ -31,8 +31,8 @@ struct CaseView: View {
                                 .padding(.top, 40)
                                 .foregroundColor(.white)
                             
-                            Button(action: {self.showVaccineList.toggle()}) {
-                                Image(systemName: "list.bullet.rectangle")
+                            Button(action: {self.showCaseList.toggle()}) {
+                                Image(systemName: "list.bullet.indent")
                                     .foregroundColor(Color.red)
                                     .font(.system(size: 16, weight: .medium))
                                     .frame(width: 36, height: 36)
@@ -43,7 +43,7 @@ struct CaseView: View {
                                     .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
                                 
                             }
-                            .sheet(isPresented: $showVaccineList) {
+                            .sheet(isPresented: $showCaseList) {
                                 
                                 CasesList()
                           
