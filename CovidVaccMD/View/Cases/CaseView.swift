@@ -23,12 +23,32 @@ struct CaseView: View {
             VStack {
                    
                     HStack(alignment: .top) {
-                        Text(cases.title)
-                            .font(.system(size: 24, weight: .bold))
-                            .frame(width: 225, alignment: .leading)
-                            .frame(height: 100)
-                            .padding(.top, 35)
-                            .foregroundColor(.white)
+                        HStack {
+                            Text(cases.title)
+                                .font(.system(size: 24, weight: .bold))
+                                .frame(width: 200, alignment: .leading)
+                                .frame(height: 100)
+                                .padding(.top, 40)
+                                .foregroundColor(.white)
+                            
+                            Button(action: {self.showVaccineList.toggle()}) {
+                                Image(systemName: "list.bullet.rectangle")
+                                    .foregroundColor(Color.red)
+                                    .font(.system(size: 16, weight: .medium))
+                                    .frame(width: 36, height: 36)
+                                    .background(Color("background3"))
+                                    .clipShape(Circle())
+                                    .padding(.top, 40)
+                                    .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
+                                    .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
+                                
+                            }
+                            .sheet(isPresented: $showVaccineList) {
+                                
+                                CasesList()
+                          
+                            }
+                        }
              
           
                         
@@ -36,7 +56,8 @@ struct CaseView: View {
                   Text(cases.text)
                         .font(.system(size: 24, weight: .bold))
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .frame(height: 75)
+                        .frame(height: 50)
+                    .padding(.bottom, 10)
                     
                 }
             
@@ -47,7 +68,7 @@ struct CaseView: View {
                 WebImage(url: cases.image)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(height: 150)
+                    .frame(height: 200)
                    //.padding(.bottom, 20)
                    //.blendMode(.darken)
                 }
