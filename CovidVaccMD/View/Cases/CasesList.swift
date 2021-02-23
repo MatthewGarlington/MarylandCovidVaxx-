@@ -26,18 +26,31 @@ struct CasesList: View {
                         VStack(alignment: .leading, spacing: 12) {
                            
                             
-                            HStack {
-                                
-                                
+                            HStack(spacing: 10) {
+                                 
+                           
                                
                                 
                                 Text("\((cases.reportdate?.getDateFormatterForString(dateString: cases.reportdate ?? ""))!):")
                                     .font(.system(size: 20, weight: .bold))
                                 
                                 
-                                Text("\(cases.totalcases ?? "")")
-                                    .font(.system(size: 20, weight: .semibold))
-                                    .padding(.horizontal, 10)
+                                Spacer()
+                                
+                                HStack(spacing: 10) {
+                                    Text("\(cases.totalcases ?? "")")
+                                        .font(.system(size: 20, weight: .semibold))
+                                    
+                                
+                                
+                                VStack(alignment: .leading) {
+                                    Text("+\(cases.casedelta ?? "")")
+                                        .font(.caption)
+                                        .fontWeight(.bold)
+                                        .foregroundColor(.secondary)
+                                    Spacer()
+                                }
+                                }
                             }
                           
                             
