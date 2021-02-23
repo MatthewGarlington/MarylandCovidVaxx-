@@ -94,17 +94,11 @@ struct PercentChangeView: View {
   
     
     var body: some View {
-   
-        VStack {
-       
-                   
-                  Text(percent.text)
-                        .font(.system(size: 24, weight: .bold))
-                        .frame(height: 25)
-                        .padding(.bottom, 10)
-
       
-        }
+                  Text(percent.text)
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+
     }
 }
 
