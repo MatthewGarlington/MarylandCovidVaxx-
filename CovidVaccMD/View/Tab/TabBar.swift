@@ -15,7 +15,7 @@ struct TabBar: View {
                 Image(systemName: "play.circle.fill")
                 Text("Vaccine")
             }
-            CourseList().tabItem {
+            CasesView(showProfile: .constant(false), showContent: .constant(false), viewState: .constant(.zero)).environmentObject(UserStore()).tabItem {
                 Image(systemName: "rectangle.stack.fill")
                 Text("Courses")
                 
