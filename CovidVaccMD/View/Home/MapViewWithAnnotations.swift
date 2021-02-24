@@ -13,7 +13,7 @@ struct MapViewWithAnnotations: View {
     @ObservedObject var vm = VaccineLocationsModel()
     @ObservedObject var massVaccinationsitesViewModel = MassVaccinationViewModel()
     @State var annotations = [MKPointAnnotation]()
-    @State var pinsArray = [MKPointAnnotation]()
+    @State var pinsArray = MKPointAnnotation.example
     @State var pinsMassArray = [MKPointAnnotation]()
     @State var pinsRetailArray = [MKPointAnnotation]()
     @State var showingPlaceDetails = false
