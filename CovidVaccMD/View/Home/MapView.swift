@@ -578,3 +578,123 @@ struct MassMapViewMaryland_Previews: PreviewProvider {
     }
 }
 
+struct LocalHealthMapViewMaryland: UIViewRepresentable {
+    
+
+    @ObservedObject var localHealthVaccineLocations = LocalHealthVaccineLocationsModel()
+    @Binding var annotations: [MKPointAnnotation]
+    @Binding var pinsLocalHealthArray: [MKPointAnnotation]
+    @Binding var selectedPlace: MKPointAnnotation?
+    @Binding var showingPlaceDetails: Bool
+
+  
+
+    func makeUIView(context: Context) -> MKMapView {
+        let mapView = MKMapView()
+        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 39.045753, longitude: -76.641273), latitudinalMeters: CLLocationDistance(exactly: 300000)!, longitudinalMeters: CLLocationDistance(exactly: 300000)!)
+        mapView.setRegion(mapView.regionThatFits(region), animated: true)
+        mapView.delegate = context.coordinator
+        
+
+     return mapView
+    }
+
+    func updateUIView(_ view: MKMapView, context: Context) {
+
+   
+        
+        for i in stride(from: 0, through: (((localHealthVaccineLocations.vaccineLocationsMD?.features?.count ?? 0)-1)), by: 1)
+        {
+            
+            
+        
+        let pinsLocalHealthArray = MKPointAnnotation()
+            
+           
+
+
+            pinsLocalHealthArray.title = localHealthVaccineLocations.vaccineLocationsMD?.features?[i].attributes?.name ?? ""
+            pinsLocalHealthArray.coordinate = CLLocationCoordinate2D(latitude:(localHealthVaccineLocations.vaccineLocationsMD?.features?[i].geometry?.coordinate.latitude ?? 0.0), longitude: (localHealthVaccineLocations.vaccineLocationsMD?.features?[i].geometry?.coordinate.longitude ?? 0.0))
+            pinsLocalHealthArray.subtitle = localHealthVaccineLocations.vaccineLocationsMD?.features?[i].attributes?.fulladdr ?? ""
+        
+     
+            view.addAnnotation(pinsLocalHealthArray)
+              
+            
+        }
+        
+             
+     
+                
+
+    }
+    
+    
+ 
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+
+    class Coordinator: NSObject, MKMapViewDelegate {
+        var parent: LocalHealthMapViewMaryland
+
+        init(_ parent: LocalHealthMapViewMaryland) {
+            self.parent = parent
+            
+            
+        }
+        func mapViewDidChangeVisibleRegion(_ view: MKMapView) {
+        //    parent.centerCoordinate = view.centerCoordinate
+          //  parent.region = view.region
+             
+            
+          
+         
+        }
+        
+  
+        func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+            if !(annotation is MKUserLocation) {
+                let pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: String(annotation.hash))
+
+                let rightButton = UIButton(type: .detailDisclosure)
+                pinView.rightCalloutAccessoryView = rightButton
+                pinView.animatesDrop = false
+                pinView.canShowCallout = true
+             
+              
+             
+               
+                
+                
+
+                return pinView
+            }
+            else {
+                return nil
+            }
+        }
+        func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+            
+            guard let placemark = view.annotation as? MKPointAnnotation? else { return }
+            
+
+            parent.selectedPlace = placemark
+            parent.showingPlaceDetails = true
+        }
+        
+        
+    }
+    
+    
+}
+
+
+
+struct LocalHealthMapViewMaryland_Previews: PreviewProvider {
+    static var previews: some View {
+        LocalHealthMapViewMaryland(annotations: .constant(MKPointAnnotation.exampleArray), pinsLocalHealthArray: .constant(MKPointAnnotation.exampleArray), selectedPlace: .constant(MKPointAnnotation.example), showingPlaceDetails: .constant(true))
+    }
+}
+
