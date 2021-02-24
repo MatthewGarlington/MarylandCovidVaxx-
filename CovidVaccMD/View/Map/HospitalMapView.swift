@@ -15,27 +15,36 @@ struct HospitalMapView: View {
     @State var selectedPlace: MKPointAnnotation?
     var body: some View {
         
-   ZStack(alignment: .bottom) {
-
-       
-       VStack {
-           
-           Spacer()
-                   
-           VStack {
-     
-                   Spacer()
-                     
+        ZStack(alignment: .top) {
+            
+            
+            
             HospitalMapViewMaryland(annotations: $annotations, pinsHospitalArray: $pinsHospitalArray, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails)
-
-                       .alert(isPresented: $showingPlaceDetails) {
-               
-               
-                   Alert(title: Text(selectedPlace?.title ?? ""), message: Text(selectedPlace?.subtitle ?? ""))
-                   }
-           }
-       }
-   }
+                
+                .alert(isPresented: $showingPlaceDetails) {
+                    
+                    
+                    Alert(title: Text(selectedPlace?.title ?? ""), message: Text(selectedPlace?.subtitle ?? ""))
+                }
+            ZStack {
+                
+                BlurView(style: .systemThickMaterial)
+                    .frame(maxWidth: .infinity)
+                    .cornerRadius(15)
+                    .frame(height: 75)
+                    .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 12)
+                    .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
+                    .padding()
+                
+                
+                
+                
+                
+                Text("Hospital Vaccine Locations")
+                    .bold()
+            }
+        }
+        
     }
 }
 struct HospitalMapView_Previews: PreviewProvider {

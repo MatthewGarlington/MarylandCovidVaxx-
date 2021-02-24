@@ -15,29 +15,48 @@ struct LocalHealthMapView: View {
     @State var selectedPlace: MKPointAnnotation?
     var body: some View {
         
-   ZStack(alignment: .bottom) {
-
-       
-       VStack {
-           
-           Spacer()
-                   
-           VStack {
-     
-                   Spacer()
-                     
+        ZStack(alignment: .top) {
+            
+            
+            
+            
             LocalHealthMapViewMaryland(annotations: $annotations, pinsLocalHealthArray: $pinsLocalHealthArray, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails)
-
-                       .alert(isPresented: $showingPlaceDetails) {
-               
-               
-                   Alert(title: Text(selectedPlace?.title ?? ""), message: Text(selectedPlace?.subtitle ?? ""))
-                   }
-           }
-       }
-   }
+                
+                .alert(isPresented: $showingPlaceDetails) {
+                    
+                    
+                    Alert(title: Text(selectedPlace?.title ?? ""), message: Text(selectedPlace?.subtitle ?? ""))
+                }
+            
+            ZStack {
+                
+                BlurView(style: .systemThickMaterial)
+                    .frame(maxWidth: .infinity)
+                    .cornerRadius(15)
+                    .frame(height: 75)
+                    .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 12)
+                    .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
+                    .padding()
+                
+                
+                
+                
+                VStack {
+                   
+                    Text("Local Health Department")
+                        .bold()
+                    
+                    
+                    Text("Vaccination Locations")
+                        .bold()
+                   
+                        
+                }
+            }
+        }
     }
 }
+
 struct LocalHealthMapView_Previews: PreviewProvider {
     static var previews: some View {
         LocalHealthMapView()
