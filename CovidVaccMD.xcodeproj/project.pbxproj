@@ -14,6 +14,7 @@
 		6B24D97325E6DA2B00396DB3 /* RetailMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B24D97225E6DA2B00396DB3 /* RetailMapView.swift */; };
 		6B24D97725E6E0F700396DB3 /* MassMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B24D97625E6E0F700396DB3 /* MassMapView.swift */; };
 		6B24D97A25E6E5D900396DB3 /* LocalHealthMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B24D97925E6E5D900396DB3 /* LocalHealthMapView.swift */; };
+		6B24D97D25E6E8C800396DB3 /* MapTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B24D97C25E6E8C700396DB3 /* MapTabView.swift */; };
 		6B41B28225E140AA00DD7E32 /* VaccineLocationsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B41B28125E140AA00DD7E32 /* VaccineLocationsListView.swift */; };
 		6B41B28525E140D800DD7E32 /* VaccineLocationsDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B41B28425E140D800DD7E32 /* VaccineLocationsDetails.swift */; };
 		6B473BEF25E4149D00A4B84C /* MDPositiveCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473BEE25E4149D00A4B84C /* MDPositiveCases.swift */; };
@@ -83,6 +84,7 @@
 		6B24D97225E6DA2B00396DB3 /* RetailMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetailMapView.swift; sourceTree = "<group>"; };
 		6B24D97625E6E0F700396DB3 /* MassMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MassMapView.swift; sourceTree = "<group>"; };
 		6B24D97925E6E5D900396DB3 /* LocalHealthMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalHealthMapView.swift; sourceTree = "<group>"; };
+		6B24D97C25E6E8C700396DB3 /* MapTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTabView.swift; sourceTree = "<group>"; };
 		6B41B28125E140AA00DD7E32 /* VaccineLocationsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineLocationsListView.swift; sourceTree = "<group>"; };
 		6B41B28425E140D800DD7E32 /* VaccineLocationsDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineLocationsDetails.swift; sourceTree = "<group>"; };
 		6B473BEE25E4149D00A4B84C /* MDPositiveCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDPositiveCases.swift; sourceTree = "<group>"; };
@@ -157,17 +159,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B24D98025E6E8CF00396DB3 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				6BEA2CD125E024220096FC12 /* MapView.swift */,
+				6B24D97C25E6E8C700396DB3 /* MapTabView.swift */,
+				6B24D96625E6925D00396DB3 /* MapViewWithAnnotations.swift */,
+				6B24D97625E6E0F700396DB3 /* MassMapView.swift */,
+				6B24D96D25E6CA0600396DB3 /* HospitalMapView.swift */,
+				6B24D97925E6E5D900396DB3 /* LocalHealthMapView.swift */,
+				6B24D97225E6DA2B00396DB3 /* RetailMapView.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
 		6B473BFD25E415A000A4B84C /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				6BEA2C5B25DEB3090096FC12 /* Home.swift */,
 				6BEA2C4225DEB1FE0096FC12 /* ContentView.swift */,
-				6B24D96625E6925D00396DB3 /* MapViewWithAnnotations.swift */,
-				6B24D96D25E6CA0600396DB3 /* HospitalMapView.swift */,
-				6B24D97225E6DA2B00396DB3 /* RetailMapView.swift */,
-				6B24D97625E6E0F700396DB3 /* MassMapView.swift */,
-				6B24D97925E6E5D900396DB3 /* LocalHealthMapView.swift */,
-				6BEA2CD125E024220096FC12 /* MapView.swift */,
 				6BEA2C6825DEB3670096FC12 /* HomeView.swift */,
 				6B41B28125E140AA00DD7E32 /* VaccineLocationsListView.swift */,
 				6B41B28425E140D800DD7E32 /* VaccineLocationsDetails.swift */,
@@ -257,6 +267,7 @@
 		6BDFC7DF25E2E801009ACA10 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6B24D98025E6E8CF00396DB3 /* Map */,
 				6B473C0025E4160F00A4B84C /* ProgressRing */,
 				6B473BFF25E415F200A4B84C /* Tab */,
 				6B473BFE25E415DE00A4B84C /* Cases */,
@@ -410,6 +421,7 @@
 				6BEA2CD225E024220096FC12 /* MapView.swift in Sources */,
 				6B473C0D25E4176D00A4B84C /* CaseView.swift in Sources */,
 				6B473C2425E41D1A00A4B84C /* TitleView.swift in Sources */,
+				6B24D97D25E6E8C800396DB3 /* MapTabView.swift in Sources */,
 				6BDFC7E925E2EC81009ACA10 /* MDVaccineLocations.swift in Sources */,
 				6BEA2C8725DEB6C10096FC12 /* LottieView.swift in Sources */,
 				6BEA2C6925DEB3670096FC12 /* HomeView.swift in Sources */,
