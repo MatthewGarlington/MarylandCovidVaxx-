@@ -13,11 +13,13 @@ struct MapViewMaryland: UIViewRepresentable {
     
     //var annotations: MKPointAnnotation?
     
-    @ObservedObject var vm = VaccineLocationsModel()
+    @ObservedObject var localHealthVaccineLocations = LocalHealthVaccineLocationsModel()
     @ObservedObject var massVaccinationsitesViewModel = MassVaccinationViewModel()
     @ObservedObject var retailVaccinationsViewModel = RetailVaccinationViewModel()
+    @ObservedObject var hospitalVaccinationsViewModel = HospitalVaccineLocationsModel()
     @Binding var annotations: [MKPointAnnotation]
-    @Binding var pinsArray: MKPointAnnotation
+    @Binding var pinsLocalHealthArray: [MKPointAnnotation]
+    @Binding var pinsHospitalArray: [MKPointAnnotation]
     @Binding var pinsMassArray: [MKPointAnnotation]
     @Binding var pinsRetailArray: [MKPointAnnotation]
     @Binding var selectedPlace: MKPointAnnotation?
@@ -38,22 +40,22 @@ struct MapViewMaryland: UIViewRepresentable {
     func updateUIView(_ view: MKMapView, context: Context) {
 
         
-        for i in stride(from: 0, through: (((vm.vaccineLocationsMD?.features?.count ?? 0)-1)), by: 1)
+        for i in stride(from: 0, through: (((localHealthVaccineLocations.vaccineLocationsMD?.features?.count ?? 0)-1)), by: 1)
         {
             
             
         
-        let pinsArray = MKPointAnnotation()
+        let pinsLocalHealthArray = MKPointAnnotation()
             
            
 
 
-            pinsArray.title = vm.vaccineLocationsMD?.features?[i].attributes?.name ?? ""
-            pinsArray.coordinate = CLLocationCoordinate2D(latitude:(vm.vaccineLocationsMD?.features?[i].geometry?.coordinate.latitude ?? 0.0), longitude: (vm.vaccineLocationsMD?.features?[i].geometry?.coordinate.longitude ?? 0.0))
-            pinsArray.subtitle = vm.vaccineLocationsMD?.features?[i].attributes?.fulladdr ?? ""
+            pinsLocalHealthArray.title = localHealthVaccineLocations.vaccineLocationsMD?.features?[i].attributes?.name ?? ""
+            pinsLocalHealthArray.coordinate = CLLocationCoordinate2D(latitude:(localHealthVaccineLocations.vaccineLocationsMD?.features?[i].geometry?.coordinate.latitude ?? 0.0), longitude: (localHealthVaccineLocations.vaccineLocationsMD?.features?[i].geometry?.coordinate.longitude ?? 0.0))
+            pinsLocalHealthArray.subtitle = localHealthVaccineLocations.vaccineLocationsMD?.features?[i].attributes?.fulladdr ?? ""
         
      
-            view.addAnnotation(pinsArray)
+            view.addAnnotation(pinsLocalHealthArray)
               
             
         }
@@ -94,6 +96,26 @@ struct MapViewMaryland: UIViewRepresentable {
         
      
             view.addAnnotation(pinsRetailArray)
+              
+            
+        }
+        
+        for i in stride(from: 0, through: (((hospitalVaccinationsViewModel.vaccineLocationsMD?.features?.count ?? 0)-1)), by: 1)
+        {
+            
+            
+        
+        let pinsHospitalArray = MKPointAnnotation()
+            
+           
+
+
+            pinsHospitalArray.title = hospitalVaccinationsViewModel.vaccineLocationsMD?.features?[i].attributes?.name ?? ""
+            pinsHospitalArray.coordinate = CLLocationCoordinate2D(latitude:(hospitalVaccinationsViewModel.vaccineLocationsMD?.features?[i].geometry?.coordinate.latitude ?? 0.0), longitude: (hospitalVaccinationsViewModel.vaccineLocationsMD?.features?[i].geometry?.coordinate.longitude ?? 0.0))
+            pinsHospitalArray.subtitle = hospitalVaccinationsViewModel.vaccineLocationsMD?.features?[i].attributes?.fulladdr ?? ""
+        
+     
+            view.addAnnotation(pinsHospitalArray)
               
             
         }
@@ -192,6 +214,6 @@ extension MKPointAnnotation {
 
 struct MapViewMaryland_Previews: PreviewProvider {
     static var previews: some View {
-        MapViewMaryland(annotations: .constant(MKPointAnnotation.exampleArray), pinsArray: .constant(MKPointAnnotation.example), pinsMassArray: .constant(MKPointAnnotation.exampleArray), pinsRetailArray: .constant(MKPointAnnotation.exampleArray), selectedPlace: .constant(MKPointAnnotation.example), showingPlaceDetails:  .constant(true))
+        MapViewMaryland(annotations: .constant(MKPointAnnotation.exampleArray), pinsLocalHealthArray: .constant(MKPointAnnotation.exampleArray), pinsHospitalArray: .constant(MKPointAnnotation.exampleArray), pinsMassArray: .constant(MKPointAnnotation.exampleArray), pinsRetailArray: .constant(MKPointAnnotation.exampleArray), selectedPlace: .constant(MKPointAnnotation.example), showingPlaceDetails:  .constant(true))
     }
 }
