@@ -20,28 +20,42 @@ struct MapViewWithAnnotations: View {
     @State var selectedPlace: MKPointAnnotation?
     var body: some View {
         
-   ZStack(alignment: .bottom) {
-       
-
-       VStack {
-           
-           Spacer()
-                   
-           VStack {
-    
-           
-                   Spacer()
-                     
-            MapViewMaryland(annotations: $annotations, pinsLocalHealthArray: $pinsLocalHealthArray, pinsHospitalArray: $pinsHospitalArray, pinsMassArray: $pinsMassArray, pinsRetailArray: $pinsRetailArray, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails)
+        ZStack(alignment: .top) {
+            
         
-                       .alert(isPresented: $showingPlaceDetails) {
-               
-               
-                   Alert(title: Text(selectedPlace?.title ?? ""), message: Text(selectedPlace?.subtitle ?? ""))
-                   }
-           }
-       }
-   }
+            
+            
+            VStack {
+                MapViewMaryland(annotations: $annotations, pinsLocalHealthArray: $pinsLocalHealthArray, pinsHospitalArray: $pinsHospitalArray, pinsMassArray: $pinsMassArray, pinsRetailArray: $pinsRetailArray, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails)
+                    
+                    .alert(isPresented: $showingPlaceDetails) {
+                        
+                        
+                        Alert(title: Text(selectedPlace?.title ?? ""), message: Text(selectedPlace?.subtitle ?? ""))
+                }
+                
+                
+            }
+            
+            ZStack {
+                
+                BlurView(style: .systemThickMaterial)
+                    .frame(maxWidth: .infinity)
+                    .cornerRadius(15)
+                    .frame(height: 75)
+                    .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 12)
+                    .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
+                    .padding()
+                    
+                    
+                    
+                    
+                
+                Text("All Vaccine Locations")
+                    .bold()
+            }
+         
+        }
     }
 }
 
