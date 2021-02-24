@@ -10,12 +10,13 @@ import MapKit
 
 struct MapViewWithAnnotations: View {
     
-    @ObservedObject var vm = VaccineLocationsModel()
+    @ObservedObject var localHealthVaccineLocations = LocalHealthVaccineLocationsModel()
     @ObservedObject var massVaccinationsitesViewModel = MassVaccinationViewModel()
     @State var annotations = [MKPointAnnotation]()
-    @State var pinsArray = MKPointAnnotation.example
+    @State var pinsLocalHealthArray = [MKPointAnnotation]()
     @State var pinsMassArray = [MKPointAnnotation]()
     @State var pinsRetailArray = [MKPointAnnotation]()
+    @State var pinsHospitalArray = [MKPointAnnotation]()
     @State var showingPlaceDetails = false
     @State var showingEditScreen = false
     @State var selectedPlace: MKPointAnnotation?
@@ -39,7 +40,7 @@ struct MapViewWithAnnotations: View {
            
                    Spacer()
                      
-            MapViewMaryland(annotations: $annotations, pinsArray: $pinsArray, pinsMassArray: $pinsMassArray, pinsRetailArray: $pinsRetailArray, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails)
+            MapViewMaryland(annotations: $annotations, pinsLocalHealthArray: $pinsLocalHealthArray, pinsHospitalArray: $pinsHospitalArray, pinsMassArray: $pinsMassArray, pinsRetailArray: $pinsRetailArray, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails)
                        
                        .frame(maxWidth: 712)
                        .frame(height: 750)
