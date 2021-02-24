@@ -82,38 +82,38 @@ struct HomeView: View {
                         }
                         .sheet(isPresented: $showUpdate) {
                             
-                                 
-                            ZStack(alignment: .bottom) {
-                                
-                                Color("background2")
-                                    .edgesIgnoringSafeArea(.all)
-                                
-                                VStack {
-                                    
-                                    Spacer()
-                                            
-                                    VStack {
-                                        Rectangle()
-                                                    .frame(width: 75, height: 5)
-                                                    .cornerRadius(3)
-                                                    .opacity(0.1)
-                                            .padding()
-                                    
-                                            Spacer()
-                                              
-                                            MapViewMaryland(annotations: $annotations, pinsArray: $pinsArray, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails)
-                                                
-                                                .frame(maxWidth: 712)
-                                                .frame(height: 750)
-                                                .cornerRadius(50)
-                                                .alert(isPresented: $showingPlaceDetails) {
-                                        
-                                        
-                                            Alert(title: Text(selectedPlace?.title ?? ""), message: Text(selectedPlace?.subtitle ?? ""))
-                                            }
-                                    }
-                                }
-                            }
+//                                 
+//                            ZStack(alignment: .bottom) {
+//                                
+//                                Color("background2")
+//                                    .edgesIgnoringSafeArea(.all)
+//                                
+//                                VStack {
+//                                    
+//                                    Spacer()
+//                                            
+//                                    VStack {
+//                                        Rectangle()
+//                                                    .frame(width: 75, height: 5)
+//                                                    .cornerRadius(3)
+//                                                    .opacity(0.1)
+//                                            .padding()
+//                                    
+//                                            Spacer()
+//                                              
+//                                            MapViewMaryland(annotations: $annotations, pinsArray: $pinsArray, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails)
+//                                                
+//                                                .frame(maxWidth: 712)
+//                                                .frame(height: 750)
+//                                                .cornerRadius(50)
+//                                                .alert(isPresented: $showingPlaceDetails) {
+//                                        
+//                                        
+//                                            Alert(title: Text(selectedPlace?.title ?? ""), message: Text(selectedPlace?.subtitle ?? ""))
+//                                            }
+//                                    }
+//                                }
+//                            }
                                 
  
                         }
