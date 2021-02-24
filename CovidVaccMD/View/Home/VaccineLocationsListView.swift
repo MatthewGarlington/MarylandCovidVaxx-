@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct VaccineLocationsListView: View {
-    @ObservedObject var vaccineLocations = VaccineLocationsModel()
+    @ObservedObject var localHealthVaccineLocationModel = LocalHealthVaccineLocationsModel()
     var body: some View {
         NavigationView {
         List {
-            ForEach(vaccineLocations.vaccineLocationsMD?.features ?? [], id: \.self) { vaccine in
+            ForEach(localHealthVaccineLocationModel.vaccineLocationsMD?.features ?? [], id: \.self) { vaccine in
                 NavigationLink(destination: VaccineLocationsDetails(vaccine: vaccine)) {
                     
                     HStack {
