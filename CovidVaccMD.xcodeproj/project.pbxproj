@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6B24D8E225E5393B00396DB3 /* HospitalList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B24D8E125E5393B00396DB3 /* HospitalList.swift */; };
 		6B24D91025E55D8100396DB3 /* DeathList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B24D90F25E55D8100396DB3 /* DeathList.swift */; };
+		6B24D96725E6925E00396DB3 /* MapViewWithAnnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B24D96625E6925D00396DB3 /* MapViewWithAnnotations.swift */; };
 		6B41B28225E140AA00DD7E32 /* VaccineLocationsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B41B28125E140AA00DD7E32 /* VaccineLocationsListView.swift */; };
 		6B41B28525E140D800DD7E32 /* VaccineLocationsDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B41B28425E140D800DD7E32 /* VaccineLocationsDetails.swift */; };
 		6B473BEF25E4149D00A4B84C /* MDPositiveCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473BEE25E4149D00A4B84C /* MDPositiveCases.swift */; };
@@ -73,6 +74,7 @@
 /* Begin PBXFileReference section */
 		6B24D8E125E5393B00396DB3 /* HospitalList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalList.swift; sourceTree = "<group>"; };
 		6B24D90F25E55D8100396DB3 /* DeathList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathList.swift; sourceTree = "<group>"; };
+		6B24D96625E6925D00396DB3 /* MapViewWithAnnotations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewWithAnnotations.swift; sourceTree = "<group>"; };
 		6B41B28125E140AA00DD7E32 /* VaccineLocationsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineLocationsListView.swift; sourceTree = "<group>"; };
 		6B41B28425E140D800DD7E32 /* VaccineLocationsDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineLocationsDetails.swift; sourceTree = "<group>"; };
 		6B473BEE25E4149D00A4B84C /* MDPositiveCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDPositiveCases.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 			children = (
 				6BEA2C5B25DEB3090096FC12 /* Home.swift */,
 				6BEA2C4225DEB1FE0096FC12 /* ContentView.swift */,
+				6B24D96625E6925D00396DB3 /* MapViewWithAnnotations.swift */,
 				6BEA2CD125E024220096FC12 /* MapView.swift */,
 				6BEA2C6825DEB3670096FC12 /* HomeView.swift */,
 				6B41B28125E140AA00DD7E32 /* VaccineLocationsListView.swift */,
@@ -431,6 +434,7 @@
 				6B473C2D25E41E7300A4B84C /* SectionSecondRowView.swift in Sources */,
 				6B473C1425E4186E00A4B84C /* DeathView.swift in Sources */,
 				6BDFC7F025E30794009ACA10 /* CasesView.swift in Sources */,
+				6B24D96725E6925E00396DB3 /* MapViewWithAnnotations.swift in Sources */,
 				6BEA2C6025DEB3210096FC12 /* CourseList.swift in Sources */,
 				6B473C0A25E4174E00A4B84C /* DeathRow.swift in Sources */,
 				6BEA2C9625DEB71E0096FC12 /* Keys.swift in Sources */,
