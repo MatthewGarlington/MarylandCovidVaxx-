@@ -22,7 +22,7 @@ struct Design_CodeAppApp: App {
    
     var body: some Scene {
         WindowGroup {
-            Home()
+            TabBar()
                 .environmentObject(UserStore())
             
         }
