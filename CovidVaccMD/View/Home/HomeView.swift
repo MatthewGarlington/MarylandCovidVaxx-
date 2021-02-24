@@ -21,7 +21,6 @@ struct HomeView: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @State var isScrollable = false
     @ObservedObject var totalVaccineViewModel = TotalVaccineData()
-    @ObservedObject var vm = VaccineLocationsModel()
     @State var annotations = [MKPointAnnotation]()
     @State var pinsArray = [MKPointAnnotation]()
     @State var showingPlaceDetails = false
