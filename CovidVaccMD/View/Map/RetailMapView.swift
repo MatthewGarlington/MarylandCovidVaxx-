@@ -13,6 +13,7 @@ struct RetailMapView: View {
     @State var pinsRetailArray = [MKPointAnnotation]()
     @State var showingPlaceDetails = false
     @State var selectedPlace: MKPointAnnotation?
+    @State var showVaccineList = false
     var body: some View {
         
    ZStack(alignment: .top) {
@@ -40,7 +41,7 @@ struct RetailMapView: View {
         
         
         
-        
+        HStack {
         
         VStack {
            
@@ -52,6 +53,26 @@ struct RetailMapView: View {
                 .bold()
            
                 
+        }
+            
+            
+            Button(action: {self.showVaccineList.toggle()}) {
+                Image(systemName: "list.bullet")
+                    .foregroundColor(Color.red)
+                    .font(.system(size: 16, weight: .medium))
+                    .frame(width: 36, height: 36)
+                    .background(Color("background3"))
+                    .clipShape(Circle())
+                    .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
+                    .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
+                    
+                
+            }.offset(x: 50)
+            .sheet(isPresented: $showVaccineList) {
+                
+                RetailVaccineListView()
+          
+            }
         }
     }
            }
