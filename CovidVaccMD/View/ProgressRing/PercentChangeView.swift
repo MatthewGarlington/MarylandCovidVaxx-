@@ -8,13 +8,35 @@
 import SwiftUI
 
 struct PercentChangeView: View {
+    @ObservedObject var store = CourseStore()
+    var index: Int
+    var percent: PercentDifferenceRow
+
+  
+  
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+      
+                  Text(percent.text)
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+
     }
 }
 
-struct PercentChangeView_Previews: PreviewProvider {
-    static var previews: some View {
-        PercentChangeView()
+struct PercentChangeTotalVaccine: View {
+    @ObservedObject var store = CourseStore()
+    var index: Int
+    var percent: VaccinePercentDifferenceRow
+
+  
+  
+    
+    var body: some View {
+      
+                  Text(percent.text)
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+
     }
 }
