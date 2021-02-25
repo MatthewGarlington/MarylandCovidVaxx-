@@ -1,18 +1,20 @@
 //
-//  VaccineLocationsListView.swift
+//  HospitalVaccineList.swift
 //  CovidVaccMD
 //
-//  Created by Matthew Garlington on 2/20/21.
+//  Created by Matthew Garlington on 2/24/21.
 //
 
 import SwiftUI
 
-struct VaccineLocationsListView: View {
-    @ObservedObject var localHealthVaccineLocationModel = LocalHealthVaccineLocationsModel()
+struct HospitalVaccineList: View {
+    @ObservedObject var hospitalVaccinationsViewModel = HospitalVaccineLocationsModel()
+
     var body: some View {
         NavigationView {
         List {
-            ForEach(localHealthVaccineLocationModel.vaccineLocationsMD?.features ?? [], id: \.self) { vaccine in
+       
+            ForEach(hospitalVaccinationsViewModel.vaccineLocationsMD?.features ?? [], id: \.self) { vaccine in
                 NavigationLink(destination: VaccineLocationsDetails(vaccine: vaccine)) {
                     
                     HStack {
@@ -56,17 +58,18 @@ struct VaccineLocationsListView: View {
                 }
             }
             
-             .padding(.top, 8)
-             .padding(.horizontal, 20)
-            // Lets the bottom card with the Text Field to not take up the entire width of the screen
-         //   .frame(maxWidth: 712)
-            .frame(height: 175)
-            // Adding the BlurView Modifer to give a glass appearance
-            .background(BlurView(style: .systemThinMaterial))
-            .cornerRadius(30)
-            .frame(maxWidth: .infinity)
-           // .frame(maxWidth: .infinity)
-            .listRowBackground(BlurView(style: .systemThinMaterial))
+            
+//             .padding(.top, 8)
+//             .padding(.horizontal, 20)
+//            // Lets the bottom card with the Text Field to not take up the entire width of the screen
+//         //   .frame(maxWidth: 712)
+//            .frame(height: 175)
+//            // Adding the BlurView Modifer to give a glass appearance
+//            .background(BlurView(style: .systemThinMaterial))
+//            .cornerRadius(30)
+//            .frame(maxWidth: .infinity)
+//           // .frame(maxWidth: .infinity)
+//            .listRowBackground(BlurView(style: .systemThinMaterial))
         }
         .navigationBarHidden(false)
     }
@@ -76,15 +79,10 @@ struct VaccineLocationsListView: View {
 }
 }
 
-let vaccineData = VaccineLocationsFeatures(attributes: VaccineLocationAttributes.init(name: "", fulladdr: "", municipality: "", ActiveYesNo: "", operationalhours: "", cost_notes: "", schedule_url: "", online_scheduling: "", scheduling_contact: "", scheduling_contact_phone: "", scheduling_contact_email: "", test_pcr: "", website_url: "", created_date: 1, last_edited_date: 10-10-1000), geometry: Geometry(x: 100, y: 100))
-    
 
 
-
-
-
-struct VaccineLocationsListView_Previews: PreviewProvider {
+struct HospitalVaccineList_Previews: PreviewProvider {
     static var previews: some View {
-        VaccineLocationsListView()
+        HospitalVaccineList()
     }
 }
