@@ -62,10 +62,10 @@ struct AllTestingMap: View {
                             .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
                             
                         
-                    }.offset(x: 50)
+                    }.offset(x: 65)
                     .sheet(isPresented: $showTestingList) {
                         
-                        MassVaccineList()
+                        AllTestingList()
                   
                     }
                     
