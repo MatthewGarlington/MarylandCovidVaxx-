@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct VaccineLocationsListView: View {
+struct LocalHealthList: View {
 
     @ObservedObject var localHealthVaccineLocationModel = LocalHealthVaccineLocationsModel()
 
@@ -87,8 +87,8 @@ let vaccineData = VaccineLocationsFeatures(attributes: VaccineLocationAttributes
 
 
 
-struct VaccineLocationsListView_Previews: PreviewProvider {
+struct LocalHealthListView_Previews: PreviewProvider {
     static var previews: some View {
-        VaccineLocationsListView()
+        LocalHealthList()
     }
 }
