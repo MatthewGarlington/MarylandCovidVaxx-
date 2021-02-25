@@ -85,21 +85,6 @@ struct CaseView: View {
     }
 }
 
-struct PercentChangeView: View {
-    @ObservedObject var store = CourseStore()
-    var index: Int
-    var percent: PercentDifferenceRow
 
-  
-  
-    
-    var body: some View {
-      
-                  Text(percent.text)
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-
-    }
-}
 
 
