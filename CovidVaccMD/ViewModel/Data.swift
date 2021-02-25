@@ -42,6 +42,408 @@ class Api {
     }
 }
 
+class AllTestingLocations: ObservableObject {
+    
+    
+    @Published var testingTestingLocations: MDTestingLocations?
+    
+    
+    
+    
+    init() {
+        
+        
+        
+        let url = URL(string: "https://services.arcgis.com/njFNhDsUCentVYJW/arcgis/rest/services/MD_COVID19_Testing_Sites/FeatureServer/5/query?where=1%3D1&outFields=*&outSR=4326&f=json")!
+        
+        
+        let task =  URLSession.shared.dataTask(with: url) { data, response, error in
+            
+            
+            
+            // ensure there is no error for this HTTP response
+            guard error == nil else {
+                print ("error: \(error!)")
+                return
+            }
+            
+            // ensure there is data returned from this HTTP response
+            guard let data = data else {
+                print("No data")
+                return
+            }
+            
+  
+            
+            DispatchQueue.main.async {
+                
+                do {
+                    
+                    self.testingTestingLocations = try JSONDecoder().decode(MDTestingLocations?.self, from: data)
+                    
+
+                    
+                } catch let jsonError {
+                    
+                    print("Decoding failed for UserDetails", jsonError)
+                }
+            }
+            
+            
+        }
+        
+        
+        // execute the HTTP request
+        task.resume()
+        
+    }
+}
+
+
+class CostFreeTestingLocations: ObservableObject {
+    
+    
+    @Published var testingTestingLocations: MDTestingLocations?
+    
+    
+    
+    
+    init() {
+        
+        
+        
+        let url = URL(string: "https://services.arcgis.com/njFNhDsUCentVYJW/arcgis/rest/services/MD_COVID19_Testing_Sites/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json")!
+        
+        
+        let task =  URLSession.shared.dataTask(with: url) { data, response, error in
+            
+            
+            
+            // ensure there is no error for this HTTP response
+            guard error == nil else {
+                print ("error: \(error!)")
+                return
+            }
+            
+            // ensure there is data returned from this HTTP response
+            guard let data = data else {
+                print("No data")
+                return
+            }
+            
+  
+            
+            DispatchQueue.main.async {
+                
+                do {
+                    
+                    self.testingTestingLocations = try JSONDecoder().decode(MDTestingLocations?.self, from: data)
+                    
+
+                    
+                } catch let jsonError {
+                    
+                    print("Decoding failed for UserDetails", jsonError)
+                }
+            }
+            
+            
+        }
+        
+        
+        // execute the HTTP request
+        task.resume()
+        
+    }
+}
+
+class DriveThruTestingLocations: ObservableObject {
+    
+    
+    @Published var testingTestingLocations: MDTestingLocations?
+    
+    
+    
+    
+    init() {
+        
+        
+        
+        let url = URL(string: "https://services.arcgis.com/njFNhDsUCentVYJW/arcgis/rest/services/MD_COVID19_Testing_Sites/FeatureServer/1/query?where=1%3D1&outFields=*&outSR=4326&f=json")!
+        
+        
+        let task =  URLSession.shared.dataTask(with: url) { data, response, error in
+            
+            
+            
+            // ensure there is no error for this HTTP response
+            guard error == nil else {
+                print ("error: \(error!)")
+                return
+            }
+            
+            // ensure there is data returned from this HTTP response
+            guard let data = data else {
+                print("No data")
+                return
+            }
+            
+  
+            
+            DispatchQueue.main.async {
+                
+                do {
+                    
+                    self.testingTestingLocations = try JSONDecoder().decode(MDTestingLocations?.self, from: data)
+                    
+
+                    
+                } catch let jsonError {
+                    
+                    print("Decoding failed for UserDetails", jsonError)
+                }
+            }
+            
+            
+        }
+        
+        
+        // execute the HTTP request
+        task.resume()
+        
+    }
+}
+
+class OnlineSchedulingTestingLocations: ObservableObject {
+    
+    
+    @Published var testingTestingLocations: MDTestingLocations?
+    
+    
+    
+    
+    init() {
+        
+        
+        
+        let url = URL(string: "https://services.arcgis.com/njFNhDsUCentVYJW/arcgis/rest/services/MD_COVID19_Testing_Sites/FeatureServer/2/query?where=1%3D1&outFields=*&outSR=4326&f=json")!
+        
+        
+        let task =  URLSession.shared.dataTask(with: url) { data, response, error in
+            
+            
+            
+            // ensure there is no error for this HTTP response
+            guard error == nil else {
+                print ("error: \(error!)")
+                return
+            }
+            
+            // ensure there is data returned from this HTTP response
+            guard let data = data else {
+                print("No data")
+                return
+            }
+            
+  
+            
+            DispatchQueue.main.async {
+                
+                do {
+                    
+                    self.testingTestingLocations = try JSONDecoder().decode(MDTestingLocations?.self, from: data)
+                    
+
+                    
+                } catch let jsonError {
+                    
+                    print("Decoding failed for UserDetails", jsonError)
+                }
+            }
+            
+            
+        }
+        
+        
+        // execute the HTTP request
+        task.resume()
+        
+    }
+}
+
+
+class NoAppointmentRequiredTestingLocations: ObservableObject {
+    
+    
+    @Published var testingTestingLocations: MDTestingLocations?
+    
+    
+    
+    
+    init() {
+        
+        
+        
+        let url = URL(string: "https://services.arcgis.com/njFNhDsUCentVYJW/arcgis/rest/services/MD_COVID19_Testing_Sites/FeatureServer/3/query?where=1%3D1&outFields=*&outSR=4326&f=json")!
+        
+        
+        let task =  URLSession.shared.dataTask(with: url) { data, response, error in
+            
+            
+            
+            // ensure there is no error for this HTTP response
+            guard error == nil else {
+                print ("error: \(error!)")
+                return
+            }
+            
+            // ensure there is data returned from this HTTP response
+            guard let data = data else {
+                print("No data")
+                return
+            }
+            
+  
+            
+            DispatchQueue.main.async {
+                
+                do {
+                    
+                    self.testingTestingLocations = try JSONDecoder().decode(MDTestingLocations?.self, from: data)
+                    
+
+                    
+                } catch let jsonError {
+                    
+                    print("Decoding failed for UserDetails", jsonError)
+                }
+            }
+            
+            
+        }
+        
+        
+        // execute the HTTP request
+        task.resume()
+        
+    }
+}
+
+class PedsTestingLocations: ObservableObject {
+    
+    
+    @Published var testingTestingLocations: MDTestingLocations?
+    
+    
+    
+    
+    init() {
+        
+        
+        
+        let url = URL(string: "https://services.arcgis.com/njFNhDsUCentVYJW/arcgis/rest/services/MD_COVID19_Testing_Sites/FeatureServer/4/query?where=1%3D1&outFields=*&outSR=4326&f=json")!
+        
+        
+        let task =  URLSession.shared.dataTask(with: url) { data, response, error in
+            
+            
+            
+            // ensure there is no error for this HTTP response
+            guard error == nil else {
+                print ("error: \(error!)")
+                return
+            }
+            
+            // ensure there is data returned from this HTTP response
+            guard let data = data else {
+                print("No data")
+                return
+            }
+            
+  
+            
+            DispatchQueue.main.async {
+                
+                do {
+                    
+                    self.testingTestingLocations = try JSONDecoder().decode(MDTestingLocations?.self, from: data)
+                    
+
+                    
+                } catch let jsonError {
+                    
+                    print("Decoding failed for UserDetails", jsonError)
+                }
+            }
+            
+            
+        }
+        
+        
+        // execute the HTTP request
+        task.resume()
+        
+    }
+}
+
+class RapidTestingLocations: ObservableObject {
+    
+    
+    @Published var testingTestingLocations: MDTestingLocations?
+    
+    
+    
+    
+    init() {
+        
+        
+        
+        let url = URL(string: "https://services.arcgis.com/njFNhDsUCentVYJW/arcgis/rest/services/MD_COVID19_Testing_Sites/FeatureServer/8/query?where=1%3D1&outFields=*&outSR=4326&f=json")!
+        
+        
+        let task =  URLSession.shared.dataTask(with: url) { data, response, error in
+            
+            
+            
+            // ensure there is no error for this HTTP response
+            guard error == nil else {
+                print ("error: \(error!)")
+                return
+            }
+            
+            // ensure there is data returned from this HTTP response
+            guard let data = data else {
+                print("No data")
+                return
+            }
+            
+  
+            
+            DispatchQueue.main.async {
+                
+                do {
+                    
+                    self.testingTestingLocations = try JSONDecoder().decode(MDTestingLocations?.self, from: data)
+                    
+
+                    
+                } catch let jsonError {
+                    
+                    print("Decoding failed for UserDetails", jsonError)
+                }
+            }
+            
+            
+        }
+        
+        
+        // execute the HTTP request
+        task.resume()
+        
+    }
+}
+
+
 
 
 class MDCurrentlyHospitalizedViewModel: ObservableObject {
