@@ -32,7 +32,6 @@ struct TestingLocationAttributes: Codable, Hashable, Identifiable {
     let id = UUID()
     let name: String?
     let fulladdr: String?
-    let costfree: String?
     let municipality: String?
     let ActiveYesNo: String?
     let operationalhours: String?
