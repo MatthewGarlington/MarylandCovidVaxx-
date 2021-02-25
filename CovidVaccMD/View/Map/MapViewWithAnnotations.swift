@@ -18,6 +18,7 @@ struct MapViewWithAnnotations: View {
     @State var pinsHospitalArray = [MKPointAnnotation]()
     @State var showingPlaceDetails = false
     @State var selectedPlace: MKPointAnnotation?
+   
     var body: some View {
         
         ZStack(alignment: .top) {
@@ -48,11 +49,13 @@ struct MapViewWithAnnotations: View {
                     .padding()
                     
                     
-                    
-                    
+                
+             
                 
                 Text("All Vaccine Locations")
                     .bold()
+                    
+               
             }
          
         }
