@@ -629,6 +629,7 @@ class CovidMasterModel: ObservableObject {
     @Published var confirmedDeaths: [DeathRow] = []
     @Published var percentChange: [PercentDifferenceRow] = []
     @Published var testsRow: [TestRow] = []
+   
 
     
     
@@ -695,6 +696,7 @@ class CovidMasterModel: ObservableObject {
                    // Percent Change for Testing Postiive
                     self.percentChange.append(PercentDifferenceRow(text: "\(self.allMDHeader[self.allMDHeader.count - 1].pospercentdiff ?? "No Data")"))
                     
+           
                     
                     
                     // Tests row
@@ -1068,6 +1070,7 @@ class TotalVaccineData: ObservableObject {
     @Published var sectionsRowThree: [SectionThirdRow] = []
     @Published var ringView: [RingView] = []
     @Published var recentMDVaccineTotals: MDTotalVaccine?
+    @Published var vaccinePercentChange: [VaccinePercentDifferenceRow] = []
     
     let titles = ["Number 1st Dose Given", "24 Hour Change of 1st Doses Given:", "Percent of Population 1st Dose Received", "Number 2nd Dose Received", "24 Hour Change of 2nd Doses Given", "Percent of Population 2nd Dose Received", "All Doses Administered", "Doses Recieved", "All Dose Distributed", "1st Dose Distributed", "2nd Doses Distributed" , ""]
     var index2 = 0
@@ -1110,6 +1113,12 @@ class TotalVaccineData: ObservableObject {
                     
                     
                     self.recentMDVaccineTotals = try JSONDecoder().decode(MDTotalVaccine?.self, from: data)
+                    
+                    
+                    
+                    // Percent Change for Vaccine Total Postive Change
+                    
+                    self.vaccinePercentChange.append(VaccinePercentDifferenceRow(text: "+\(self.recentMDVaccineTotals?.features?[4].attributes?.Value ?? 0)"))
                     
                     // First Row
                     
