@@ -226,6 +226,7 @@ class CovidMasterModel: ObservableObject {
     @Published var hospitalRowTwo: [HospitalRow] = []
     @Published var confirmedDeaths: [DeathRow] = []
     @Published var percentChange: [PercentDifferenceRow] = []
+    @Published var testsRow: [TestRow] = []
 
     
     
@@ -289,12 +290,28 @@ class CovidMasterModel: ObservableObject {
                     dateFormatter.dateStyle = .medium
                     print(dateFormatter.string(from: newString!))
     
-                   
+                   // Percent Change for Testing Postiive
                     self.percentChange.append(PercentDifferenceRow(text: "\(self.allMDHeader[self.allMDHeader.count - 1].pospercentdiff ?? "No Data")"))
+                    
+                    
+                    
+                    // Tests row
+                    
+                    self.testsRow.append(TestRow(title: "Total Tests",
+                                                 text: "\(self.allMDHeader[self.allMDHeader.count - 1].totaltests ?? "")",
+                                                 image: URL(string: "https://techcrunch.com/wp-content/uploads/2020/03/GettyImages-1210572469.jpg")!,
+                                                 logo: #imageLiteral(resourceName: "Logo1"),
+                                                 color: .blue))
+                    self.testsRow.append(TestRow(title: "24 Hour Change in Tests",
+                                                 text: "+\(self.allMDHeader[self.allMDHeader.count - 1].casedelta ?? "")",
+                                                 image: URL(string: "https://techcrunch.com/wp-content/uploads/2020/03/GettyImages-1210572469.jpg")!,
+                                                 logo: #imageLiteral(resourceName: "Logo1"),
+                                                 color: .blue))
+                    
                 
      
                 
-                    // This will be the Total Row
+                    // Cases Row
                     
                     self.casesRowOne.append(CasesRowOne(title: "Total Cases",
                                                         text: "\(self.allMDHeader[self.allMDHeader.count - 1].totalcases ?? "")",
