@@ -22,33 +22,33 @@ struct MapTabView: View {
 
         TabView(selection: $selection) {
             MapViewWithAnnotations().tabItem {
-                selection == 0 ? Image(systemName: "mappin.circle.fill") : Image(systemName: "mappin")
+                selection == 0 ? Image(systemName: "mappin.circle.fill") : Image(systemName: "mappin.circle")
                 Text("All")
                 
             }
             .tag(0)
             RetailMapView().tabItem {
-                selection == 1 ? Image(systemName: "mappin.circle.fill") : Image(systemName: "mappin")
+                selection == 1 ? Image(systemName: "mappin.circle.fill") : Image(systemName: "mappin.circle")
              
                 Text("Retail")
                 
             }
             .tag(1)
             MassMapView().tabItem {
-                selection == 2 ? Image(systemName: "mappin.circle.fill") : Image(systemName: "mappin")
+                selection == 2 ? Image(systemName: "mappin.circle.fill") : Image(systemName: "mappin.circle")
               
                 Text("Mass")
             }
             .tag(2)
             
             HospitalMapView().tabItem {
-                selection == 3 ? Image(systemName: "mappin.circle.fill") : Image(systemName: "mappin")
+                selection == 3 ? Image(systemName: "mappin.circle.fill") : Image(systemName: "mappin.circle")
               
                 Text("Hospital")
             }
             .tag(3)
             LocalHealthMapView().tabItem {
-                selection == 4 ? Image(systemName: "mappin.circle.fill") : Image(systemName: "mappin")
+                selection == 4 ? Image(systemName: "mappin.circle.fill") : Image(systemName: "mappin.circle")
            
                 Text("Local")
             }
