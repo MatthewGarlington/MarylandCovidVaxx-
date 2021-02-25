@@ -64,6 +64,24 @@ struct CasesView: View {
 
                             
                             Spacer()
+                            
+                            Button(action: {self.showUpdate.toggle()}) {
+                                Image(systemName: "mappin")
+                                    .foregroundColor(Color.red)
+                                    .font(.system(size: 16, weight: .medium))
+                                    .frame(width: 36, height: 36)
+                                    .background(Color("background3"))
+                                    .clipShape(Circle())
+                                    .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
+                                    .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
+                                
+                            }
+                            .sheet(isPresented: $showUpdate) {
+                                
+                                TestingMapTabView()
+                                    
+     
+                            }
 
 
                         }
