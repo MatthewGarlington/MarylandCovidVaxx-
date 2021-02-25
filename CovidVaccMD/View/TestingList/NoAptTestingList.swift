@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NoAptList: View {
+struct NoAptTestingList: View {
     @ObservedObject var noAppointmentRequiredeTestingLocations = NoAppointmentRequiredTestingLocations()
     var body: some View {
         NavigationView {
@@ -72,8 +72,8 @@ struct NoAptList: View {
 }
 }
 
-struct NoAptList_Previews: PreviewProvider {
+struct NoAptTestingList_Previews: PreviewProvider {
     static var previews: some View {
-        NoAptList()
+        NoAptTestingList()
     }
 }
