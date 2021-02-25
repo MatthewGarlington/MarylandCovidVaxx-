@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TesingMapTabView: View {
+struct TestingMapTabView: View {
     @State private var selection = 0
     
     var body: some View {
@@ -19,36 +19,43 @@ struct TesingMapTabView: View {
                 
 
         TabView(selection: $selection) {
-            MapViewWithAnnotations().tabItem {
+            AllTestingMap().tabItem {
                 selection == 0 ? Image(systemName: "mappin.circle.fill") : Image(systemName: "mappin.circle")
                 Text("All")
                 
             }
             .tag(0)
-            RetailMapView().tabItem {
+            CostFreeTestingMap().tabItem {
                 selection == 1 ? Image(systemName: "mappin.circle.fill") : Image(systemName: "mappin.circle")
              
-                Text("Retail")
+                Text("Free")
                 
             }
             .tag(1)
-            MassMapView().tabItem {
+            OnlineSchedulingMap().tabItem {
                 selection == 2 ? Image(systemName: "mappin.circle.fill") : Image(systemName: "mappin.circle")
               
-                Text("Mass")
+                Text("Online")
             }
             .tag(2)
             
-            HospitalMapView().tabItem {
+            NoAppointmentRequiredMapView().tabItem {
                 selection == 3 ? Image(systemName: "mappin.circle.fill") : Image(systemName: "mappin.circle")
               
-                Text("Hospital")
+                Text("No Appointment")
             }
             .tag(3)
-            LocalHealthMapView().tabItem {
+//            PedsTestingMap().tabItem {
+//                selection == 4 ? Image(systemName: "mappin.circle.fill") : Image(systemName: "mappin.circle")
+//
+//                Text("Peds")
+//            }
+//            .tag(4)
+            
+            RapidTestingMap().tabItem {
                 selection == 4 ? Image(systemName: "mappin.circle.fill") : Image(systemName: "mappin.circle")
            
-                Text("Local")
+                Text("Rapid")
             }
             .tag(4)
             
@@ -60,7 +67,7 @@ struct TesingMapTabView: View {
      
             HStack {
                 Button(action: {
-                selection = (selection - 1) % 5
+                selection = (selection - 1) % 6
             }) {
                 Text("Back")
                     .font(.system(.headline, design: .rounded))
@@ -78,7 +85,7 @@ struct TesingMapTabView: View {
         Spacer()
         
         Button(action: {
-            selection = (selection + 1) % 5
+            selection = (selection + 1) % 6
         }) {
             Text("Next")
                 .font(.system(.headline, design: .rounded))
@@ -99,8 +106,8 @@ struct TesingMapTabView: View {
     }
 }
 
-struct TesingMapTabView_Previews: PreviewProvider {
+struct TestingMapTabView_Previews: PreviewProvider {
     static var previews: some View {
-        TesingMapTabView()
+        TestingMapTabView()
     }
 }
