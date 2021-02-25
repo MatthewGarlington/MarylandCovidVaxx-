@@ -96,6 +96,8 @@
 		6BF3148F25E8054100858AE0 /* NoAptTestingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF3148E25E8054100858AE0 /* NoAptTestingList.swift */; };
 		6BF3149225E8056C00858AE0 /* PedsTestingLocationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF3149125E8056C00858AE0 /* PedsTestingLocationList.swift */; };
 		6BF3149625E805C500858AE0 /* RapidTestingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF3149525E805C500858AE0 /* RapidTestingList.swift */; };
+		6BF3149A25E83CD200858AE0 /* PercentChangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF3149925E83CD200858AE0 /* PercentChangeView.swift */; };
+		6BF3149D25E83D3700858AE0 /* PercentDifferenceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF3149C25E83D3700858AE0 /* PercentDifferenceRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -187,6 +189,8 @@
 		6BF3148E25E8054100858AE0 /* NoAptTestingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoAptTestingList.swift; sourceTree = "<group>"; };
 		6BF3149125E8056C00858AE0 /* PedsTestingLocationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PedsTestingLocationList.swift; sourceTree = "<group>"; };
 		6BF3149525E805C500858AE0 /* RapidTestingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RapidTestingList.swift; sourceTree = "<group>"; };
+		6BF3149925E83CD200858AE0 /* PercentChangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentChangeView.swift; sourceTree = "<group>"; };
+		6BF3149C25E83D3700858AE0 /* PercentDifferenceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentDifferenceRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +269,7 @@
 				6BEA2C5725DEB2EA0096FC12 /* RingView.swift */,
 				6B473C1625E418B500A4B84C /* CaseRingView.swift */,
 				6B473C3B25E41F6600A4B84C /* WatchRingsView.swift */,
+				6BF3149925E83CD200858AE0 /* PercentChangeView.swift */,
 			);
 			path = ProgressRing;
 			sourceTree = "<group>";
@@ -337,6 +342,7 @@
 				6B473BFA25E4150E00A4B84C /* MDDataDeath.swift */,
 				6B7B846025E7D4E30020FABF /* TestRow.swift */,
 				6B473C0325E4171C00A4B84C /* CasesRowOne.swift */,
+				6BF3149C25E83D3700858AE0 /* PercentDifferenceRow.swift */,
 				6B473C0625E4173500A4B84C /* HospitalRow.swift */,
 				6B473C0925E4174E00A4B84C /* DeathRow.swift */,
 				6B473C3225E41EE800A4B84C /* Section.swift */,
@@ -517,6 +523,7 @@
 				6B473BF525E414E700A4B84C /* MDHeader.swift in Sources */,
 				6BEA2C7B25DEB67B0096FC12 /* DataStore.swift in Sources */,
 				6BF3148F25E8054100858AE0 /* NoAptTestingList.swift in Sources */,
+				6BF3149A25E83CD200858AE0 /* PercentChangeView.swift in Sources */,
 				6BEA2C7825DEB61B0096FC12 /* Data.swift in Sources */,
 				6B473C1E25E41CDB00A4B84C /* CardView.swift in Sources */,
 				6B7B847625E7E3AB0020FABF /* MapTestingView.swift in Sources */,
@@ -540,6 +547,7 @@
 				6B473C0425E4171C00A4B84C /* CasesRowOne.swift in Sources */,
 				6B7B842425E738390020FABF /* MassVaccineList.swift in Sources */,
 				6B24D97725E6E0F700396DB3 /* MassMapView.swift in Sources */,
+				6BF3149D25E83D3700858AE0 /* PercentDifferenceRow.swift in Sources */,
 				6BF3148625E8044400858AE0 /* AllTestingList.swift in Sources */,
 				6B7B848525E7EE1D0020FABF /* OnlineSchedulingMap.swift in Sources */,
 				6BEA2C4325DEB1FE0096FC12 /* ContentView.swift in Sources */,
