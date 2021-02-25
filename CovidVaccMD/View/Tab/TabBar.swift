@@ -11,15 +11,20 @@ struct TabBar: View {
 
     var body: some View {
         TabView {
-            Home().tabItem {
-                Image(systemName: "play.circle.fill")
-                Text("Vaccine")
-            }
-            CasesView(showProfile: .constant(false), showContent: .constant(false), viewState: .constant(.zero)).environmentObject(UserStore()).tabItem {
-                Image(systemName: "rectangle.stack.fill")
-                Text("Courses")
+       
+               
+                    CasesView(showProfile: .constant(false), showContent: .constant(false), viewState: .constant(.zero)).environmentObject(UserStore())
+                    .tabItem {
+                        Image(systemName: "cross.circle.fill")
+                        Text("All Stats")
+                    }
+               
+                        Home().tabItem {
+                    Image(systemName: "cross.case.fill")
+                    Text("Vaccine")
+                }
                 
-            }
+            
         }
         //.edgesIgnoringSafeArea(.top)
     }
