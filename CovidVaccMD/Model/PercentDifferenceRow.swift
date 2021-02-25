@@ -7,14 +7,16 @@
 
 import SwiftUI
 
-struct PercentDifferenceRow: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+struct PercentDifferenceRow: Identifiable {
+    var id = UUID()
+    var text: String
+
 }
 
-struct PercentDifferenceRow_Previews: PreviewProvider {
-    static var previews: some View {
-        PercentDifferenceRow()
-    }
+struct VaccinePercentDifferenceRow: Identifiable {
+    var id = UUID()
+    var text: String
+
 }
+
+
