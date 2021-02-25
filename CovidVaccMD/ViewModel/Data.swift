@@ -363,7 +363,6 @@ class CovidMasterModel: ObservableObject {
 
 
 
-
 class LocalHealthVaccineLocationsModel: ObservableObject {
     
     
