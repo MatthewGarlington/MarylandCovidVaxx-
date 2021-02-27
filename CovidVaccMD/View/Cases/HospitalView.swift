@@ -52,7 +52,7 @@ struct HospitalView: View {
                         }
                         
                     }
-                  Text(hospital.text)
+                  Text("\(hospital.text)")
                     .font(.system(size: 24, weight: .bold))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .frame(height: 50)
