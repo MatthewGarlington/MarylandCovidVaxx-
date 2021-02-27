@@ -53,7 +53,7 @@ struct TestView: View {
           
                         
                     }
-                  Text(tests.text)
+                Text("\(tests.text)")
                         .font(.system(size: 24, weight: .bold))
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .frame(height: 50)
