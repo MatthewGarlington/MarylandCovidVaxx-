@@ -50,7 +50,7 @@ struct DeathView: View {
                         }
                         
                     }
-                  Text(deaths.text)
+                  Text("\(deaths.text)")
                     .font(.system(size: 24, weight: .bold))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .frame(height: 50)
