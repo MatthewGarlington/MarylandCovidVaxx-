@@ -12,7 +12,7 @@ import SDWebImageSwiftUI
 struct DeathRow: Identifiable {
     var id = UUID()
     var title: String
-    var text: String
+    var text: Int
     var image: URL
     var logo: UIImage
     var color: UIColor
