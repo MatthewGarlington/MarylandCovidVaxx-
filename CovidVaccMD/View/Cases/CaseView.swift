@@ -53,7 +53,7 @@ struct CaseView: View {
           
                         
                     }
-                  Text(cases.text)
+                  Text("\(cases.text)")
                         .font(.system(size: 24, weight: .bold))
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .frame(height: 50)
