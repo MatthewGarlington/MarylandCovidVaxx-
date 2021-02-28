@@ -7,6 +7,8 @@
 
 import SwiftUI
 import MapKit
+import CoreLocation
+import Combine
 
 // All Testing Locations Map View
 
@@ -23,8 +25,10 @@ struct MapTestingView: UIViewRepresentable {
         let mapView = MKMapView()
         let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 39.045753, longitude: -76.641273), latitudinalMeters: CLLocationDistance(exactly: 300000)!, longitudinalMeters: CLLocationDistance(exactly: 300000)!)
         mapView.setRegion(mapView.regionThatFits(region), animated: true)
+        mapView.userTrackingMode = .follow
         mapView.delegate = context.coordinator
         
+
 
      return mapView
     }
@@ -142,6 +146,7 @@ struct CostFreeTestingView: UIViewRepresentable {
         let mapView = MKMapView()
         let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 39.045753, longitude: -76.641273), latitudinalMeters: CLLocationDistance(exactly: 300000)!, longitudinalMeters: CLLocationDistance(exactly: 300000)!)
         mapView.setRegion(mapView.regionThatFits(region), animated: true)
+        mapView.userTrackingMode = .follow
         mapView.delegate = context.coordinator
         
 
@@ -260,6 +265,7 @@ struct OnlineSchedulingTestingView: UIViewRepresentable {
         let mapView = MKMapView()
         let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 39.045753, longitude: -76.641273), latitudinalMeters: CLLocationDistance(exactly: 300000)!, longitudinalMeters: CLLocationDistance(exactly: 300000)!)
         mapView.setRegion(mapView.regionThatFits(region), animated: true)
+        mapView.userTrackingMode = .follow
         mapView.delegate = context.coordinator
         
 
@@ -377,6 +383,7 @@ struct NoAppointmentRequiredTestingView: UIViewRepresentable {
         let mapView = MKMapView()
         let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 39.045753, longitude: -76.641273), latitudinalMeters: CLLocationDistance(exactly: 300000)!, longitudinalMeters: CLLocationDistance(exactly: 300000)!)
         mapView.setRegion(mapView.regionThatFits(region), animated: true)
+        mapView.userTrackingMode = .follow
         mapView.delegate = context.coordinator
         
 
@@ -494,6 +501,7 @@ struct PedsTestingMapView: UIViewRepresentable {
         let mapView = MKMapView()
         let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 39.045753, longitude: -76.641273), latitudinalMeters: CLLocationDistance(exactly: 300000)!, longitudinalMeters: CLLocationDistance(exactly: 300000)!)
         mapView.setRegion(mapView.regionThatFits(region), animated: true)
+        mapView.userTrackingMode = .follow
         mapView.delegate = context.coordinator
         
 
@@ -611,6 +619,7 @@ struct RapidTestingMapView: UIViewRepresentable {
         let mapView = MKMapView()
         let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 39.045753, longitude: -76.641273), latitudinalMeters: CLLocationDistance(exactly: 300000)!, longitudinalMeters: CLLocationDistance(exactly: 300000)!)
         mapView.setRegion(mapView.regionThatFits(region), animated: true)
+        mapView.userTrackingMode = .follow
         mapView.delegate = context.coordinator
         
 
