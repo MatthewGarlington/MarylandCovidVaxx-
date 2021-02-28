@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MapKit
+import CoreLocation
 
 struct MassMapView: View {
     @State var annotations = [MKPointAnnotation]()
@@ -14,6 +15,7 @@ struct MassMapView: View {
     @State var showingPlaceDetails = false
     @State var selectedPlace: MKPointAnnotation?
     @State var showVaccineList = false
+    
     var body: some View {
         
         ZStack(alignment: .top) {
