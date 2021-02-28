@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MapKit
+import CoreLocation
 
 struct HospitalMapView: View {
     @State var annotations = [MKPointAnnotation]()
@@ -14,6 +15,7 @@ struct HospitalMapView: View {
     @State var showingPlaceDetails = false
     @State var selectedPlace: MKPointAnnotation?
     @State var showVaccineList = false
+    
     var body: some View {
         
         ZStack(alignment: .top) {
@@ -53,15 +55,15 @@ struct HospitalMapView: View {
                             .clipShape(Circle())
                             .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
                             .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
-                            
-                        
+
+
                     }.offset(x: 50)
                     .sheet(isPresented: $showVaccineList) {
-                        
+
                         HospitalVaccineList()
-                  
+
                     }
-                    
+
               
                 }
             }
