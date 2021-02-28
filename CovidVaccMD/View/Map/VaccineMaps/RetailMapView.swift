@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MapKit
+import CoreLocation
 
 struct RetailMapView: View {
     @State var annotations = [MKPointAnnotation]()
