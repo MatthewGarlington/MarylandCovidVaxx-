@@ -108,8 +108,6 @@ struct HomeView: View {
                                     ForEach(totalVaccineViewModel.sections.indices, id: \.self) { index in
                                         GeometryReader { geometry in
                                             
-                                            
-                                        
                                             SectionView(index: index, section: self.totalVaccineViewModel.sections[index], width: 275, height: 275)
                                             
                                             .rotation3DEffect(Angle(degrees:
