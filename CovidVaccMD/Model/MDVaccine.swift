@@ -31,3 +31,29 @@ struct Attributes: Codable, Hashable {
     
     
 }
+
+struct MDHistoricalVaccine: Codable, Hashable {
+    
+    
+    let features: [MDHistoricalVaccineFeatures]?
+    
+    
+}
+
+struct MDHistoricalVaccineFeatures: Codable, Hashable {
+    
+    
+    let attributes: MDHistoricalVaccineAttributes?
+}
+
+struct MDHistoricalVaccineAttributes: Codable, Hashable {
+    
+    
+    
+    let CumulativeTotalVaccinatedDoseOn: Int?
+    let CumulativeTotalVaccinatedDoseTw: Int?
+    let CumulativeTotalVaccinated: Int?
+    let CumulativeTotalVaccinatedDate: Int?
+    
+    
+}
