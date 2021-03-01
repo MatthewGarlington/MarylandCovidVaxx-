@@ -14,6 +14,7 @@ struct RapidTestingMap: View {
     @State var showingPlaceDetails = false
     @State var selectedPlace: MKPointAnnotation?
     @State var showTestingList = false
+    @State private var showUserLocation = false
    
     var body: some View {
         
@@ -23,12 +24,26 @@ struct RapidTestingMap: View {
             
             
             VStack {
-                RapidTestingMapView(annotations: $annotations, pinsRapidTesting: $pinsRapidTesting, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails)
+                if showUserLocation {
                     
-                    .alert(isPresented: $showingPlaceDetails) {
+                    RapidTestingMapViewWithUserLocation(annotations: $annotations, pinsRapidTesting: $pinsRapidTesting, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails)
                         
+                        .alert(isPresented: $showingPlaceDetails) {
+                            
+                            
+                            Alert(title: Text(selectedPlace?.title ?? ""), message: Text(selectedPlace?.subtitle ?? ""))
+                    }
+                
+                } else {
+                    
+                    RapidTestingMapView(annotations: $annotations, pinsRapidTesting: $pinsRapidTesting, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails)
                         
-                        Alert(title: Text(selectedPlace?.title ?? ""), message: Text(selectedPlace?.subtitle ?? ""))
+                        .alert(isPresented: $showingPlaceDetails) {
+                            
+                            
+                            Alert(title: Text(selectedPlace?.title ?? ""), message: Text(selectedPlace?.subtitle ?? ""))
+                    }
+                    
                 }
                 
                 
@@ -47,6 +62,15 @@ struct RapidTestingMap: View {
                     
                 
                 HStack {
+                    
+                    VStack {
+                        
+                        Toggle("", isOn: $showUserLocation.animation(.interactiveSpring(response: 2, dampingFraction: 0.5, blendDuration: 0.5)))
+                            .toggleStyle(SwitchToggleStyle(tint: .red))
+                        
+                    }
+                    .frame(width: 50)
+                    .offset(x: -30)
              
                     Text("Rapid Testing Locations")
                         .bold()
@@ -63,7 +87,7 @@ struct RapidTestingMap: View {
                             .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
                             
                         
-                    }.offset(x: 50)
+                    }.offset(x: 25)
                     .sheet(isPresented: $showTestingList) {
                         
                         RapidTestingList()
