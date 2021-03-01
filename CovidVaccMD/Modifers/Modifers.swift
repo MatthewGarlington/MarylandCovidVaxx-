@@ -50,6 +50,30 @@ extension String {
     }
 }
 
+extension Int {
+    func getDateFromCrazyInt(date: Int) -> String {
+        
+        
+    
+        let epochTime2 = TimeInterval((date) / 1000)
+        let date2 = Date(timeIntervalSince1970: epochTime2)
+        let formate = date2.getFormattedDate(format: "MM-dd-yyyy")
+        
+     
+        return formate
+    }
+    
+}
+
+extension Date {
+   func getFormattedDate(format: String) -> String {
+        let dateformat = DateFormatter()
+        dateformat.dateFormat = format
+        return dateformat.string(from: self)
+    }
+}
+
+
 
 
 
