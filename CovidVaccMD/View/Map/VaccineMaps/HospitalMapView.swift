@@ -15,20 +15,34 @@ struct HospitalMapView: View {
     @State var showingPlaceDetails = false
     @State var selectedPlace: MKPointAnnotation?
     @State var showVaccineList = false
+    @State private var showUserLocation = false
     
     var body: some View {
         
         ZStack(alignment: .top) {
             
             
-            
-            HospitalMapViewMaryland(annotations: $annotations, pinsHospitalArray: $pinsHospitalArray, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails)
+            if showUserLocation {
                 
-                .alert(isPresented: $showingPlaceDetails) {
+                HospitalMapViewMarylandWithUserLocations(annotations: $annotations, pinsHospitalArray: $pinsHospitalArray, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails)
                     
+                    .alert(isPresented: $showingPlaceDetails) {
+                        
+                        
+                        Alert(title: Text(selectedPlace?.title ?? ""), message: Text(selectedPlace?.subtitle ?? ""))
+                    }
+                
+                
+            } else {
+                
+                HospitalMapViewMaryland(annotations: $annotations, pinsHospitalArray: $pinsHospitalArray, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails)
                     
-                    Alert(title: Text(selectedPlace?.title ?? ""), message: Text(selectedPlace?.subtitle ?? ""))
-                }
+                    .alert(isPresented: $showingPlaceDetails) {
+                        
+                        
+                        Alert(title: Text(selectedPlace?.title ?? ""), message: Text(selectedPlace?.subtitle ?? ""))
+                    }
+            }
             ZStack {
                 
                 BlurView(style: .systemThickMaterial)
@@ -40,11 +54,18 @@ struct HospitalMapView: View {
                     .padding()
                 
                 HStack {
-         
-                
-                
-                Text("Hospital Vaccine Locations")
-                    .bold()
+                    VStack {
+                        
+                        Toggle("", isOn: $showUserLocation.animation(.interactiveSpring(response: 2, dampingFraction: 0.5, blendDuration: 0.5)))
+                            .toggleStyle(SwitchToggleStyle(tint: .red))
+                        
+                    }
+                    .frame(width: 50)
+                    .offset(x: -20)
+                    
+                    
+                    Text("Hospital Vaccine Locations")
+                        .bold()
                     
                     Button(action: {self.showVaccineList.toggle()}) {
                         Image(systemName: "list.bullet")
@@ -55,16 +76,16 @@ struct HospitalMapView: View {
                             .clipShape(Circle())
                             .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
                             .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
-
-
-                    }.offset(x: 50)
+                        
+                        
+                    }.offset(x: 20)
                     .sheet(isPresented: $showVaccineList) {
-
+                        
                         HospitalVaccineList()
-
+                        
                     }
-
-              
+                    
+                    
                 }
             }
         }
