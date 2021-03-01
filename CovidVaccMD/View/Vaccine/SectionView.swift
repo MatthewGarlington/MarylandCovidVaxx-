@@ -14,6 +14,7 @@ struct SectionView: View {
     var section: Section
     var width: CGFloat = 275
     var height: CGFloat = 275
+    @State var showCaseList = false
   
     
     var body: some View {
@@ -24,20 +25,37 @@ struct SectionView: View {
                     HStack(alignment: .top) {
                         Text(section.title)
                             .font(.system(size: 24, weight: .bold))
-                            .frame(width: 225, alignment: .leading)
+                            .frame(width: 200, alignment: .leading)
                             .frame(height: 100)
-                            .padding(.top, 35)
+                            .padding(.top, 40)
                             .foregroundColor(.white)
-                        Spacer()
-                    //    Image(uiImage: section.logo)
+                        Button(action: {self.showCaseList.toggle()}) {
+                            Image(systemName: "list.bullet.indent")
+                                .foregroundColor(Color.red)
+                                .font(.system(size: 16, weight: .medium))
+                                .frame(width: 36, height: 36)
+                                .background(Color("background3"))
+                                .clipShape(Circle())
+                                .padding(.top, 40)
+                                .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
+                                .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
+                             
+                            
+                        }
+                        .offset(x: -10, y: 25)
+                        .sheet(isPresented: $showCaseList) {
+                            
+                            AllDosesList()
+                      
+                        }
                         
                     }
                     section.text
                         .font(.system(size: 24, weight: .bold))
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .frame(height: 75)
-                    
-                }
+                        .frame(height: 50)
+                        .padding(.bottom, 10)
+            }.offset(x: 10)
             
 
         
@@ -45,10 +63,9 @@ struct SectionView: View {
             
                 WebImage(url: section.image)
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(height: 150)
-                   //.padding(.bottom, 20)
-                   //.blendMode(.darken)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: 200)
+                    .frame(width: 275)
                 }
                 
         }
