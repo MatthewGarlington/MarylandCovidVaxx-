@@ -14,6 +14,7 @@ struct PedsTestingMap: View {
     @State var showingPlaceDetails = false
     @State var selectedPlace: MKPointAnnotation?
     @State var showTestingList = false
+    @State private var showUserLocation = false
    
     var body: some View {
         
@@ -23,14 +24,26 @@ struct PedsTestingMap: View {
             
             
             VStack {
-                PedsTestingMapView(annotations: $annotations, pinsPedsTesting: $pinsPedsTesting, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails)
+                if showUserLocation {
                     
-                    .alert(isPresented: $showingPlaceDetails) {
+                    PedsTestingMapViewWithUserLocation(annotations: $annotations, pinsPedsTesting: $pinsPedsTesting, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails)
                         
+                        .alert(isPresented: $showingPlaceDetails) {
+                            
+                            
+                            Alert(title: Text(selectedPlace?.title ?? ""), message: Text(selectedPlace?.subtitle ?? ""))
+                    }
+             
+                } else {
+                    
+                    PedsTestingMapView(annotations: $annotations, pinsPedsTesting: $pinsPedsTesting, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails)
                         
-                        Alert(title: Text(selectedPlace?.title ?? ""), message: Text(selectedPlace?.subtitle ?? ""))
+                        .alert(isPresented: $showingPlaceDetails) {
+                            
+                            
+                            Alert(title: Text(selectedPlace?.title ?? ""), message: Text(selectedPlace?.subtitle ?? ""))
+                    }
                 }
-                
                 
             }
             
@@ -46,6 +59,15 @@ struct PedsTestingMap: View {
                     
                     
                 HStack {
+                    
+                    VStack {
+                        
+                        Toggle("", isOn: $showUserLocation.animation(.interactiveSpring(response: 2, dampingFraction: 0.5, blendDuration: 0.5)))
+                            .toggleStyle(SwitchToggleStyle(tint: .red))
+                        
+                    }
+                    .frame(width: 50)
+                    .offset(x: -50)
              
                 VStack {
                     Text("Pediatrics")
@@ -66,7 +88,7 @@ struct PedsTestingMap: View {
                             .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
                             
                         
-                    }.offset(x: 75)
+                    }.offset(x: 30)
                     .sheet(isPresented: $showTestingList) {
                         
                         PedsTestingLocationList()
