@@ -14,6 +14,7 @@ struct CostFreeTestingMap: View {
     @State var showingPlaceDetails = false
     @State var selectedPlace: MKPointAnnotation?
     @State var showTestingList = false
+    @State private var showUserLocation = false
    
     var body: some View {
         
@@ -23,14 +24,28 @@ struct CostFreeTestingMap: View {
             
             
             VStack {
-                CostFreeTestingView(annotations: $annotations, pinsCostFreeTesting: $pinsCostFreeTesting, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails)
+                if showUserLocation {
                     
-                    .alert(isPresented: $showingPlaceDetails) {
+                    CostFreeTestingViewWithUserLocations(annotations: $annotations, pinsCostFreeTesting: $pinsCostFreeTesting, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails)
                         
+                        .alert(isPresented: $showingPlaceDetails) {
+                            
+                            
+                            Alert(title: Text(selectedPlace?.title ?? ""), message: Text(selectedPlace?.subtitle ?? ""))
+                    }
+              
+                } else {
+                    
+                    CostFreeTestingView(annotations: $annotations, pinsCostFreeTesting: $pinsCostFreeTesting, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails)
                         
-                        Alert(title: Text(selectedPlace?.title ?? ""), message: Text(selectedPlace?.subtitle ?? ""))
+                        .alert(isPresented: $showingPlaceDetails) {
+                            
+                            
+                            Alert(title: Text(selectedPlace?.title ?? ""), message: Text(selectedPlace?.subtitle ?? ""))
+                    }
+                    
+                  
                 }
-                
                 
             }
             
@@ -47,9 +62,24 @@ struct CostFreeTestingMap: View {
                     
                 
                 HStack {
+                    
+                    VStack {
+                        
+                        Toggle("", isOn: $showUserLocation.animation(.interactiveSpring(response: 2, dampingFraction: 0.5, blendDuration: 0.5)))
+                            .toggleStyle(SwitchToggleStyle(tint: .red))
+                        
+                    }
+                    .frame(width: 50)
+                    .offset(x: -30)
+                    
+                    VStack {
                 
-                Text("Cost Free Testing Locations")
-                    .bold()
+                        Text("Cost Free")
+                            .bold()
+                        Text("Testing Locations")
+                            .bold()
+                        
+                    }
                     
                     Button(action: {self.showTestingList.toggle()}) {
                         Image(systemName: "list.bullet")
