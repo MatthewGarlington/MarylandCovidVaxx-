@@ -14,6 +14,7 @@ struct SectionSecondRowView: View {
     var section: SectionSecondRow
     var width: CGFloat = 275
     var height: CGFloat = 275
+    @State var showCaseList = false
   
     
     var body: some View {
@@ -28,16 +29,35 @@ struct SectionSecondRowView: View {
                             .frame(height: 100)
                             .padding(.top, 35)
                             .foregroundColor(.white)
-                        Spacer()
-                    //    Image(uiImage: section.logo)
+                            .offset(x: 5)
+                       
+                        Button(action: {self.showCaseList.toggle()}) {
+                            Image(systemName: "list.bullet.indent")
+                                .foregroundColor(Color.red)
+                                .font(.system(size: 16, weight: .medium))
+                                .frame(width: 36, height: 36)
+                                .background(Color("background3"))
+                                .clipShape(Circle())
+                                .padding(.top, 40)
+                                .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
+                                .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
+                            
+                        }
+                        .offset(x: -15)
+                        .sheet(isPresented: $showCaseList) {
+                            
+                            FirstDoseList()
+                      
+                        }
                         
                     }
                     section.text
                         .font(.system(size: 24, weight: .bold))
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .frame(height: 75)
+                        .offset(x: 20)
                     
-                }
+            }
             
 
         
