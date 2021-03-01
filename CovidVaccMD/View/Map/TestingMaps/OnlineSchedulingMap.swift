@@ -14,6 +14,7 @@ struct OnlineSchedulingMap: View {
     @State var showingPlaceDetails = false
     @State var selectedPlace: MKPointAnnotation?
     @State var showTestingList = false
+    @State private var showUserLocation = false
    
     var body: some View {
         
@@ -23,12 +24,27 @@ struct OnlineSchedulingMap: View {
             
             
             VStack {
-                OnlineSchedulingTestingView(annotations: $annotations, pinsOnlineTesting: $pinsOnlineTesting, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails)
+                if showUserLocation {
                     
-                    .alert(isPresented: $showingPlaceDetails) {
+                    OnlineSchedulingTestingViewWithUserLocations(annotations: $annotations, pinsOnlineTesting: $pinsOnlineTesting, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails)
                         
+                        .alert(isPresented: $showingPlaceDetails) {
+                            
+                            
+                            Alert(title: Text(selectedPlace?.title ?? ""), message: Text(selectedPlace?.subtitle ?? ""))
+                    }
+                
+                } else {
+                    
+                    OnlineSchedulingTestingView(annotations: $annotations, pinsOnlineTesting: $pinsOnlineTesting, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails)
                         
-                        Alert(title: Text(selectedPlace?.title ?? ""), message: Text(selectedPlace?.subtitle ?? ""))
+                        .alert(isPresented: $showingPlaceDetails) {
+                            
+                            
+                            Alert(title: Text(selectedPlace?.title ?? ""), message: Text(selectedPlace?.subtitle ?? ""))
+                    }
+                    
+                    
                 }
                 
                 
@@ -47,9 +63,24 @@ struct OnlineSchedulingMap: View {
                     
                 
                 HStack {
+                    
+                    VStack {
+                        
+                        Toggle("", isOn: $showUserLocation.animation(.interactiveSpring(response: 2, dampingFraction: 0.5, blendDuration: 0.5)))
+                            .toggleStyle(SwitchToggleStyle(tint: .red))
+                        
+                    }
+                    .frame(width: 50)
+                    .offset(x: -25)
+                    
+                    VStack {
                 
-                Text("Online Scheduling Testing Locations")
-                    .bold()
+                        Text("Online Scheduling")
+                            .bold()
+                        Text("Testing Locations")
+                            .bold()
+                        
+                    }
                     
                     
                     Button(action: {self.showTestingList.toggle()}) {
@@ -63,7 +94,7 @@ struct OnlineSchedulingMap: View {
                             .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
                             
                         
-                    }.offset(x: 10)
+                    }.offset(x: 40)
                     .sheet(isPresented: $showTestingList) {
                         
                         OnlineTestingList()
