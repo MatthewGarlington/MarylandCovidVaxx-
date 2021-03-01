@@ -609,13 +609,6 @@ class PositiveCasesViewModel: ObservableObject {
     }
 }
 
-extension Date {
-   func getFormattedDate(format: String) -> String {
-        let dateformat = DateFormatter()
-        dateformat.dateFormat = format
-        return dateformat.string(from: self)
-    }
-}
 
 
 class CovidMasterModel: ObservableObject {
@@ -1181,6 +1174,74 @@ class TotalVaccineData: ObservableObject {
                     
                     
                     
+                    
+                } catch let jsonError {
+                    
+                    print("Decoding failed for Vaccine Data", jsonError)
+                }
+            }
+            
+            
+        }
+        
+        
+        // execute the HTTP request
+        task.resume()
+        
+    }
+}
+
+class HistoricalVaccineData: ObservableObject {
+    
+  
+    @Published var recentMDVaccineTotals: MDHistoricalVaccine?
+
+    
+ 
+   
+    init() {
+        
+        
+        let url = URL(string: "https://services.arcgis.com/njFNhDsUCentVYJW/arcgis/rest/services/MD_COVID19_TotalVaccinationsStatewideFirstandSecondDose/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json")!
+        
+        
+        
+        let task =  URLSession.shared.dataTask(with: url) { data, response, error in
+            
+            
+            // ensure there is no error for this HTTP response
+            guard error == nil else {
+                print ("error: \(error!)")
+                return
+            }
+            
+            // ensure there is data returned from this HTTP response
+            guard let data = data else {
+                print("No data")
+                return
+            }
+            
+            // Parse JSON into newJSON struct using JSONDecoder
+            //            guard let allVaccineJSON = try? JSONDecoder().decode(MDTotalVaccine?.self, from: data) else {
+            //               print("Error: Couldn't decode data into all data in MD Info")
+            //               return
+            //             }
+            ////
+            //            print("gotten json response dictionary is \n \(allVaccineJSON)")
+            // update UI using the response here
+            
+            DispatchQueue.main.async {
+                
+                do {
+                    
+                    
+                    
+                    self.recentMDVaccineTotals = try JSONDecoder().decode(MDHistoricalVaccine?.self, from: data)
+                    
+                   // print(self.recentMDVaccineTotals)
+                    
+                    
+                 
                     
                 } catch let jsonError {
                     
