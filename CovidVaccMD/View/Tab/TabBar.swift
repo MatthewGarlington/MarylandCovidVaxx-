@@ -13,7 +13,7 @@ struct TabBar: View {
         TabView {
        
                
-                    CasesView(showProfile: .constant(false), showContent: .constant(false), viewState: .constant(.zero)).environmentObject(UserStore())
+                    CasesView()
                     .tabItem {
                         Image(systemName: "cross.circle.fill")
                         Text("All Stats")
