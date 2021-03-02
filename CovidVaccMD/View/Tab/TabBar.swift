@@ -13,8 +13,8 @@ struct TabBar: View {
         TabView {
        
                
-                    CasesView()
-                    .tabItem {
+                        Cases()
+                            .tabItem {
                         Image(systemName: "cross.circle.fill")
                         Text("All Stats")
                     }
