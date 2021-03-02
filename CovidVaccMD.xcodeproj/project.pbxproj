@@ -30,9 +30,6 @@
 		6B473C1425E4186E00A4B84C /* DeathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473C1325E4186E00A4B84C /* DeathView.swift */; };
 		6B473C1725E418B500A4B84C /* CaseRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473C1625E418B500A4B84C /* CaseRingView.swift */; };
 		6B473C1B25E41C0B00A4B84C /* HomeBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473C1A25E41C0B00A4B84C /* HomeBackgroundView.swift */; };
-		6B473C1E25E41CDB00A4B84C /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473C1D25E41CDB00A4B84C /* CardView.swift */; };
-		6B473C2125E41CF300A4B84C /* BackCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473C2025E41CF300A4B84C /* BackCardView.swift */; };
-		6B473C2425E41D1A00A4B84C /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473C2325E41D1A00A4B84C /* TitleView.swift */; };
 		6B473C2725E41D3500A4B84C /* BottomCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473C2625E41D3500A4B84C /* BottomCardView.swift */; };
 		6B473C2A25E41E3200A4B84C /* SectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473C2925E41E3200A4B84C /* SectionView.swift */; };
 		6B473C2D25E41E7300A4B84C /* SectionSecondRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B473C2C25E41E7300A4B84C /* SectionSecondRowView.swift */; };
@@ -60,12 +57,12 @@
 		6B7B848B25E7EEF90020FABF /* PedsTestingMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7B848A25E7EEF90020FABF /* PedsTestingMap.swift */; };
 		6B7B848E25E7EF650020FABF /* RapidTestingMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7B848D25E7EF650020FABF /* RapidTestingMap.swift */; };
 		6B7B849125E7F56E0020FABF /* TestingMapTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7B849025E7F56E0020FABF /* TestingMapTabView.swift */; };
+		6B8A237B25EEA68400BAAE18 /* Cases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8A237A25EEA68400BAAE18 /* Cases.swift */; };
 		6BDFC7E325E2EC04009ACA10 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDFC7E225E2EC04009ACA10 /* Post.swift */; };
 		6BDFC7E625E2EC4F009ACA10 /* MDVaccine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDFC7E525E2EC4F009ACA10 /* MDVaccine.swift */; };
 		6BDFC7E925E2EC81009ACA10 /* MDVaccineLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDFC7E825E2EC81009ACA10 /* MDVaccineLocations.swift */; };
 		6BDFC7F025E30794009ACA10 /* CasesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDFC7EF25E30794009ACA10 /* CasesView.swift */; };
 		6BEA2C4125DEB1FE0096FC12 /* CovidVaccMDApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEA2C4025DEB1FE0096FC12 /* CovidVaccMDApp.swift */; };
-		6BEA2C4325DEB1FE0096FC12 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEA2C4225DEB1FE0096FC12 /* ContentView.swift */; };
 		6BEA2C4525DEB1FF0096FC12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BEA2C4425DEB1FF0096FC12 /* Assets.xcassets */; };
 		6BEA2C4825DEB1FF0096FC12 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BEA2C4725DEB1FF0096FC12 /* Preview Assets.xcassets */; };
 		6BEA2C5525DEB2C70096FC12 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEA2C5425DEB2C70096FC12 /* UserStore.swift */; };
@@ -127,9 +124,6 @@
 		6B473C1325E4186E00A4B84C /* DeathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathView.swift; sourceTree = "<group>"; };
 		6B473C1625E418B500A4B84C /* CaseRingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseRingView.swift; sourceTree = "<group>"; };
 		6B473C1A25E41C0B00A4B84C /* HomeBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBackgroundView.swift; sourceTree = "<group>"; };
-		6B473C1D25E41CDB00A4B84C /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		6B473C2025E41CF300A4B84C /* BackCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackCardView.swift; sourceTree = "<group>"; };
-		6B473C2325E41D1A00A4B84C /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		6B473C2625E41D3500A4B84C /* BottomCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCardView.swift; sourceTree = "<group>"; };
 		6B473C2925E41E3200A4B84C /* SectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionView.swift; sourceTree = "<group>"; };
 		6B473C2C25E41E7300A4B84C /* SectionSecondRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionSecondRowView.swift; sourceTree = "<group>"; };
@@ -157,13 +151,13 @@
 		6B7B848A25E7EEF90020FABF /* PedsTestingMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PedsTestingMap.swift; sourceTree = "<group>"; };
 		6B7B848D25E7EF650020FABF /* RapidTestingMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RapidTestingMap.swift; sourceTree = "<group>"; };
 		6B7B849025E7F56E0020FABF /* TestingMapTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingMapTabView.swift; sourceTree = "<group>"; };
+		6B8A237A25EEA68400BAAE18 /* Cases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cases.swift; sourceTree = "<group>"; };
 		6BDFC7E225E2EC04009ACA10 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		6BDFC7E525E2EC4F009ACA10 /* MDVaccine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDVaccine.swift; sourceTree = "<group>"; };
 		6BDFC7E825E2EC81009ACA10 /* MDVaccineLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDVaccineLocations.swift; sourceTree = "<group>"; };
 		6BDFC7EF25E30794009ACA10 /* CasesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasesView.swift; sourceTree = "<group>"; };
 		6BEA2C3D25DEB1FE0096FC12 /* CovidVaccMD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CovidVaccMD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BEA2C4025DEB1FE0096FC12 /* CovidVaccMDApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidVaccMDApp.swift; sourceTree = "<group>"; };
-		6BEA2C4225DEB1FE0096FC12 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6BEA2C4425DEB1FF0096FC12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6BEA2C4725DEB1FF0096FC12 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6BEA2C4925DEB1FF0096FC12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -226,7 +220,6 @@
 			isa = PBXGroup;
 			children = (
 				6BEA2C5B25DEB3090096FC12 /* Home.swift */,
-				6BEA2C4225DEB1FE0096FC12 /* ContentView.swift */,
 				6BEA2C6825DEB3670096FC12 /* HomeView.swift */,
 				6BEA2C5F25DEB3210096FC12 /* CourseList.swift */,
 				6BEA2C6525DEB3560096FC12 /* CourseDetail.swift */,
@@ -234,9 +227,6 @@
 				6BEA2C8925DEB6DB0096FC12 /* LoadingView.swift */,
 				6BEA2C8C25DEB6EE0096FC12 /* SuccessView.swift */,
 				6B473C1A25E41C0B00A4B84C /* HomeBackgroundView.swift */,
-				6B473C1D25E41CDB00A4B84C /* CardView.swift */,
-				6B473C2025E41CF300A4B84C /* BackCardView.swift */,
-				6B473C2325E41D1A00A4B84C /* TitleView.swift */,
 				6B473C2625E41D3500A4B84C /* BottomCardView.swift */,
 				6B473C2925E41E3200A4B84C /* SectionView.swift */,
 				6B473C2C25E41E7300A4B84C /* SectionSecondRowView.swift */,
@@ -251,6 +241,7 @@
 		6B473BFE25E415DE00A4B84C /* Cases */ = {
 			isa = PBXGroup;
 			children = (
+				6B8A237A25EEA68400BAAE18 /* Cases.swift */,
 				6BDFC7EF25E30794009ACA10 /* CasesView.swift */,
 				6B7B846325E7D56C0020FABF /* TestView.swift */,
 				6B473C0C25E4176D00A4B84C /* CaseView.swift */,
@@ -526,7 +517,6 @@
 				6B7B848B25E7EEF90020FABF /* PedsTestingMap.swift in Sources */,
 				6BEA2C9025DEB6FF0096FC12 /* Button.swift in Sources */,
 				6B7B847F25E7EC8B0020FABF /* AllTestingMap.swift in Sources */,
-				6B473C2125E41CF300A4B84C /* BackCardView.swift in Sources */,
 				6B7B848E25E7EF650020FABF /* RapidTestingMap.swift in Sources */,
 				6B7B841825E72D8E0020FABF /* HospitalVaccineList.swift in Sources */,
 				6B473BF525E414E700A4B84C /* MDHeader.swift in Sources */,
@@ -535,7 +525,6 @@
 				6BF3149A25E83CD200858AE0 /* PercentChangeView.swift in Sources */,
 				6BEA2C7825DEB61B0096FC12 /* Data.swift in Sources */,
 				6B77372A25ED63DC00E2F8C4 /* SecondDoseList.swift in Sources */,
-				6B473C1E25E41CDB00A4B84C /* CardView.swift in Sources */,
 				6B7B847625E7E3AB0020FABF /* MapTestingView.swift in Sources */,
 				6BEA2C5825DEB2EA0096FC12 /* RingView.swift in Sources */,
 				6BEA2C6F25DEB5D80096FC12 /* UpdateList.swift in Sources */,
@@ -543,7 +532,6 @@
 				6BEA2C8A25DEB6DB0096FC12 /* LoadingView.swift in Sources */,
 				6BEA2CD225E024220096FC12 /* MapView.swift in Sources */,
 				6B473C0D25E4176D00A4B84C /* CaseView.swift in Sources */,
-				6B473C2425E41D1A00A4B84C /* TitleView.swift in Sources */,
 				6B24D97D25E6E8C800396DB3 /* MapTabView.swift in Sources */,
 				6BDFC7E925E2EC81009ACA10 /* MDVaccineLocations.swift in Sources */,
 				6BEA2C8725DEB6C10096FC12 /* LottieView.swift in Sources */,
@@ -560,7 +548,6 @@
 				6BF3149D25E83D3700858AE0 /* PercentDifferenceRow.swift in Sources */,
 				6BF3148625E8044400858AE0 /* AllTestingList.swift in Sources */,
 				6B7B848525E7EE1D0020FABF /* OnlineSchedulingMap.swift in Sources */,
-				6BEA2C4325DEB1FE0096FC12 /* ContentView.swift in Sources */,
 				6B473C3025E41EB000A4B84C /* SectionThirdRowView.swift in Sources */,
 				6B24D96E25E6CA0600396DB3 /* HospitalMapView.swift in Sources */,
 				6B7B847325E7E2E40020FABF /* MDTestingLocations.swift in Sources */,
@@ -606,6 +593,7 @@
 				6BF3149625E805C500858AE0 /* RapidTestingList.swift in Sources */,
 				6B473C0A25E4174E00A4B84C /* DeathRow.swift in Sources */,
 				6BEA2C9625DEB71E0096FC12 /* Keys.swift in Sources */,
+				6B8A237B25EEA68400BAAE18 /* Cases.swift in Sources */,
 				6B473C3625E41F0300A4B84C /* SectionSecondRow.swift in Sources */,
 				6B473C1B25E41C0B00A4B84C /* HomeBackgroundView.swift in Sources */,
 			);
