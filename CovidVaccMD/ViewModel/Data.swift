@@ -668,9 +668,9 @@ class CovidMasterModel: ObservableObject {
                     self.allMDCases = try JSONDecoder().decode([MDCases].self, from: data)
                     self.allDeaths = try JSONDecoder().decode([MDDataDeath].self, from: data)
                     
-                    print(self.allMDHeader[self.allMDHeader.count - 1].totalcases ?? "nothing to show")
+                 //   print(self.allMDHeader[self.allMDHeader.count - 1].totalcases ?? "nothing to show")
                     
-                    print(Int(self.allMDHeader[self.allMDHeader.count - 1].totalcases ?? "Nothing to show") ?? 0)
+                 //   print(Int(self.allMDHeader[self.allMDHeader.count - 1].totalcases ?? "Nothing to show") ?? 0)
                     
                     
           
@@ -1195,7 +1195,6 @@ class HistoricalVaccineData: ObservableObject {
     
   
     @Published var recentMDVaccineTotals: MDHistoricalVaccine?
-
     
  
    
@@ -1238,10 +1237,17 @@ class HistoricalVaccineData: ObservableObject {
                     
                     self.recentMDVaccineTotals = try JSONDecoder().decode(MDHistoricalVaccine?.self, from: data)
                     
-                   // print(self.recentMDVaccineTotals)
+                  
+                    
+                    for i in stride(from: 1, through: (((self.recentMDVaccineTotals?.features?.count ?? 0)-1)), by: 1) {
+                    
+                        print(
+                            (((self.recentMDVaccineTotals?.features?[i].attributes?.CumulativeTotalVaccinated ?? 2)) -
+                                (self.recentMDVaccineTotals?.features?[i - 1].attributes?.CumulativeTotalVaccinated ?? 1)))
+                                
                     
                     
-                 
+                    }
                     
                 } catch let jsonError {
                     
