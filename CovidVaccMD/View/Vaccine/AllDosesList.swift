@@ -9,6 +9,8 @@ import SwiftUI
 
 struct AllDosesList: View {
     @ObservedObject var vaccineHistoricalViewModel = HistoricalVaccineData()
+    
+
 
     var body: some View {
  
@@ -36,17 +38,11 @@ struct AllDosesList: View {
                                 VStack(alignment: .leading) {
                                     Text("\(vaccine.attributes?.CumulativeTotalVaccinated ?? 0)")
                                             .font(.system(size: 20, weight: .semibold))
-                                       
-                                        
+                                    
+                                 
                                 }
 
                             }
-                          
-                            
-                            
-                        
- 
-                            
                         }
                     }
                     .padding(.vertical, 8)
