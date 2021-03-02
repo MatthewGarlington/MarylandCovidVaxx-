@@ -47,13 +47,11 @@ struct MDHistoricalVaccineFeatures: Codable, Hashable {
 }
 
 struct MDHistoricalVaccineAttributes: Codable, Hashable {
-    
-    
-    
+
     let CumulativeTotalVaccinatedDoseOn: Int?
     let CumulativeTotalVaccinatedDoseTw: Int?
     let CumulativeTotalVaccinated: Int?
     let CumulativeTotalVaccinatedDate: Int?
-    
-    
+
 }
+
