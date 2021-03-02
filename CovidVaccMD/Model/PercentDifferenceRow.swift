@@ -20,3 +20,6 @@ struct VaccinePercentDifferenceRow: Identifiable {
 }
 
 
+
+
+
