@@ -26,6 +26,7 @@ struct HomeView: View {
     @State var showingPlaceDetails = false
     @State var showingEditScreen = false
     @State var selectedPlace: MKPointAnnotation?
+    @State var showCard = false
    
     
 
@@ -79,9 +80,16 @@ struct HomeView: View {
                     WatchRingsView()
                         .padding(.horizontal, 30)
                         .padding(.bottom, 30)
+                        .sheet(isPresented: $showContent, content: {
+                            BottomCardView()
+                        })
                         .onTapGesture {
-                            self.showContent = true
+                            showContent.toggle()
+                            
+
                         }
+                      
+                    
                 }
                 .blur(radius: self.active ? 20 : 0)
                 
