@@ -14,7 +14,7 @@ struct CaseView: View {
     var cases: CasesRowOne
     var width: CGFloat = 275
     var height: CGFloat = 275
-    @State var showCaseList = false
+    @Binding var showCaseList: Bool
   
     
     var body: some View {
@@ -43,11 +43,7 @@ struct CaseView: View {
                                     .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
                                 
                             }
-                            .sheet(isPresented: $showCaseList) {
-                                
-                                CasesList()
-                          
-                            }
+                         
                         }
              
           
