@@ -16,6 +16,7 @@ struct HospitalView: View {
     var width: CGFloat = 275
     var height: CGFloat = 275
     @Binding var showHospitalList: Bool
+    @Binding var isLoading: Bool
   
     
     var body: some View {
@@ -32,7 +33,18 @@ struct HospitalView: View {
                             .foregroundColor(.white)
                         
                         Spacer()
-                        Button(action: {self.showHospitalList.toggle()}) {
+                        Button(action: {
+                            
+                            self.showHospitalList.toggle()
+                            
+                            self.isLoading.toggle()
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+                                // Return to the screen and clear the fields
+                                self.isLoading = false
+                            }
+                            
+                        }) {
                             Image(systemName: "list.bullet.indent")
                                 .foregroundColor(Color.red)
                                 .font(.system(size: 16, weight: .medium))
