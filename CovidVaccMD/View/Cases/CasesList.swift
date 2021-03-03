@@ -45,7 +45,7 @@ struct CasesList: View {
                             .frame(width: 250, height: 50, alignment: .center)
                             .cornerRadius(20)
                     
-                    Text("History of Total Vaccines")
+                    Text("History of Total Cases")
                         .bold()
                        
                         

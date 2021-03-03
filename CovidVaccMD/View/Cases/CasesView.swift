@@ -42,6 +42,10 @@ struct HomeCases: View {
     @State var showTestList = false
     @State var showHospitalList = false
     @State var showDeathList = false
+    @State var isLoading = false
+    @State var isSuccessful = false
+    @State var showLoadingLottie = false
+ 
     
     var body: some View {
         GeometryReader { bounds in
@@ -133,7 +137,7 @@ struct HomeCases: View {
                                     ForEach(casesModel.testsRow.indices, id: \.self) { index in
                                         GeometryReader { geometry in
                                             
-                                            TestView(index: index, tests: casesModel.testsRow[index], showTestList: $showTestList)
+                                            TestView(index: index, tests: casesModel.testsRow[index], showTestList: $showTestList, isLoading: $isLoading)
                                                 
                                                 
                                                 .rotation3DEffect(Angle(degrees:
@@ -190,7 +194,7 @@ struct HomeCases: View {
                                     ForEach(casesModel.casesRowOne.indices, id: \.self) { index in
                                         GeometryReader { geometry in
                                             
-                                            CaseView(index: index, cases: casesModel.casesRowOne[index], showCaseList: $showCaseList)
+                                            CaseView(index: index, cases: casesModel.casesRowOne[index], showCaseList: $showCaseList, isLoading: $isLoading)
                                                 
                                                 
                                                 .rotation3DEffect(Angle(degrees:
@@ -238,7 +242,7 @@ struct HomeCases: View {
                                     ForEach(casesModel.hospitalRowTwo.indices, id: \.self) { index in
                                         GeometryReader { geometry in
                                             
-                                            HospitalView(index: index, hospital: casesModel.hospitalRowTwo[index], showHospitalList: $showHospitalList)
+                                            HospitalView(index: index, hospital: casesModel.hospitalRowTwo[index], showHospitalList: $showHospitalList, isLoading: $isLoading)
                                                 
                                                 
                                                 .rotation3DEffect(Angle(degrees:
@@ -252,7 +256,7 @@ struct HomeCases: View {
                                     ForEach(currentlyHospitalizedViewModel.hospitalRowTwo.indices, id: \.self) { index in
                                         GeometryReader { geometry in
                                             
-                                            HospitalView(index: index, hospital: currentlyHospitalizedViewModel.hospitalRowTwo[index], showHospitalList: $showHospitalList)
+                                            HospitalView(index: index, hospital: currentlyHospitalizedViewModel.hospitalRowTwo[index], showHospitalList: $showHospitalList, isLoading: $isLoading)
                                                 
                                                 
                                                 .rotation3DEffect(Angle(degrees:
@@ -301,7 +305,7 @@ struct HomeCases: View {
                                         ForEach(casesModel.confirmedDeaths.indices, id: \.self) { index in
                                             GeometryReader { geometry in
                                                 
-                                                DeathView(index: index, deaths: casesModel.confirmedDeaths[index], showDeathList: $showDeathList)
+                                                DeathView(index: index, deaths: casesModel.confirmedDeaths[index], showDeathList: $showDeathList, isLoading: $isLoading)
                                                     
                                                     
                                                     .rotation3DEffect(Angle(degrees:
@@ -365,6 +369,14 @@ struct HomeCases: View {
             
             CasesList()
                 .offset(y: 20)
+                
+                if isLoading {
+                    
+                    SuccessView()
+                        .offset(y: 30)
+                      
+                    
+                }
             
                 
                 ZStack {
@@ -379,11 +391,11 @@ struct HomeCases: View {
                     .offset(x: 175, y: -350)
                     .onTapGesture {
                         self.showCaseList = false
-                        
-                    }
+              
                     
-                   
+                
            
+                }
                 }
              
                 
@@ -391,19 +403,29 @@ struct HomeCases: View {
      
             
         }
-        
-        
-        if showTestList {
+            if showTestList {
+
+                
+    
             
             
             ZStack {
                 
-                
+            
             
             
             TestsList()
                 .offset(y: 20)
             
+                if isLoading {
+                    
+                    SuccessView()
+                        .offset(y: 30)
+                      
+                    
+                }
+                
+                
                 
                 ZStack {
                     VStack {
@@ -417,18 +439,26 @@ struct HomeCases: View {
                     .offset(x: 175, y: -350)
                     .onTapGesture {
                         self.showTestList = false
+                        // Show SuccessView upon tapping after the two second delay or API call being made
+                        
+                      
                         
                     }
+                        
                     
-                   
+                
+             
+                    
+            }
            
                 }
              
                 
+            
             }
      
             
-        }
+        
         
         
         if showHospitalList {
@@ -441,6 +471,14 @@ struct HomeCases: View {
             
             HospitalList()
                 .offset(y: 20)
+                
+                if isLoading {
+                    
+                    SuccessView()
+                        .offset(y: 30)
+                      
+                    
+                }
             
                 
                 ZStack {
@@ -478,6 +516,14 @@ struct HomeCases: View {
             
             DeathList()
                 .offset(y: 20)
+                
+                if isLoading {
+                    
+                    SuccessView()
+                        .offset(y: 30)
+                      
+                    
+                }
             
                 
                 ZStack {
@@ -504,5 +550,16 @@ struct HomeCases: View {
      
             
         }
+        
+     
+     
+            
+        
+ 
+   
     }
 }
+
+
+
+
