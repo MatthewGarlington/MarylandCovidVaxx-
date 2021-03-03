@@ -22,20 +22,28 @@ struct Home: View {
 
     
     var body: some View {
-        
+     
         ZStack {
             
-            Color("background2")
-                .edgesIgnoringSafeArea(.all)
+//            Color("background2")
+//                .edgesIgnoringSafeArea(.all)
             
       
             HomeBackgroundView(showProfile: $showProfile)
+                .edgesIgnoringSafeArea(.all)
 
             
             
             
 
             HomeView(showProfile: $showProfile, showContent: $showContent, viewState: $viewState)
+            
+
+                
+                
+            
+            
+        
 
         }
     }
