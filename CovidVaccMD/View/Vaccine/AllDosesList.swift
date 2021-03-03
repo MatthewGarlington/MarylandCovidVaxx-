@@ -27,9 +27,11 @@ struct AllDosesList: View {
                 
                 BlurView(style: .systemUltraThinMaterial)
                     
-                    .frame(width: 400, height: showCard ? 900 : 400, alignment: .center)
+                    .frame(width: 400, height: showCard ? 780 : 400, alignment: .center)
                     .cornerRadius(40)
+                    .offset(y: showCard ? -20 : 0)
                     .ignoresSafeArea(showCard ? .all : .keyboard)
+                 
                    
                 
                 VStack {
@@ -49,7 +51,8 @@ struct AllDosesList: View {
                         
                         
                     }
-                    .offset(y: showCard ? 50 : 0)
+                    .offset(y: showCard ? -40 : 0)
+                    .animation(.spring(response: 0.3, dampingFraction: 0.6, blendDuration: 0))
                     .padding()
                 
                 List {
@@ -98,13 +101,13 @@ struct AllDosesList: View {
                 
                 
                 .frame(maxWidth: showCard ? 340 : 340)
-                .frame(maxHeight: showCard ? 800 : 220)
+                .frame(maxHeight: showCard ? 600 : 220)
              //   .background(Color.black)
         //              .cornerRadius(20)
                 .clipShape(RoundedRectangle(cornerRadius: showCard ? 30 : 20, style: .continuous))
                 .shadow(radius: 20)
                 .offset(x: viewState.width, y: viewState.height)
-                .offset(y: showCard ? 80 : 0)
+                .offset(y: showCard ? -40 : 0)
                 .blendMode(.hardLight)
                 .animation(.spring(response: 0.3, dampingFraction: 0.6, blendDuration: 0))
                 .onTapGesture {
