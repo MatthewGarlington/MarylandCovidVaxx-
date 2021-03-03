@@ -296,6 +296,7 @@ struct HomeView: View {
         
         .blur(radius: showCaseList ? 5 : 0)
         .blur(radius: showFirstDoseList ? 5 : 0)
+        .blur(radius: showSecondDoseList ? 5 : 0)
         
     
 
@@ -320,7 +321,7 @@ struct HomeView: View {
                     .frame(width: 36, height: 36)
                     .background(Color.black)
                     .clipShape(Circle())
-                    .offset(x: 175, y: -375)
+                    .offset(x: 175, y: -350)
                     .onTapGesture {
                         self.showCaseList = false
                         
@@ -359,7 +360,7 @@ struct HomeView: View {
                     .frame(width: 36, height: 36)
                     .background(Color.black)
                     .clipShape(Circle())
-                    .offset(x: 175, y: -375)
+                    .offset(x: 175, y: -350)
                     .onTapGesture {
                         self.showFirstDoseList = false
                         
@@ -397,7 +398,7 @@ struct HomeView: View {
                       .frame(width: 36, height: 36)
                       .background(Color.black)
                       .clipShape(Circle())
-                      .offset(x: 175, y: -375)
+                      .offset(x: 175, y: -350)
                       .onTapGesture {
                           self.showSecondDoseList = false
                           
