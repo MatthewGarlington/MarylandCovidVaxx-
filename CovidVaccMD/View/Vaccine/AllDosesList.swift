@@ -68,14 +68,14 @@ struct AllDosesList: View {
                         
                                     VStack(alignment: .leading, spacing: 12) {
                                        
+                                        Text("\((vaccine.attributes?.CumulativeTotalVaccinatedDate?.getDateFromCrazyInt(date: vaccine.attributes!.CumulativeTotalVaccinatedDate!))!):")
+                                                .font(.system(size: 20, weight: .bold))
                                         
-                                        HStack(spacing: 40) {
+                                        HStack {
                                              
                                             
-                                           
-                                            
-                                            Text("\((vaccine.attributes?.CumulativeTotalVaccinatedDate?.getDateFromCrazyInt(date: vaccine.attributes!.CumulativeTotalVaccinatedDate!))!):")
-                                                    .font(.system(size: 20, weight: .bold))
+                                            Text("Total Vaccines:")
+                                                .font(.system(size: 20, weight: .semibold))
                                    
                                  
                                             VStack(alignment: .leading) {
