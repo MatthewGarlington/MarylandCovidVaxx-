@@ -15,7 +15,7 @@ struct HospitalView: View {
     var hospital: HospitalRow
     var width: CGFloat = 275
     var height: CGFloat = 275
-    @State var showHospitalList = false
+    @Binding var showHospitalList: Bool
   
     
     var body: some View {
@@ -45,11 +45,7 @@ struct HospitalView: View {
                             
                             
                         }
-                        .sheet(isPresented: $showHospitalList) {
-                            
-                            HospitalList()
-                      
-                        }
+                       
                         
                     }
                   Text("\(hospital.text)")
