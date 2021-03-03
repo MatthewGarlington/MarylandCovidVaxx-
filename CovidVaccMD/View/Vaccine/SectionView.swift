@@ -14,7 +14,8 @@ struct SectionView: View {
     var section: Section
     var width: CGFloat = 275
     var height: CGFloat = 275
-    @State var showCaseList = false
+    @Binding var showCaseList: Bool
+  
   
     
     var body: some View {
@@ -29,7 +30,10 @@ struct SectionView: View {
                             .frame(height: 100)
                             .padding(.top, 40)
                             .foregroundColor(.white)
-                        Button(action: {self.showCaseList.toggle()}) {
+                        Button(action: {    
+                            self.showCaseList.toggle()
+                            
+                                }) {
                             Image(systemName: "list.bullet.indent")
                                 .foregroundColor(Color.red)
                                 .font(.system(size: 16, weight: .medium))
@@ -39,15 +43,11 @@ struct SectionView: View {
                                 .padding(.top, 40)
                                 .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
                                 .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
-                             
-                            
+                                
                         }
                         .offset(x: -10, y: 25)
-                        .sheet(isPresented: $showCaseList) {
-                            
-                            AllDosesList()
-                      
-                        }
+                        
+                   
                         
                     }
                     section.text
@@ -75,7 +75,7 @@ struct SectionView: View {
         .background(Color(#colorLiteral(red: 0.7236627936, green: 0.6401972771, blue: 0.9966538548, alpha: 1)))
         .cornerRadius(30)
         .shadow(color: Color(#colorLiteral(red: 0.7236627936, green: 0.6401972771, blue: 0.9966538548, alpha: 1)).opacity(0.3), radius: 20, x: 0, y: 20)
-      
+        
         
     }
 }
