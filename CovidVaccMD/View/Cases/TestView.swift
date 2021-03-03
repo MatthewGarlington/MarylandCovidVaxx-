@@ -15,7 +15,7 @@ struct TestView: View {
     var width: CGFloat = 275
     var height: CGFloat = 275
     @Binding var showTestList: Bool
-  
+    @Binding var isLoading: Bool
     
     var body: some View {
    
@@ -31,7 +31,16 @@ struct TestView: View {
                                 .padding(.top, 40)
                                 .foregroundColor(.black)
                             
-                            Button(action: {self.showTestList.toggle()}) {
+                            Button(action: {
+                                self.showTestList.toggle()
+                                self.isLoading.toggle()
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+                                    // Return to the screen and clear the fields
+                                    self.isLoading = false
+                                }
+                                
+                            }) {
                                 Image(systemName: "list.bullet.indent")
                                     .foregroundColor(Color.red)
                                     .font(.system(size: 16, weight: .medium))
@@ -82,5 +91,7 @@ struct TestView: View {
         
     }
 }
+
+
 
 
