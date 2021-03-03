@@ -27,6 +27,9 @@ struct HomeView: View {
     @State var showingEditScreen = false
     @State var selectedPlace: MKPointAnnotation?
     @State var showCard = false
+    @State var showCaseList = false
+    @State var showFirstDoseList = false
+    @State var showSecondDoseList = false
    
     
 
@@ -116,7 +119,7 @@ struct HomeView: View {
                                     ForEach(totalVaccineViewModel.sections.indices, id: \.self) { index in
                                         GeometryReader { geometry in
                                             
-                                            SectionView(index: index, section: self.totalVaccineViewModel.sections[index], width: 275, height: 275)
+                                            SectionView(index: index, section: self.totalVaccineViewModel.sections[index], width: 275, height: 275, showCaseList: $showCaseList)
                                             
                                             .rotation3DEffect(Angle(degrees:
                                                                         Double(geometry.frame(in: .global).minX - 30) / -getAngleMulitplier(bounds: bounds)
@@ -160,7 +163,7 @@ struct HomeView: View {
                                                     
                                                     
                                                 
-                                                    SectionSecondRowView(index: index, section: self.totalVaccineViewModel.sectionsRowTwo[index], width: 275, height: 275)
+                                                    SectionSecondRowView(index: index, section: self.totalVaccineViewModel.sectionsRowTwo[index], width: 275, height: 275, showFirstDoseList: $showFirstDoseList)
                                                     
                                                     .rotation3DEffect(Angle(degrees:
                                                                                 Double(geometry.frame(in: .global).minX - 30) / -getAngleMulitplier(bounds: bounds)
@@ -207,7 +210,7 @@ struct HomeView: View {
                                                     
                                                     
                                                 
-                                                    SectionThirdRowView(index: index, section: self.totalVaccineViewModel.sectionsRowThree[index], width: 275, height: 275)
+                                                    SectionThirdRowView(index: index, section: self.totalVaccineViewModel.sectionsRowThree[index], width: 275, height: 275, showSecondDoseList: $showSecondDoseList)
                                                     
                                                     .rotation3DEffect(Angle(degrees:
                                                                                 Double(geometry.frame(in: .global).minX - 30) / -getAngleMulitplier(bounds: bounds)
@@ -290,6 +293,129 @@ struct HomeView: View {
         .disabled(self.active && !self.isScrollable ? true : false)
         
         }
+        
+        .blur(radius: showCaseList ? 5 : 0)
+        .blur(radius: showFirstDoseList ? 5 : 0)
+        
+    
+
+        if showCaseList {
+            
+            
+            ZStack {
+                
+                
+            
+            
+            AllDosesList()
+                .offset(y: 20)
+            
+                
+                ZStack {
+                    VStack {
+                        Image(systemName: "xmark")
+                            .font(.system(size: 16, weight: .medium))
+                            .foregroundColor(.white)
+                    }
+                    .frame(width: 36, height: 36)
+                    .background(Color.black)
+                    .clipShape(Circle())
+                    .offset(x: 175, y: -375)
+                    .onTapGesture {
+                        self.showCaseList = false
+                        
+                    }
+                    
+                   
+           
+                }
+             
+                
+            }
+     
+            
+        }
+        
+        
+      
+        if showFirstDoseList {
+            
+            
+            ZStack {
+                
+                
+            
+            
+            FirstDoseList()
+                .offset(y: 20)
+            
+                
+                ZStack {
+                    VStack {
+                        Image(systemName: "xmark")
+                            .font(.system(size: 16, weight: .medium))
+                            .foregroundColor(.white)
+                    }
+                    .frame(width: 36, height: 36)
+                    .background(Color.black)
+                    .clipShape(Circle())
+                    .offset(x: 175, y: -375)
+                    .onTapGesture {
+                        self.showFirstDoseList = false
+                        
+                    }
+                    
+                   
+           
+                }
+             
+                
+            }
+     
+            
+        }
+        
+        
+          if showSecondDoseList {
+              
+              
+              ZStack {
+                  
+                  
+              
+              
+              SecondDoseList()
+                  .offset(y: 20)
+              
+                  
+                  ZStack {
+                      VStack {
+                          Image(systemName: "xmark")
+                              .font(.system(size: 16, weight: .medium))
+                              .foregroundColor(.white)
+                      }
+                      .frame(width: 36, height: 36)
+                      .background(Color.black)
+                      .clipShape(Circle())
+                      .offset(x: 175, y: -375)
+                      .onTapGesture {
+                          self.showSecondDoseList = false
+                          
+                      }
+                      
+                     
+             
+                  }
+               
+                  
+              }
+       
+              
+          }
+        
+        
+        
+        
     }
 }
 
