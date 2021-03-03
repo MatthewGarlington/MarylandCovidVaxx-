@@ -14,7 +14,7 @@ struct SectionSecondRowView: View {
     var section: SectionSecondRow
     var width: CGFloat = 275
     var height: CGFloat = 275
-    @State var showCaseList = false
+    @Binding var showFirstDoseList: Bool
   
     
     var body: some View {
@@ -31,7 +31,7 @@ struct SectionSecondRowView: View {
                             .foregroundColor(.white)
                             .offset(x: 5)
                        
-                        Button(action: {self.showCaseList.toggle()}) {
+                        Button(action: {self.showFirstDoseList.toggle()}) {
                             Image(systemName: "list.bullet.indent")
                                 .foregroundColor(Color.red)
                                 .font(.system(size: 16, weight: .medium))
@@ -44,11 +44,7 @@ struct SectionSecondRowView: View {
                             
                         }
                         .offset(x: -15)
-                        .sheet(isPresented: $showCaseList) {
-                            
-                            FirstDoseList()
-                      
-                        }
+                   
                         
                     }
                     section.text
