@@ -15,6 +15,7 @@ struct DeathView: View {
     var width: CGFloat = 275
     var height: CGFloat = 275
     @Binding var showDeathList: Bool
+    @Binding var isLoading: Bool
   
     
     var body: some View {
@@ -30,7 +31,17 @@ struct DeathView: View {
                             .padding(.top, 40)
                             .foregroundColor(.white)
                         Spacer()
-                        Button(action: {self.showDeathList.toggle()}) {
+                        Button(action: {
+                            self.showDeathList.toggle()
+                            self.isLoading.toggle()
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+                                // Return to the screen and clear the fields
+                                self.isLoading = false
+                            }
+                            
+                            
+                        }) {
                             Image(systemName: "list.bullet.indent")
                                 .foregroundColor(Color.red)
                                 .font(.system(size: 16, weight: .medium))
