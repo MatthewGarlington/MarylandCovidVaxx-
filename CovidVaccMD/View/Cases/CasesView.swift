@@ -38,6 +38,11 @@ struct HomeCases: View {
     @State var showCard = false
     @State var bottomState = CGSize.zero
     @State var showFull = false
+    @State var showCaseList = false
+    @State var showTestList = false
+    @State var showHospitalList = false
+    @State var showDeathList = false
+    
     var body: some View {
         GeometryReader { bounds in
             ScrollView {
@@ -128,7 +133,7 @@ struct HomeCases: View {
                                     ForEach(casesModel.testsRow.indices, id: \.self) { index in
                                         GeometryReader { geometry in
                                             
-                                            TestView(index: index, tests: casesModel.testsRow[index])
+                                            TestView(index: index, tests: casesModel.testsRow[index], showTestList: $showTestList)
                                                 
                                                 
                                                 .rotation3DEffect(Angle(degrees:
@@ -185,7 +190,7 @@ struct HomeCases: View {
                                     ForEach(casesModel.casesRowOne.indices, id: \.self) { index in
                                         GeometryReader { geometry in
                                             
-                                            CaseView(index: index, cases: casesModel.casesRowOne[index])
+                                            CaseView(index: index, cases: casesModel.casesRowOne[index], showCaseList: $showCaseList)
                                                 
                                                 
                                                 .rotation3DEffect(Angle(degrees:
@@ -233,7 +238,7 @@ struct HomeCases: View {
                                     ForEach(casesModel.hospitalRowTwo.indices, id: \.self) { index in
                                         GeometryReader { geometry in
                                             
-                                            HospitalView(index: index, hospital: casesModel.hospitalRowTwo[index])
+                                            HospitalView(index: index, hospital: casesModel.hospitalRowTwo[index], showHospitalList: $showHospitalList)
                                                 
                                                 
                                                 .rotation3DEffect(Angle(degrees:
@@ -247,7 +252,7 @@ struct HomeCases: View {
                                     ForEach(currentlyHospitalizedViewModel.hospitalRowTwo.indices, id: \.self) { index in
                                         GeometryReader { geometry in
                                             
-                                            HospitalView(index: index, hospital: currentlyHospitalizedViewModel.hospitalRowTwo[index])
+                                            HospitalView(index: index, hospital: currentlyHospitalizedViewModel.hospitalRowTwo[index], showHospitalList: $showHospitalList)
                                                 
                                                 
                                                 .rotation3DEffect(Angle(degrees:
@@ -296,7 +301,7 @@ struct HomeCases: View {
                                         ForEach(casesModel.confirmedDeaths.indices, id: \.self) { index in
                                             GeometryReader { geometry in
                                                 
-                                                DeathView(index: index, deaths: casesModel.confirmedDeaths[index])
+                                                DeathView(index: index, deaths: casesModel.confirmedDeaths[index], showDeathList: $showDeathList)
                                                     
                                                     
                                                     .rotation3DEffect(Angle(degrees:
@@ -340,6 +345,163 @@ struct HomeCases: View {
                 
             }
             .disabled(self.active && !self.isScrollable ? true : false)
+            
+        }
+        
+        
+        .blur(radius: showCaseList ? 5 : 0)
+        .blur(radius: showTestList ? 5 : 0)
+        .blur(radius: showHospitalList ? 5 : 0)
+        .blur(radius: showDeathList ? 5 : 0)
+    
+
+        if showCaseList {
+            
+            
+            ZStack {
+                
+                
+            
+            
+            CasesList()
+                .offset(y: 20)
+            
+                
+                ZStack {
+                    VStack {
+                        Image(systemName: "xmark")
+                            .font(.system(size: 16, weight: .medium))
+                            .foregroundColor(.white)
+                    }
+                    .frame(width: 36, height: 36)
+                    .background(Color.black)
+                    .clipShape(Circle())
+                    .offset(x: 175, y: -350)
+                    .onTapGesture {
+                        self.showCaseList = false
+                        
+                    }
+                    
+                   
+           
+                }
+             
+                
+            }
+     
+            
+        }
+        
+        
+        if showTestList {
+            
+            
+            ZStack {
+                
+                
+            
+            
+            TestsList()
+                .offset(y: 20)
+            
+                
+                ZStack {
+                    VStack {
+                        Image(systemName: "xmark")
+                            .font(.system(size: 16, weight: .medium))
+                            .foregroundColor(.white)
+                    }
+                    .frame(width: 36, height: 36)
+                    .background(Color.black)
+                    .clipShape(Circle())
+                    .offset(x: 175, y: -350)
+                    .onTapGesture {
+                        self.showTestList = false
+                        
+                    }
+                    
+                   
+           
+                }
+             
+                
+            }
+     
+            
+        }
+        
+        
+        if showHospitalList {
+            
+            
+            ZStack {
+                
+                
+            
+            
+            HospitalList()
+                .offset(y: 20)
+            
+                
+                ZStack {
+                    VStack {
+                        Image(systemName: "xmark")
+                            .font(.system(size: 16, weight: .medium))
+                            .foregroundColor(.white)
+                    }
+                    .frame(width: 36, height: 36)
+                    .background(Color.black)
+                    .clipShape(Circle())
+                    .offset(x: 175, y: -350)
+                    .onTapGesture {
+                        self.showHospitalList = false
+                        
+                    }
+                    
+                   
+           
+                }
+             
+                
+            }
+     
+            
+        }
+        
+        if showDeathList {
+            
+            
+            ZStack {
+                
+                
+            
+            
+            DeathList()
+                .offset(y: 20)
+            
+                
+                ZStack {
+                    VStack {
+                        Image(systemName: "xmark")
+                            .font(.system(size: 16, weight: .medium))
+                            .foregroundColor(.white)
+                    }
+                    .frame(width: 36, height: 36)
+                    .background(Color.black)
+                    .clipShape(Circle())
+                    .offset(x: 175, y: -350)
+                    .onTapGesture {
+                        self.showDeathList = false
+                        
+                    }
+                    
+                   
+           
+                }
+             
+                
+            }
+     
             
         }
     }
