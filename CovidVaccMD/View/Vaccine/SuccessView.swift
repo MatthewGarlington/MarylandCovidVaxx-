@@ -10,7 +10,7 @@ struct SuccessView: View {
     @State var show = false
     var body: some View {
         VStack {
-            Text("Logging you...")
+            Text("Loading...")
                 .font(.title).bold()
                 .opacity(show ? 1 : 0)
                 .animation(Animation.linear(duration: 1).delay(0.2))
