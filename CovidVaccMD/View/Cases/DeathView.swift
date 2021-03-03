@@ -14,7 +14,7 @@ struct DeathView: View {
     var deaths: DeathRow
     var width: CGFloat = 275
     var height: CGFloat = 275
-    @State var showDeathList = false
+    @Binding var showDeathList: Bool
   
     
     var body: some View {
@@ -43,11 +43,7 @@ struct DeathView: View {
                             
                             
                         }
-                        .sheet(isPresented: $showDeathList) {
-                            
-                            DeathList()
                       
-                        }
                         
                     }
                   Text("\(deaths.text)")
