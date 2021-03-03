@@ -16,7 +16,7 @@ struct SuccessView: View {
                 .animation(Animation.linear(duration: 1).delay(0.2))
             
             LottieView(filename: "success")
-                .frame(width: 300, height: 300)
+                .frame(width: 340, height: 220)
                 .opacity(show ? 1 : 0)
                 .animation(Animation.linear(duration: 1).delay(0.4))
         }
@@ -32,11 +32,7 @@ struct SuccessView: View {
             
             
         }
-        
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.black.opacity(show ? 0.5 : 0))
-        .animation(.linear(duration: 0.5))
-        .edgesIgnoringSafeArea(.all)
+     
         
     }
 }
