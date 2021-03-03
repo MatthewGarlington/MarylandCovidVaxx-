@@ -14,7 +14,7 @@ struct TestView: View {
     var tests: TestRow
     var width: CGFloat = 275
     var height: CGFloat = 275
-    @State var showCaseList = false
+    @Binding var showTestList: Bool
   
     
     var body: some View {
@@ -31,7 +31,7 @@ struct TestView: View {
                                 .padding(.top, 40)
                                 .foregroundColor(.black)
                             
-                            Button(action: {self.showCaseList.toggle()}) {
+                            Button(action: {self.showTestList.toggle()}) {
                                 Image(systemName: "list.bullet.indent")
                                     .foregroundColor(Color.red)
                                     .font(.system(size: 16, weight: .medium))
@@ -43,11 +43,7 @@ struct TestView: View {
                                     .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
                                 
                             }
-                            .sheet(isPresented: $showCaseList) {
-                                
-                                TestsList()
-                          
-                            }
+                         
                         }
              
           
