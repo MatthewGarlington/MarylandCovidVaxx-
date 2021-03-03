@@ -60,21 +60,23 @@ struct SecondDoseList: View {
                         ForEach(vaccineHistoricalViewModel.recentMDVaccineTotals?.features?.reversed() ?? [], id: \.self) { vaccine in
                    
                                 
-                                HStack {
+                                VStack {
 
-                                    
                         
                                     VStack(alignment: .leading, spacing: 12) {
+                                        
+                                        
+                                        Text("\((vaccine.attributes?.CumulativeTotalVaccinatedDate?.getDateFromCrazyInt(date: vaccine.attributes!.CumulativeTotalVaccinatedDate!))!):")
+                                                .font(.system(size: 20, weight: .bold))
+                               
                                        
                                         
-                                        HStack(spacing: 40) {
+                                        HStack {
                                              
                                             
-                                           
+                                            Text("Total Second Dose:")
+                                                .font(.system(size: 20, weight: .semibold))
                                             
-                                            Text("\((vaccine.attributes?.CumulativeTotalVaccinatedDate?.getDateFromCrazyInt(date: vaccine.attributes!.CumulativeTotalVaccinatedDate!))!):")
-                                                    .font(.system(size: 20, weight: .bold))
-                                   
                                  
                                             VStack(alignment: .leading) {
                                                 Text("\(vaccine.attributes?.CumulativeTotalVaccinatedDoseTw ?? 0)")
