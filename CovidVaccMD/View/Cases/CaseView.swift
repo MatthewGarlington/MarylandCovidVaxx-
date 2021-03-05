@@ -33,13 +33,16 @@ struct CaseView: View {
                                 .foregroundColor(.white)
                             
                             Button(action: {
+                                withAnimation {
                                 self.showCaseList.toggle()
                                 
                                 self.isLoading.toggle()
                                 
+                                
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
                                     // Return to the screen and clear the fields
                                     self.isLoading = false
+                                }
                                 }
                                 
                             }) {
