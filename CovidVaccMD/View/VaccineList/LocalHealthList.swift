@@ -80,10 +80,10 @@ struct LocalHealthList: View {
 }
 }
 
-let vaccineData = VaccineLocationsFeatures(attributes: VaccineLocationAttributes.init(name: "", fulladdr: "", municipality: "", ActiveYesNo: "", operationalhours: "", cost_notes: "", schedule_url: "", online_scheduling: "", scheduling_contact: "", scheduling_contact_phone: "", scheduling_contact_email: "", test_pcr: "", website_url: "", created_date: 1, last_edited_date: 10-10-1000), geometry: Geometry(x: 100, y: 100))
+let vaccineData = VaccineLocationsFeatures(attributes: VaccineLocationAttributes.init(name: "", fulladdr: "", municipality: "", ActiveYesNo: "", operationalhours: "", cost_notes: "", schedule_url: "", online_scheduling: "", scheduling_contact: "", scheduling_contact_phone: "", scheduling_contact_email: "", test_pcr: "", website_url: "", created_date: 1, last_edited_date: 10-10-1000, site_type: ""), geometry: Geometry(x: 100, y: 100))
     
 
-let testingeData = TestingLocationsFeatures(attributes: TestingLocationAttributes.init(name: "", fulladdr: "", municipality: "", ActiveYesNo: "", operationalhours: "", cost_notes: "", schedule_url: "", online_scheduling: "", scheduling_contact: "", scheduling_contact_phone: "", scheduling_contact_email: "", test_pcr: "", website_url: "", created_date: 1, last_edited_date: 10-10-1000), geometry: Geometry(x: 100, y: 100))
+let testingeData = TestingLocationsFeatures(attributes: TestingLocationAttributes.init(name: "", fulladdr: "", municipality: "", EditDate: 0, ActiveYesNo: "", site_type: "", appt_required: "", operationalhours: "", docorder_required: "", costfree: "", cost_outpocket: "", drivethru: "", transitAccess: "", test_antigen: "", test_antibody: "", other_notes: "", insurance_accepted: "", medicaid: "", cost_other: "", cost_notes: "", test_rapid: "", schedule_url: "", online_scheduling: "", scheduling_contact: "", scheduling_contact_phone: "", scheduling_contact_email: "", test_pcr: "", website_url: "", test_pediatric: "", multi_language: "", created_date: 0), geometry: Geometry(x: 100, y: 100))
     
 
 
