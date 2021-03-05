@@ -45,6 +45,7 @@ struct VaccineLocationAttributes: Codable, Hashable, Identifiable {
     let website_url: String?
     let created_date: Int?
     let last_edited_date: Int?
+    let site_type: String?
     
     
 }

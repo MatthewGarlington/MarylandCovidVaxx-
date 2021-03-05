@@ -33,9 +33,24 @@ struct TestingLocationAttributes: Codable, Hashable, Identifiable {
     let name: String?
     let fulladdr: String?
     let municipality: String?
+    let EditDate: Int?
     let ActiveYesNo: String?
+    let site_type: String?
+    let appt_required: String?
     let operationalhours: String?
+    let docorder_required: String?
+    let costfree: String?
+    let cost_outpocket: String?
+    let drivethru: String?
+    let transitAccess: String?
+    let test_antigen: String?
+    let test_antibody: String?
+    let other_notes: String?
+    let insurance_accepted: String?
+    let medicaid: String?
+    let cost_other: String?
     let cost_notes: String?
+    let test_rapid: String?
     let schedule_url: String?
     let online_scheduling: String?
     let scheduling_contact: String?
@@ -43,8 +58,9 @@ struct TestingLocationAttributes: Codable, Hashable, Identifiable {
     let scheduling_contact_email: String?
     let test_pcr: String?
     let website_url: String?
+    let test_pediatric: String?
+    let multi_language: String?
     let created_date: Int?
-    let last_edited_date: Int?
     
     
 }
