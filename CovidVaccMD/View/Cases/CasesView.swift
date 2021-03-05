@@ -363,23 +363,32 @@ struct HomeCases: View {
             
             
             ZStack {
+                    ZStack {
                 
+               
+                        Spacer()
+                        
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .background(Color.white.opacity(0.1))
+                            .onTapGesture {
+                                withAnimation {
+                                self.showCaseList = false
+                        
+                                }
+                            }
+           
+                CasesList()
+                        
+                        if isLoading {
+                            
+                            SuccessView()
+                                .offset(y: 5)
+                            
+                              
+                            
+                        }
+              
                 
-            
-            
-            CasesList()
-                .offset(y: 20)
-                
-                if isLoading {
-                    
-                    SuccessView()
-                        .offset(y: 30)
-                      
-                    
-                }
-            
-                
-                ZStack {
                     VStack {
                         Image(systemName: "xmark")
                             .font(.system(size: 16, weight: .medium))
@@ -391,15 +400,59 @@ struct HomeCases: View {
                     .offset(x: 175, y: -350)
                     .onTapGesture {
                         self.showCaseList = false
-              
-                    
+                    }
+                            
+                        
+               
+            }
+            
+           
+      
+            // The added scale effect is for the drag gesture of the animation
+            .scaleEffect(1 - self.activeView.height / 1000)
+            // This allows the cards to rotate upon the drag gesture to either side
+            .rotation3DEffect(Angle(degrees: Double(self.activeView.height / 10)),
+                axis: (x: 0.0, y: 10.0, z: 0.0))
+            .hueRotation(Angle(degrees: Double(self.activeView.height)))
+            .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
+            .gesture(
                 
            
-                }
-                }
-             
                 
-            }
+                /// The Show condistional accompanied by the : nil at the end, give the ability for only the card to show the drag gesture upon selection
+      
+                DragGesture().onChanged  { value in
+                    
+                    // This guard statement allows the full size card to be dismissed after dragging to a translation height of 300
+                    guard value.translation.height < 300 else { return }
+                    
+                    // This guard statement lets the drag animations to not take place upon dragging up on the screen
+                    
+                    guard value.translation.height > 50 else { return }
+                    
+                    self.activeView = value.translation
+                    
+                }
+                
+                .onEnded { value in
+            
+                // This tells the full screen card view to close upon dragging to 50
+                    if self.activeView.height > 50  {
+                        
+                        withAnimation {
+                        self.showCaseList = false
+                 
+                        }
+                    }
+                    
+                    self.activeView = .zero
+                    
+                    
+                }
+            )
+        }
+            
+            .transition(.scale)
      
             
         }
@@ -407,52 +460,97 @@ struct HomeCases: View {
 
                 
     
-            
-            
-            ZStack {
                 
-            
-            
-            
-            TestsList()
-                .offset(y: 20)
-            
-                if isLoading {
-                    
-                    SuccessView()
-                        .offset(y: 30)
-                      
-                    
-                }
-                
-                
-                
-                ZStack {
-                    VStack {
-                        Image(systemName: "xmark")
-                            .font(.system(size: 16, weight: .medium))
-                            .foregroundColor(.white)
-                    }
-                    .frame(width: 36, height: 36)
-                    .background(Color.black)
-                    .clipShape(Circle())
-                    .offset(x: 175, y: -350)
-                    .onTapGesture {
-                        self.showTestList = false
-                        // Show SuccessView upon tapping after the two second delay or API call being made
+                     ZStack {
+                             ZStack {
+                         
                         
-                      
-                        
-                    }
-                        
+                                 Spacer()
+                                 
+                                     .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                     .background(Color.white.opacity(0.1))
+                                     .onTapGesture {
+                                         withAnimation {
+                                         self.showTestList = false
+                                 
+                                         }
+                                     }
                     
-                
-             
+                         TestsList()
+                              
+                                if isLoading {
+                                    
+                                    SuccessView()
+                                        .offset(y: 5)
+                                      
+                                    
+                                }
+                       
+                         
+                             VStack {
+                                 Image(systemName: "xmark")
+                                     .font(.system(size: 16, weight: .medium))
+                                     .foregroundColor(.white)
+                             }
+                             .frame(width: 36, height: 36)
+                             .background(Color.black)
+                             .clipShape(Circle())
+                             .offset(x: 175, y: -350)
+                             .onTapGesture {
+                                 self.showTestList = false
+                             }
+                                     
+                                 
+                        
+                     }
+                     
                     
-            }
-           
-                }
-             
+               
+                     // The added scale effect is for the drag gesture of the animation
+                     .scaleEffect(1 - self.activeView.height / 1000)
+                     // This allows the cards to rotate upon the drag gesture to either side
+                     .rotation3DEffect(Angle(degrees: Double(self.activeView.height / 10)),
+                         axis: (x: 0.0, y: 10.0, z: 0.0))
+                     .hueRotation(Angle(degrees: Double(self.activeView.height)))
+                     .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
+                     .gesture(
+                         
+                    
+                         
+                         /// The Show condistional accompanied by the : nil at the end, give the ability for only the card to show the drag gesture upon selection
+               
+                         DragGesture().onChanged  { value in
+                             
+                             // This guard statement allows the full size card to be dismissed after dragging to a translation height of 300
+                             guard value.translation.height < 300 else { return }
+                             
+                             // This guard statement lets the drag animations to not take place upon dragging up on the screen
+                             
+                             guard value.translation.height > 50 else { return }
+                             
+                             self.activeView = value.translation
+                             
+                         }
+                         
+                         .onEnded { value in
+                     
+                         // This tells the full screen card view to close upon dragging to 50
+                             if self.activeView.height > 50  {
+                                 
+                                 withAnimation {
+                                 self.showTestList = false
+                          
+                                 }
+                             }
+                             
+                             self.activeView = .zero
+                             
+                             
+                         }
+                     )
+                 }
+                     
+                     .transition(.scale)
                 
             
             }
@@ -464,45 +562,96 @@ struct HomeCases: View {
         if showHospitalList {
             
             
-            ZStack {
-                
-                
-            
-            
-            HospitalList()
-                .offset(y: 20)
-                
-                if isLoading {
+                 ZStack {
+                         ZStack {
+                     
                     
-                    SuccessView()
-                        .offset(y: 30)
-                      
-                    
-                }
-            
+                             Spacer()
+                             
+                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                 .background(Color.white.opacity(0.1))
+                                 .onTapGesture {
+                                     withAnimation {
+                                     self.showHospitalList = false
+                             
+                                     }
+                                 }
                 
-                ZStack {
-                    VStack {
-                        Image(systemName: "xmark")
-                            .font(.system(size: 16, weight: .medium))
-                            .foregroundColor(.white)
-                    }
-                    .frame(width: 36, height: 36)
-                    .background(Color.black)
-                    .clipShape(Circle())
-                    .offset(x: 175, y: -350)
-                    .onTapGesture {
-                        self.showHospitalList = false
-                        
-                    }
-                    
+                     HospitalList()
+                            
+                            if isLoading {
+                                
+                                SuccessView()
+                                  
+                                    .offset(y: 5)
+                                
+                            }
                    
-           
-                }
-             
+                     
+                         VStack {
+                             Image(systemName: "xmark")
+                                 .font(.system(size: 16, weight: .medium))
+                                 .foregroundColor(.white)
+                         }
+                         .frame(width: 36, height: 36)
+                         .background(Color.black)
+                         .clipShape(Circle())
+                         .offset(x: 175, y: -350)
+                         .onTapGesture {
+                             self.showHospitalList = false
+                         }
+                                 
+                             
+                    
+                 }
+                 
                 
-            }
-     
+           
+                 // The added scale effect is for the drag gesture of the animation
+                 .scaleEffect(1 - self.activeView.height / 1000)
+                 // This allows the cards to rotate upon the drag gesture to either side
+                 .rotation3DEffect(Angle(degrees: Double(self.activeView.height / 10)),
+                     axis: (x: 0.0, y: 10.0, z: 0.0))
+                 .hueRotation(Angle(degrees: Double(self.activeView.height)))
+                 .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
+                 .gesture(
+                     
+                
+                     
+                     /// The Show condistional accompanied by the : nil at the end, give the ability for only the card to show the drag gesture upon selection
+           
+                     DragGesture().onChanged  { value in
+                         
+                         // This guard statement allows the full size card to be dismissed after dragging to a translation height of 300
+                         guard value.translation.height < 300 else { return }
+                         
+                         // This guard statement lets the drag animations to not take place upon dragging up on the screen
+                         
+                         guard value.translation.height > 50 else { return }
+                         
+                         self.activeView = value.translation
+                         
+                     }
+                     
+                     .onEnded { value in
+                 
+                     // This tells the full screen card view to close upon dragging to 50
+                         if self.activeView.height > 50  {
+                             
+                             withAnimation {
+                             self.showHospitalList = false
+                      
+                             }
+                         }
+                         
+                         self.activeView = .zero
+                         
+                         
+                     }
+                 )
+             }
+                 
+                 .transition(.scale)
             
         }
         
@@ -510,23 +659,30 @@ struct HomeCases: View {
             
             
             ZStack {
+                    ZStack {
                 
+               
+                        Spacer()
+                        
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .background(Color.white.opacity(0.1))
+                            .onTapGesture {
+                                withAnimation {
+                                self.showDeathList = false
+                        
+                                }
+                            }
+           
+                DeathList()
+                        if isLoading {
+                            
+                            SuccessView()
+                                .offset(y: 5)
+                              
+                            
+                        }
+              
                 
-            
-            
-            DeathList()
-                .offset(y: 20)
-                
-                if isLoading {
-                    
-                    SuccessView()
-                        .offset(y: 30)
-                      
-                    
-                }
-            
-                
-                ZStack {
                     VStack {
                         Image(systemName: "xmark")
                             .font(.system(size: 16, weight: .medium))
@@ -538,16 +694,59 @@ struct HomeCases: View {
                     .offset(x: 175, y: -350)
                     .onTapGesture {
                         self.showDeathList = false
+                    }
+                            
                         
+               
+            }
+            
+           
+      
+            // The added scale effect is for the drag gesture of the animation
+            .scaleEffect(1 - self.activeView.height / 1000)
+            // This allows the cards to rotate upon the drag gesture to either side
+            .rotation3DEffect(Angle(degrees: Double(self.activeView.height / 10)),
+                axis: (x: 0.0, y: 10.0, z: 0.0))
+            .hueRotation(Angle(degrees: Double(self.activeView.height)))
+            .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
+            .gesture(
+                
+           
+                
+                /// The Show condistional accompanied by the : nil at the end, give the ability for only the card to show the drag gesture upon selection
+      
+                DragGesture().onChanged  { value in
+                    
+                    // This guard statement allows the full size card to be dismissed after dragging to a translation height of 300
+                    guard value.translation.height < 300 else { return }
+                    
+                    // This guard statement lets the drag animations to not take place upon dragging up on the screen
+                    
+                    guard value.translation.height > 50 else { return }
+                    
+                    self.activeView = value.translation
+                    
+                }
+                
+                .onEnded { value in
+            
+                // This tells the full screen card view to close upon dragging to 50
+                    if self.activeView.height > 50  {
+                        
+                        withAnimation {
+                        self.showDeathList = false
+                 
+                        }
                     }
                     
-                   
-           
+                    self.activeView = .zero
+                    
+                    
                 }
-             
-                
-            }
-     
+            )
+        }
+            
+            .transition(.scale)
             
         }
         
