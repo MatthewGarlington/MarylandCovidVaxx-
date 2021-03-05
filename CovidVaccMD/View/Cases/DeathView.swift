@@ -32,12 +32,14 @@ struct DeathView: View {
                             .foregroundColor(.white)
                         Spacer()
                         Button(action: {
+                            withAnimation {
                             self.showDeathList.toggle()
                             self.isLoading.toggle()
                             
                             DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
                                 // Return to the screen and clear the fields
                                 self.isLoading = false
+                            }
                             }
                             
                             
