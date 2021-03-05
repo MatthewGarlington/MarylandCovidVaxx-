@@ -31,7 +31,7 @@ struct HomeView: View {
     @State var showFirstDoseList = false
     @State var showSecondDoseList = false
     @State var show = false
-    @State var closeCard = false
+  
  
 
     
@@ -300,6 +300,7 @@ struct HomeView: View {
     
         }
         .disabled(self.active && !self.isScrollable ? true : false)
+  
         
         }
         
@@ -307,28 +308,27 @@ struct HomeView: View {
         .blur(radius: showFirstDoseList ? 5 : 0)
         .blur(radius: showSecondDoseList ? 5 : 0)
         
-        
-        
-    
-
+     
         if showCaseList {
-            
-           
-            
-            
+       
             ZStack {
+                    ZStack {
                 
+               
+                        Spacer()
+                        
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .background(Color.white.opacity(0.1))
+                            .onTapGesture {
+                                withAnimation {
+                                self.showCaseList = false
+                        
+                                }
+                            }
+           
+                AllDosesList()
+              
                 
-      
-                AllDosesList(closeCard: $closeCard)
-                
-                 
-         
-            
-        
-            
-                
-                ZStack {
                     VStack {
                         Image(systemName: "xmark")
                             .font(.system(size: 16, weight: .medium))
@@ -340,55 +340,150 @@ struct HomeView: View {
                     .offset(x: 175, y: -350)
                     .onTapGesture {
                         self.showCaseList = false
-                
-                        
                     }
-                    
-                   
+                            
+                        
+               
+            }
+            
            
+      
+            // The added scale effect is for the drag gesture of the animation
+            .scaleEffect(1 - self.activeView.height / 1000)
+            // This allows the cards to rotate upon the drag gesture to either side
+            .rotation3DEffect(Angle(degrees: Double(self.activeView.height / 10)),
+                axis: (x: 0.0, y: 10.0, z: 0.0))
+            .hueRotation(Angle(degrees: Double(self.activeView.height)))
+            .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
+            .gesture(
+                
+           
+                
+                /// The Show condistional accompanied by the : nil at the end, give the ability for only the card to show the drag gesture upon selection
+      
+                DragGesture().onChanged  { value in
+                    
+                    // This guard statement allows the full size card to be dismissed after dragging to a translation height of 300
+                    guard value.translation.height < 300 else { return }
+                    
+                    // This guard statement lets the drag animations to not take place upon dragging up on the screen
+                    
+                    guard value.translation.height > 50 else { return }
+                    
+                    self.activeView = value.translation
+                    
                 }
                 
-             
-            }
-             
-                
+                .onEnded { value in
+            
+                // This tells the full screen card view to close upon dragging to 50
+                    if self.activeView.height > 50  {
+                        
+                        withAnimation {
+                        self.showCaseList = false
+                 
+                        }
+                    }
+                    
+                    self.activeView = .zero
+                    
+                    
+                }
+            )
         }
+            
+            .transition(.scale)
+            
+        }
+      
          
         
       
         if showFirstDoseList {
             
             
-            ZStack {
-                
-                
             
-            
-            FirstDoseList()
-                .offset(y: 20)
-            
-                
-                ZStack {
-                    VStack {
-                        Image(systemName: "xmark")
-                            .font(.system(size: 16, weight: .medium))
-                            .foregroundColor(.white)
-                    }
-                    .frame(width: 36, height: 36)
-                    .background(Color.black)
-                    .clipShape(Circle())
-                    .offset(x: 175, y: -350)
-                    .onTapGesture {
-                        self.showFirstDoseList = false
-                        
-                    }
+                 ZStack {
+                         ZStack {
+                     
                     
-                   
-           
-                }
-             
+                             Spacer()
+                             
+                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                 .background(Color.white.opacity(0.1))
+                                 .onTapGesture {
+                                     withAnimation {
+                                     self.showFirstDoseList = false
+                             
+                                     }
+                                 }
                 
-            }
+                     FirstDoseList()
+                   
+                     
+                         VStack {
+                             Image(systemName: "xmark")
+                                 .font(.system(size: 16, weight: .medium))
+                                 .foregroundColor(.white)
+                         }
+                         .frame(width: 36, height: 36)
+                         .background(Color.black)
+                         .clipShape(Circle())
+                         .offset(x: 175, y: -350)
+                         .onTapGesture {
+                             self.showFirstDoseList = false
+                         }
+                             
+                    
+                 }
+                 
+                
+           
+                 // The added scale effect is for the drag gesture of the animation
+                 .scaleEffect(1 - self.activeView.height / 1000)
+                 // This allows the cards to rotate upon the drag gesture to either side
+                 .rotation3DEffect(Angle(degrees: Double(self.activeView.height / 10)),
+                     axis: (x: 0.0, y: 10.0, z: 0.0))
+                 .hueRotation(Angle(degrees: Double(self.activeView.height)))
+                 .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
+                 .gesture(
+                     
+                
+                     
+                     /// The Show condistional accompanied by the : nil at the end, give the ability for only the card to show the drag gesture upon selection
+           
+                     DragGesture().onChanged  { value in
+                         
+                         // This guard statement allows the full size card to be dismissed after dragging to a translation height of 300
+                         guard value.translation.height < 300 else { return }
+                         
+                         // This guard statement lets the drag animations to not take place upon dragging up on the screen
+                         
+                         guard value.translation.height > 50 else { return }
+                         
+                         self.activeView = value.translation
+                         
+                     }
+                     
+                     .onEnded { value in
+                 
+                     // This tells the full screen card view to close upon dragging to 50
+                         if self.activeView.height > 50  {
+                             
+                             withAnimation {
+                             self.showFirstDoseList = false
+                      
+                             }
+                         }
+                         
+                         self.activeView = .zero
+                         
+                         
+                     }
+                 )
+             }
+                 
+                 .transition(.scale)
      
             
         }
@@ -397,37 +492,90 @@ struct HomeView: View {
           if showSecondDoseList {
               
               
-              ZStack {
-                  
-                  
-              
-              
-              SecondDoseList()
-                  .offset(y: 20)
-              
-                  
-                  ZStack {
-                      VStack {
-                          Image(systemName: "xmark")
-                              .font(.system(size: 16, weight: .medium))
-                              .foregroundColor(.white)
-                      }
-                      .frame(width: 36, height: 36)
-                      .background(Color.black)
-                      .clipShape(Circle())
-                      .offset(x: 175, y: -350)
-                      .onTapGesture {
-                          self.showSecondDoseList = false
-                          
-                      }
-                      
+            
+                 ZStack {
+                         ZStack {
                      
-             
-                  }
-               
-                  
-              }
-       
+                    
+                             Spacer()
+                             
+                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                 .background(Color.white.opacity(0.1))
+                                 .onTapGesture {
+                                     withAnimation {
+                                     self.showSecondDoseList = false
+                             
+                                     }
+                                 }
+                
+                     SecondDoseList()
+                   
+                     
+                         VStack {
+                             Image(systemName: "xmark")
+                                 .font(.system(size: 16, weight: .medium))
+                                 .foregroundColor(.white)
+                         }
+                         .frame(width: 36, height: 36)
+                         .background(Color.black)
+                         .clipShape(Circle())
+                         .offset(x: 175, y: -350)
+                         .onTapGesture {
+                             self.showSecondDoseList = false
+                         }
+                             
+                    
+                 }
+                 
+                
+           
+                 // The added scale effect is for the drag gesture of the animation
+                 .scaleEffect(1 - self.activeView.height / 1000)
+                 // This allows the cards to rotate upon the drag gesture to either side
+                 .rotation3DEffect(Angle(degrees: Double(self.activeView.height / 10)),
+                     axis: (x: 0.0, y: 10.0, z: 0.0))
+                 .hueRotation(Angle(degrees: Double(self.activeView.height)))
+                 .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0))
+                 .gesture(
+                     
+                
+                     
+                     /// The Show condistional accompanied by the : nil at the end, give the ability for only the card to show the drag gesture upon selection
+           
+                     DragGesture().onChanged  { value in
+                         
+                         // This guard statement allows the full size card to be dismissed after dragging to a translation height of 300
+                         guard value.translation.height < 300 else { return }
+                         
+                         // This guard statement lets the drag animations to not take place upon dragging up on the screen
+                         
+                         guard value.translation.height > 50 else { return }
+                         
+                         self.activeView = value.translation
+                         
+                     }
+                     
+                     .onEnded { value in
+                 
+                     // This tells the full screen card view to close upon dragging to 50
+                         if self.activeView.height > 50  {
+                             
+                             withAnimation {
+                             self.showSecondDoseList = false
+                      
+                             }
+                         }
+                         
+                         self.activeView = .zero
+                         
+                         
+                     }
+                 )
+             }
+                 
+                 .transition(.scale)
+     
+            
               
           }
         
@@ -449,11 +597,11 @@ func getAngleMulitplier(bounds: GeometryProxy) -> Double {
     
 }
 
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView(showProfile: .constant(false), showContent: .constant(false), viewState: .constant(.zero)).environmentObject(UserStore())
-    }
-}
+//struct HomeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomeView(showProfile: .constant(false), showContent: .constant(false), viewState: .constant(.zero)).environmentObject(UserStore())
+//    }
+//}
 
 
 
