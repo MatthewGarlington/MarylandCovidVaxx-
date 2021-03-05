@@ -15,6 +15,11 @@ struct CasesList: View {
     @State var showCard = false
     @State var bottomState = CGSize.zero
     @State var showFull = false
+    @State var active = false
+    @State var activeIndex = -1
+    @State var activeView = CGSize.zero
+    @State var isScrollable = false
+    
  
 
     var body: some View {
@@ -122,6 +127,41 @@ struct CasesList: View {
                   
             
             }
+                    
+                .gesture(
+                    
+                    /// The Show condistional accompanied by the : nil at the end, give the ability for only the card to show the drag gesture upon selection
+          
+                    DragGesture().onChanged  { value in
+                        
+                        // This guard statement allows the full size card to be dismissed after dragging to a translation height of 300
+                        guard value.translation.height < 300 else { return }
+                        
+                        // This guard statement lets the drag animations to not take place upon dragging up on the screen
+                        
+                        guard value.translation.height > 50 else { return }
+                        
+                        self.activeView = value.translation
+                        
+                    }
+                    
+                    .onEnded { value in
+                
+                    // This tells the full screen card view to close upon dragging to 50
+                        if self.activeView.height > 50 && self.showCard == true {
+                            
+                       
+                            self.showCard = false
+                     
+                            
+                        }
+                        
+                        self.activeView = .zero
+                        
+                        
+                    }
+                
+                )
 
                 
            
