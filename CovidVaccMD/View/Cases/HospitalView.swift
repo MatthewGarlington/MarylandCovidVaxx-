@@ -34,14 +34,17 @@ struct HospitalView: View {
                         
                         Spacer()
                         Button(action: {
+                            withAnimation {
                             
                             self.showHospitalList.toggle()
                             
                             self.isLoading.toggle()
                             
+                            
                             DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
                                 // Return to the screen and clear the fields
                                 self.isLoading = false
+                            }
                             }
                             
                         }) {
