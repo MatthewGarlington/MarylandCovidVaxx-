@@ -17,6 +17,8 @@ struct Home: View {
     @State var showCard = false
     @State var bottomState = CGSize.zero
     @State var showFull = false
+    
+
    
     
 
@@ -34,16 +36,11 @@ struct Home: View {
 
             
             
-            
+          
 
             HomeView(showProfile: $showProfile, showContent: $showContent, viewState: $viewState)
             
 
-                
-                
-            
-            
-        
 
         }
     }
