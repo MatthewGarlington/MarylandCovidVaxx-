@@ -31,7 +31,15 @@ struct SectionSecondRowView: View {
                             .foregroundColor(.white)
                             .offset(x: 5)
                        
-                        Button(action: {self.showFirstDoseList.toggle()}) {
+                        Button(action: {
+                            withAnimation {
+                                self.showFirstDoseList.toggle()
+                            }
+                            
+                            
+                            
+                            
+                        }) {
                             Image(systemName: "list.bullet.indent")
                                 .foregroundColor(Color.red)
                                 .font(.system(size: 16, weight: .medium))
