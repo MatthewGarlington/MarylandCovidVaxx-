@@ -30,6 +30,15 @@ struct HomeView: View {
     @State var showCaseList = false
     @State var showFirstDoseList = false
     @State var showSecondDoseList = false
+    @State var show = false
+    @State var closeCard = false
+ 
+
+    
+   
+
+    
+  
    
     
 
@@ -298,18 +307,25 @@ struct HomeView: View {
         .blur(radius: showFirstDoseList ? 5 : 0)
         .blur(radius: showSecondDoseList ? 5 : 0)
         
+        
+        
     
 
         if showCaseList {
+            
+           
             
             
             ZStack {
                 
                 
+      
+                AllDosesList(closeCard: $closeCard)
+                
+                 
+         
             
-            
-            AllDosesList()
-                .offset(y: 20)
+        
             
                 
                 ZStack {
@@ -324,17 +340,18 @@ struct HomeView: View {
                     .offset(x: 175, y: -350)
                     .onTapGesture {
                         self.showCaseList = false
+                
                         
                     }
                     
                    
            
                 }
+                
+             
+            }
              
                 
-            }
-     
-            
         }
          
         
