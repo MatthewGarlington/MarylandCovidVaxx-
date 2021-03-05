@@ -32,8 +32,10 @@ struct TestView: View {
                                 .foregroundColor(.black)
                             
                             Button(action: {
+                                withAnimation {
                                 self.showTestList.toggle()
                                 self.isLoading.toggle()
+                                }
                                 
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
                                     // Return to the screen and clear the fields
