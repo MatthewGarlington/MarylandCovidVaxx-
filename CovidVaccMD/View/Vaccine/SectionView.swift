@@ -15,6 +15,7 @@ struct SectionView: View {
     var width: CGFloat = 275
     var height: CGFloat = 275
     @Binding var showCaseList: Bool
+
   
   
     
@@ -30,8 +31,13 @@ struct SectionView: View {
                             .frame(height: 100)
                             .padding(.top, 40)
                             .foregroundColor(.white)
-                        Button(action: {    
+                        Button(action: {
+                            withAnimation {
                             self.showCaseList.toggle()
+                                
+                            }
+                            
+                        
                             
                                 }) {
                             Image(systemName: "list.bullet.indent")
@@ -69,12 +75,16 @@ struct SectionView: View {
                 }
                 
         }
+        
+        
         .padding(.top, 20)
         .padding(.horizontal, 20)
         .frame(width: width, height: height)
         .background(Color(#colorLiteral(red: 0.7236627936, green: 0.6401972771, blue: 0.9966538548, alpha: 1)))
         .cornerRadius(30)
         .shadow(color: Color(#colorLiteral(red: 0.7236627936, green: 0.6401972771, blue: 0.9966538548, alpha: 1)).opacity(0.3), radius: 20, x: 0, y: 20)
+        
+    
         
         
     }
