@@ -36,12 +36,13 @@ struct VaccineLocationsDetails: View {
                     VStack {
 
                         Text("\(vaccine.attributes?.name ?? "")")
-
                             .font(.title)
-                            .bold()
-                            .frame(width: 400)
-                            .padding(.top, 30)
-                            .offset(y: 100)
+                            .fontWeight(.heavy)
+                            .frame(maxWidth: 300, maxHeight: 100)
+                            .foregroundColor(.white)
+                            .background(BlurView(style: .systemThickMaterialDark))
+                            .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+                            .offset(y: 50)
 
 
                         
@@ -137,31 +138,35 @@ struct VaccineLocationsDetails: View {
                              
                                     
                                 }
-//                                .padding()
-                                .frame(width: 400, height: 400)
-                                .background(
-                                    ZStack {
-                                        Color("background2")
-                                        
-                                        RoundedRectangle(cornerRadius: 16, style: .continuous)
-                                            .foregroundColor(Color("background2"))
-                                            .blur(radius: 4)
-                                            .offset(x: -8, y: -8)
-                                        
-                                        RoundedRectangle(cornerRadius: 16, style: .continuous)
-                                            .fill(LinearGradient(gradient: Gradient(colors: [(Color("background2")), Color(.systemGray2)]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                                            .padding(2)
-                                            .blur(radius: 2)
-                                    }
-                                )
+                                .padding()
+                                .frame(width: 350, height: 450)
                                 .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-                                .shadow(color: Color("background2"), radius: 20, x: 20, y: 20)
-                                .shadow(color: Color(#colorLiteral(red: 0.4119725525, green: 0.472499907, blue: 0.9727101922, alpha: 1)), radius: 20, x: -20, y: -20)
-                                .background(Color(#colorLiteral(red: 0.1944684982, green: 0.7717260122, blue: 1, alpha: 1)))
+                                .background(BlurView(style: .systemThickMaterial))
                                 .cornerRadius(15)
                                 .frame(maxWidth: .infinity)
                                 .frame(height: 75)
-                                .offset(y: -425)
+                                .shadow(color: Color.black.opacity(0.2), radius: 10, x: 10, y: 10)
+                                .shadow(color: Color.white.opacity(0.7), radius: 10, x: -5, y: -5)
+                                .offset(y: -400)
+                              
+                                .background(
+                                    
+                                    Spacer()
+                                .frame(width: 400, height: 550)
+                                .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+                                .shadow(color: Color("background2"), radius: 20, x: 20, y: 20)
+                                .shadow(color: Color("background2"), radius: 20, x: -20, y: -20)
+                                .background(BlurView(style: .systemUltraThinMaterialLight))
+                                .cornerRadius(15)
+                                .frame(maxWidth: .infinity)
+                                .frame(height: 75)
+                                .offset(y: -400)
+                                    
+                                    
+                                
+                            )
+                                
+                                Spacer()
                           
                               
                             }
