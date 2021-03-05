@@ -77,6 +77,7 @@ struct CourseList: View {
                     .animation(.linear)
                     // Disable the ability for the scrolling and animation to not activate during the 0.7 Second delay
                     .disabled(self.active && !self.isScrollable ? true : false)
+               
                 }
             }
         }
