@@ -17,7 +17,7 @@ struct PercentChangeView: View {
     
     var body: some View {
       
-                  Text(percent.text)
+                  Text("+\(percent.text)")
                     .font(.caption)
                     .foregroundColor(.secondary)
 

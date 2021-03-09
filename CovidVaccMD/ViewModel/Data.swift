@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MapKit
+import Combine
 
 
 
@@ -783,7 +784,12 @@ class LocalHealthVaccineLocationsModel: ObservableObject {
     
     
     @Published var vaccineLocationsMD: MDVaccineLocations?
-    
+    // 2
+    @Published var searchText = ""
+   
+    // 3
+
+   
     
     
     
@@ -827,7 +833,8 @@ class LocalHealthVaccineLocationsModel: ObservableObject {
                     
       
                     
-                    
+                    var filteredData: [String] = [String]()
+                    var publisher: AnyCancellable?
                     
                     
                     

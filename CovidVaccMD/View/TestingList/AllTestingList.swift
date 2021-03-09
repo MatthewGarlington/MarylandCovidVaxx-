@@ -6,27 +6,25 @@
 //
 
 import SwiftUI
+import Combine
 
 struct AllTestingList: View {
     
     @ObservedObject var allTestingLocations = AllTestingLocations()
+    @ObservedObject var viewModel = ContentViewModel()
     var body: some View {
         NavigationView {
-        List {
+            
+            VStack {
+
+                List {
        
             ForEach(allTestingLocations.testingTestingLocations?.features ?? [], id: \.self) { testing in
                 NavigationLink(destination: TestingLocationsDetail(testing: testing)) {
                     
                     HStack {
                         
-//                        Image(vaccine)
-//                            .resizable()
-//                            .aspectRatio(contentMode: .fit)
-//                            .frame(width: 80, height: 80)
-//                            .background(Color.black)
-//                            .cornerRadius(20)
-//                            .padding(.trailing, 4)
-                        
+
             
                         VStack(alignment: .leading, spacing: 12) {
            
@@ -52,21 +50,12 @@ struct AllTestingList: View {
                 }
             }
             
-            
-//             .padding(.top, 8)
-//             .padding(.horizontal, 20)
-//            // Lets the bottom card with the Text Field to not take up the entire width of the screen
-//         //   .frame(maxWidth: 712)
-//            .frame(height: 175)
-//            // Adding the BlurView Modifer to give a glass appearance
-//            .background(BlurView(style: .systemThinMaterial))
-//            .cornerRadius(30)
-//            .frame(maxWidth: .infinity)
-//           // .frame(maxWidth: .infinity)
-//            .listRowBackground(BlurView(style: .systemThinMaterial))
+
         }
         .navigationBarHidden(false)
     }
+            
+        }
       
      
     
@@ -76,5 +65,31 @@ struct AllTestingList: View {
 struct AllTestingList_Previews: PreviewProvider {
     static var previews: some View {
         AllTestingList()
+    }
+}
+
+class ContentViewModel: ObservableObject {
+    // 2
+    @Published var searchText = ""
+   
+    // 3
+    let allData: [String]
+    var filteredData: [String] = [String]()
+    var publisher: AnyCancellable?
+    init() {
+        // 4
+        self.allData = (0..<200).map({ "\($0)" })
+        self.filteredData = allData
+        self.publisher = $searchText
+            .receive(on: RunLoop.main)
+            .sink(receiveValue: { (str) in
+                if !self.searchText.isEmpty {
+                    self.filteredData = self.allData.filter { $0.contains(str) }
+                } else {
+                    self.filteredData = self.allData
+                }
+            })
+
+        
     }
 }

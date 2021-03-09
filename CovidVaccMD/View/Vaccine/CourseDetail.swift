@@ -80,7 +80,7 @@ struct CourseDetail: View {
         
                        
                             
-                            Text("A​ ll licensed, registered, and certified healthcare providers; nursing home residents and staff; law enforcement, and firefighters, EMS, and other first responders; correctional healthcare staff and officers; and front line judiciary staff.")
+                            Text("A​ll licensed, registered, and certified healthcare providers; nursing home residents and staff; law enforcement, and firefighters, EMS, and other first responders; correctional healthcare staff and officers; and front line judiciary staff.")
                
            
              
@@ -186,7 +186,7 @@ struct CourseDetail: View {
         
                        
                             
-                            Text("G​eneral population, including healthy adults ages 16-64. A​ pproximately 4 million individuals")
+                            Text("G​eneral population, including healthy adults ages 16-64. A​pproximately 4 million individuals")
                
            
              
@@ -198,8 +198,13 @@ struct CourseDetail: View {
                     
                 }
                 .padding(30)
+                .padding(.bottom, 100)
             }
-        }.edgesIgnoringSafeArea(.all)
+         
+        }
+        
+        
+       
     }
 }
 

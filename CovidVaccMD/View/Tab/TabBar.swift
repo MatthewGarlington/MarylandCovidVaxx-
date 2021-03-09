@@ -10,25 +10,27 @@ import SwiftUI
 struct TabBar: View {
     
     
-
+    
     var body: some View {
         TabView {
-       
-               
-                        Cases()
-                            .tabItem {
-                        Image(systemName: "cross.circle.fill")
-                        Text("All Stats")
-                    }
-               
-                        Home().tabItem {
-                    Image(systemName: "cross.case.fill")
-                    Text("Vaccine")
+            
+            Home().tabItem {
+                Image(systemName: "cross.case.fill")
+                Text("Vaccine")
+            }
+            
+            
+            Cases()
+                .tabItem {
+                    Image(systemName: "cross.circle.fill")
+                    Text("All Stats")
                 }
-                
+            
+            
+            
             
         }
-        //.edgesIgnoringSafeArea(.top)
+        .accentColor(Color(#colorLiteral(red: 0.7236627936, green: 0.6401972771, blue: 0.9966538548, alpha: 1)))
     }
 }
 

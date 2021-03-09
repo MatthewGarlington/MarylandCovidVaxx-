@@ -61,6 +61,7 @@ struct TestView: View {
                         
                     }
                 Text("\(tests.text)")
+                    .foregroundColor(.black)
                         .font(.system(size: 24, weight: .bold))
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .frame(height: 50)

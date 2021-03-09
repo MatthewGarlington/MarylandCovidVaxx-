@@ -19,6 +19,7 @@ struct VaccineLocationsDetails: View {
     
     var body: some View {
         
+        ScrollView {
         
         
         ZStack {
@@ -38,11 +39,11 @@ struct VaccineLocationsDetails: View {
                         Text("\(vaccine.attributes?.name ?? "")")
                             .font(.title)
                             .fontWeight(.heavy)
-                            .frame(maxWidth: 300, maxHeight: 100)
+                            .frame(maxWidth: 400, maxHeight: 125)
                             .foregroundColor(.white)
                             .background(BlurView(style: .systemThickMaterialDark))
                             .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-                            .offset(y: 50)
+                            .offset(y: 100)
 
 
                         
@@ -145,9 +146,9 @@ struct VaccineLocationsDetails: View {
                                 .cornerRadius(15)
                                 .frame(maxWidth: .infinity)
                                 .frame(height: 75)
-                                .shadow(color: Color.black.opacity(0.2), radius: 10, x: 10, y: 10)
-                                .shadow(color: Color.white.opacity(0.7), radius: 10, x: -5, y: -5)
-                                .offset(y: -400)
+                                .shadow(color: Color("background2").opacity(0.2), radius: 10, x: 10, y: 10)
+                                .shadow(color: Color("background2").opacity(0.7), radius: 10, x: -5, y: -5)
+                                .offset(y: -375)
                               
                                 .background(
                                     
@@ -160,7 +161,7 @@ struct VaccineLocationsDetails: View {
                                 .cornerRadius(15)
                                 .frame(maxWidth: .infinity)
                                 .frame(height: 75)
-                                .offset(y: -400)
+                                .offset(y: -375)
                                     
                                     
                                 
@@ -207,6 +208,7 @@ struct VaccineLocationsDetails: View {
                 }
                 
             }
+        }
                 
         }
 }

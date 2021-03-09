@@ -20,7 +20,7 @@ struct TestingLocationsDetail: View {
     var body: some View {
         
         
-        
+        ScrollView {
         ZStack {
             
             
@@ -38,11 +38,11 @@ struct TestingLocationsDetail: View {
                         Text("\(testing.attributes?.name ?? "")")
                             .font(.title)
                             .fontWeight(.heavy)
-                            .frame(maxWidth: 300, maxHeight: 100)
+                            .frame(maxWidth: 400, maxHeight: 125)
                             .foregroundColor(.white)
                             .background(BlurView(style: .systemThickMaterialDark))
                             .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-                            .offset(y: 50)
+                            .offset(y: 75)
 
 
                         
@@ -185,20 +185,20 @@ struct TestingLocationsDetail: View {
                                 }
                             }
                                 .padding()
-                                .frame(width: 350, height: 600)
+                                .frame(width: 360, height: 600)
                                 .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
                                 .background(BlurView(style: .systemThickMaterial))
                                 .cornerRadius(15)
                                 .frame(maxWidth: .infinity)
                                 .frame(height: 75)
-                                .shadow(color: Color.black.opacity(0.2), radius: 10, x: 10, y: 10)
-                                .shadow(color: Color.white.opacity(0.7), radius: 10, x: -5, y: -5)
-                                .offset(y: -370)
+                                .shadow(color: Color("background2").opacity(0.2), radius: 10, x: 10, y: 10)
+                                .shadow(color: Color("background2").opacity(0.7), radius: 10, x: -5, y: -5)
+                                .offset(y: -375)
                               
                                 .background(
                                     
                                     Spacer()
-                                .frame(width: 400, height: 700)
+                                .frame(width: 400, height: 650)
                                 .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
                                 .shadow(color: Color("background2"), radius: 20, x: 20, y: 20)
                                 .shadow(color: Color("background2"), radius: 20, x: -20, y: -20)
@@ -206,7 +206,7 @@ struct TestingLocationsDetail: View {
                                 .cornerRadius(15)
                                 .frame(maxWidth: .infinity)
                                 .frame(height: 75)
-                                .offset(y: -370)
+                                .offset(y: -375)
                                     
                                     
                                 
@@ -255,6 +255,7 @@ struct TestingLocationsDetail: View {
             
                 
             }
+        }
     
                 
         }

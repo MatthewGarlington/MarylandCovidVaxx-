@@ -56,9 +56,9 @@ struct MapTabView: View {
             
         }
         .accentColor(Color(#colorLiteral(red: 0.7236627936, green: 0.6401972771, blue: 0.9966538548, alpha: 1)))
-        .onAppear() {
-            UITabBar.appearance().barTintColor = .white
-        }
+//        .onAppear() {
+//            UITabBar.appearance().barTintColor = .white
+//        }
      
             HStack {
                 Button(action: {
