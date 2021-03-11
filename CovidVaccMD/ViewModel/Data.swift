@@ -1125,17 +1125,17 @@ class TotalVaccineData: ObservableObject {
                     // First Row
                     
                     self.sections.append(Section(title:  self.titles[6],
-                                                 text: Text("\(self.recentMDVaccineTotals?.features?[6].attributes?.Value ?? 0, specifier: "%.0f")"),
-                                                 image: URL(string: "https://static.vecteezy.com/system/resources/previews/000/952/527/non_2x/coronavirus-character-get-vaccination-vector.jpg")!,
-                                                 logo: #imageLiteral(resourceName: "Logo1"),
-                                                 color: .blue))
-                    self.sections.append(Section(title:  self.titles[7],
                                                  text: Text("\(self.recentMDVaccineTotals?.features?[7].attributes?.Value ?? 0, specifier: "%.0f")"),
                                                  image: URL(string: "https://static.vecteezy.com/system/resources/previews/000/952/527/non_2x/coronavirus-character-get-vaccination-vector.jpg")!,
                                                  logo: #imageLiteral(resourceName: "Logo1"),
                                                  color: .blue))
+                    self.sections.append(Section(title:  self.titles[7],
+                                                 text: Text("\(self.recentMDVaccineTotals?.features?[6].attributes?.Value ?? 0, specifier: "%.0f")"),
+                                                 image: URL(string: "https://static.vecteezy.com/system/resources/previews/000/952/527/non_2x/coronavirus-character-get-vaccination-vector.jpg")!,
+                                                 logo: #imageLiteral(resourceName: "Logo1"),
+                                                 color: .blue))
                     self.sections.append(Section(title:  self.titles[8],
-                                                 text: Text("\(self.recentMDVaccineTotals?.features?[8].attributes?.Value ?? 0, specifier: "%.0f")"),
+                                                 text: Text("\(self.recentMDVaccineTotals?.features?[6].attributes?.Value ?? 0, specifier: "%.0f")"),
                                                  image: URL(string: "https://static.vecteezy.com/system/resources/previews/000/952/527/non_2x/coronavirus-character-get-vaccination-vector.jpg")!,
                                                  logo: #imageLiteral(resourceName: "Logo1"),
                                                  color: .blue))
@@ -1144,36 +1144,36 @@ class TotalVaccineData: ObservableObject {
                     
                     // Second Row
                     self.sectionsRowTwo.append(SectionSecondRow(title:  self.titles[0],
-                                                                text: Text("\(self.recentMDVaccineTotals?.features?[0].attributes?.Value ?? 0, specifier: "%.0f")"),
+                                                                text: Text("\(self.recentMDVaccineTotals?.features?[3].attributes?.Value ?? 0, specifier: "%.0f")"),
                                                                 image: URL(string: "https://khn.org/wp-content/uploads/sites/2/2020/12/GettyImages-1263990592_1350.jpg?w=1270")!,
                                                                 logo: #imageLiteral(resourceName: "Logo1"),
                                                                 color: .blue))
                     
                     self.sectionsRowTwo.append(SectionSecondRow(title:  self.titles[1],
-                                                                text: Text("+\(self.recentMDVaccineTotals?.features?[1].attributes?.Value ?? 0, specifier: "%.0f")"),
+                                                                text: Text("+\(self.recentMDVaccineTotals?.features?[0].attributes?.Value ?? 0, specifier: "%.0f")"),
                                                                 image: URL(string: "https://khn.org/wp-content/uploads/sites/2/2020/12/GettyImages-1263990592_1350.jpg?w=1270")!,
                                                                 logo: #imageLiteral(resourceName: "Logo1"),
                                                                 color: .blue))
                     self.sectionsRowTwo.append(SectionSecondRow(title:  self.titles[2],
-                                                                text: Text("\(self.recentMDVaccineTotals?.features?[2].attributes?.Value ?? 0, specifier: "%.2f")%"),
+                                                                text: Text("\(self.recentMDVaccineTotals?.features?[8].attributes?.Value ?? 0, specifier: "%.2f")%"),
                                                                 image: URL(string: "https://khn.org/wp-content/uploads/sites/2/2020/12/GettyImages-1263990592_1350.jpg?w=1270")!,
                                                                 logo: #imageLiteral(resourceName: "Logo1"),
                                                                 color: .blue))
                     
                     
                     // Third Row
-                    self.sectionsRowThree.append(SectionThirdRow(title:  self.titles[3],
-                                                                 text: Text("\(self.recentMDVaccineTotals?.features?[3].attributes?.Value ?? 0, specifier: "%.0f")"),
+                    self.sectionsRowThree.append(SectionThirdRow(title:  self.titles[9],
+                                                                 text: Text("\(self.recentMDVaccineTotals?.features?[4].attributes?.Value ?? 0, specifier: "%.0f")"),
                                                                  image: URL(string: "https://labblog.uofmhealth.org/sites/lab/files/2020-08/CovidVaccineBlog_0.jpg")!,
                                                                  logo: #imageLiteral(resourceName: "Logo1"),
                                                                  color: .blue))
                     self.sectionsRowThree.append(SectionThirdRow(title:  self.titles[4],
-                                                                 text: Text("+\(self.recentMDVaccineTotals?.features?[4].attributes?.Value ?? 0, specifier: "%.0f")"),
+                                                                 text: Text("+\(self.recentMDVaccineTotals?.features?[2].attributes?.Value ?? 0, specifier: "%.0f")"),
                                                                  image: URL(string: "https://labblog.uofmhealth.org/sites/lab/files/2020-08/CovidVaccineBlog_0.jpg")!,
                                                                  logo: #imageLiteral(resourceName: "Logo1"),
                                                                  color: .blue))
                     self.sectionsRowThree.append(SectionThirdRow(title:  self.titles[5],
-                                                                 text: Text("\(self.recentMDVaccineTotals?.features?[5].attributes?.Value ?? 0, specifier: "%.2f")%"),
+                                                                 text: Text("\(self.recentMDVaccineTotals?.features?[10].attributes?.Value ?? 0, specifier: "%.2f")%"),
                                                                  image: URL(string: "https://labblog.uofmhealth.org/sites/lab/files/2020-08/CovidVaccineBlog_0.jpg")!,
                                                                  logo: #imageLiteral(resourceName: "Logo1"),
                                                                  color: .blue))
