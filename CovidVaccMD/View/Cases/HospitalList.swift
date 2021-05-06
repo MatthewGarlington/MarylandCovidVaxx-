@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HospitalList: View {
-    @ObservedObject var casesModel = CovidMasterModel()
+    @ObservedObject var viewModel = CovidMasterVM()
     @State var viewState = CGSize.zero
     @State var showCard = false
     @State var bottomState = CGSize.zero
@@ -64,7 +64,7 @@ struct HospitalList: View {
                 
             
                         VStack {
-                            ForEach(casesModel.allMDHeader.reversed(), id: \.self) { cases in
+                            ForEach(viewModel.allMDHeader.reversed(), id: \.self) { cases in
                    
                                 
                                 HStack {

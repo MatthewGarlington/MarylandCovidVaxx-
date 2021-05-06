@@ -48,10 +48,28 @@ struct MDHistoricalVaccineFeatures: Codable, Hashable {
 
 struct MDHistoricalVaccineAttributes: Codable, Hashable {
 
-    let CumulativeTotalVaccinatedDoseOn: Int?
-    let CumulativeTotalVaccinatedDoseTw: Int?
-    let CumulativeTotalVaccinated: Int?
-    let CumulativeTotalVaccinatedDate: Int?
+    let VACCINATION_DATE: Int?
+    let FirstDailyDose: Int?
+    let FirstDoseDelta: Int?
+    let SecondDoseDelta: Int?
+    let SingleDoseDelta: Int?
+    let FirstDoseCumulative: Int?
+    let SecondDailyDose: Int?
+    let SecondDoseCumulative: Int?
+    let SingleDailyDose: Int?
+    let SingleDoseCumulative: Int?
+    let AtleastOneVaccine: Int?
+    let AtleastOneVaccineCumulative: Int?
+    let CompletedVax: Int?
+    let CompletedVaxCumulative: Int?
+    let FirstSecondSingleVaccinations: Int?
+    let FirstSecondSingleVaccinationsCu: Int?
+    let TotalVaccineDosesDelivered: Int?
+    let FirstDoseDistributed: Int?
+    let SingleDoseDistributed: Int?
+    let SingleDosePercentVaccinated: Int?
+    let VaxCompletedDistributed: Int?
+    let FirstSecondSingleDistributed: Int?
 
 }
 

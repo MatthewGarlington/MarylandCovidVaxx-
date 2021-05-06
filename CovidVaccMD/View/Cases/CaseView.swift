@@ -9,7 +9,6 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct CaseView: View {
-    @ObservedObject var store = CourseStore()
     var index: Int
     var cases: CasesRowOne
     var width: CGFloat = 275

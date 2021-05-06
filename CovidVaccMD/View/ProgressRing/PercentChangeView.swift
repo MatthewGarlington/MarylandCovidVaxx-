@@ -2,7 +2,7 @@
 //  PercentChangeView.swift
 //  CovidVaccMD
 //
-//  Created by Matthew Garlington on 2/25/21.
+//  Created by Matthew Garlington on 5/5/21.
 //
 
 import SwiftUI
@@ -12,15 +12,14 @@ struct PercentChangeView: View {
     var index: Int
     var percent: PercentDifferenceRow
 
-  
-  
-    
+
+
+
     var body: some View {
-      
+
                   Text("+\(percent.text)")
                     .font(.caption)
                     .foregroundColor(.secondary)
-
     }
 }
 
@@ -29,11 +28,11 @@ struct PercentChangeTotalVaccine: View {
     var index: Int
     var percent: VaccinePercentDifferenceRow
 
-  
-  
-    
+
+
+
     var body: some View {
-      
+
                   Text(percent.text)
                     .font(.caption)
                     .foregroundColor(.secondary)

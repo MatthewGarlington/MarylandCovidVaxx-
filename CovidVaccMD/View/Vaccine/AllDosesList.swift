@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AllDosesList: View {
-    @ObservedObject var vaccineHistoricalViewModel = HistoricalVaccineData()
+    @ObservedObject var viewModel = HistoricalVaccineViewModel()
     @State var viewState = CGSize.zero
     @State var showCard = false
     @State var bottomState = CGSize.zero
@@ -17,10 +17,7 @@ struct AllDosesList: View {
     @State var activeIndex = -1
     @State var activeView = CGSize.zero
     @State var isScrollable = false
-    
-    
 
- 
 
     var body: some View {
  
@@ -66,7 +63,7 @@ struct AllDosesList: View {
                 
             
                         VStack {
-                        ForEach(vaccineHistoricalViewModel.recentMDVaccineTotals?.features?.reversed() ?? [], id: \.self) { vaccine in
+                        ForEach(viewModel.recentMDVaccineTotals?.features?.reversed() ?? [], id: \.self) { vaccine in
                    
                                 
                                 HStack {
@@ -75,7 +72,7 @@ struct AllDosesList: View {
                         
                                     VStack(alignment: .leading, spacing: 12) {
                                        
-                                        Text("\((vaccine.attributes?.CumulativeTotalVaccinatedDate?.getDateFromCrazyInt(date: vaccine.attributes!.CumulativeTotalVaccinatedDate!))!):")
+                                        Text("\((vaccine.attributes?.VACCINATION_DATE?.getDateFromCrazyInt(date: vaccine.attributes!.VACCINATION_DATE!))!):")
                                                 .font(.system(size: 20, weight: .bold))
                                         
                                         HStack {
@@ -86,7 +83,7 @@ struct AllDosesList: View {
                                    
                                  
                                             VStack(alignment: .leading) {
-                                                Text("\(vaccine.attributes?.CumulativeTotalVaccinated ?? 0)")
+                                                Text("\(vaccine.attributes?.FirstDoseCumulative ?? 0)")
                                                         .font(.system(size: 20, weight: .semibold))
                                                 
                                              

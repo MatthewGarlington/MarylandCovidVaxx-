@@ -9,7 +9,6 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct DeathView: View {
-    @ObservedObject var store = CourseStore()
     var index: Int
     var deaths: DeathRow
     var width: CGFloat = 275

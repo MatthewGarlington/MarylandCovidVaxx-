@@ -27,7 +27,6 @@ struct Cases: View {
             
             Color("background2")
                 .edgesIgnoringSafeArea(.all)
-            
       
             HomeBackgroundView(showProfile: $showProfile)
                 .offset(y: showProfile ? -450 : 0)

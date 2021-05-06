@@ -57,8 +57,6 @@ struct CourseDetail: View {
                 }
                 .padding(show ? 30 : 20)
                 .padding(show ? 30 : 0)
-//                .frame(maxWidth: show ? .infinity : screen.width - 60, maxHeight: show ? 460 :  CGFloat(280))
-                //
                 .frame(maxWidth: show ? .infinity : bounds.size.width - 60)
                 .frame(height: show ? 460 : 280)
                 .background(Color(course.color))

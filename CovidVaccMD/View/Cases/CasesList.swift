@@ -10,7 +10,7 @@ import SwiftUI
 
 
 struct CasesList: View {
-    @ObservedObject var casesModel = CovidMasterModel()
+    @ObservedObject var casesModel = CovidMasterVM()
     @State var viewState = CGSize.zero
     @State var showCard = false
     @State var bottomState = CGSize.zero

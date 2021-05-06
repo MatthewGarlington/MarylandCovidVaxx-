@@ -9,7 +9,6 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct TestView: View {
-    @ObservedObject var store = CourseStore()
     var index: Int
     var tests: TestRow
     var width: CGFloat = 275

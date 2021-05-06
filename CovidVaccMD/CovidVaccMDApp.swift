@@ -7,24 +7,13 @@
 
 import SwiftUI
 
-
-
-
-
-
 @main
 
 struct Design_CodeAppApp: App {
-    
-  
-    
-  
    
     var body: some Scene {
         WindowGroup {
             TabBar()
-                .environmentObject(UserStore())
-            
         }
     }
 }

@@ -9,7 +9,6 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct SectionThirdRowView: View {
-    @ObservedObject var store = CourseStore()
     var index: Int
     var section: SectionThirdRow
     var width: CGFloat = 275

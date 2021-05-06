@@ -10,7 +10,6 @@ import SDWebImageSwiftUI
 
 
 struct HospitalView: View {
-    @ObservedObject var store = CourseStore()
     var index: Int
     var hospital: HospitalRow
     var width: CGFloat = 275

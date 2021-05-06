@@ -14,26 +14,27 @@ import MapKit
 
 
 struct HomeCases: View {
+    @ObservedObject var totalVaccineViewModel = TotalVaccineDataViewModel()
+    @ObservedObject var casesModel = CovidMasterVM()
+    @ObservedObject var positiveCasesViewModel = PositiveCasesViewModel()
+    @ObservedObject var currentlyHospitalizedViewModel = MDCurrentlyHospitalizedViewModel()
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+
     @Binding var showProfile: Bool
     @Binding var showContent: Bool
+    
     @State var showUpdate = false
     @Binding var viewState: CGSize
-    @ObservedObject var store = CourseStore()
     @State var active = false
     @State var activeIndex = -1
     @State var activeView = CGSize.zero
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @State var isScrollable = false
-    @ObservedObject var totalVaccineViewModel = TotalVaccineData()
     @State var annotations = [MKPointAnnotation]()
     @State var pinsArray = [MKPointAnnotation]()
     @State var showingPlaceDetails = false
     @State var showingEditScreen = false
     @State var selectedPlace: MKPointAnnotation?
     @State var showVaccineList = false
-    @ObservedObject var casesModel = CovidMasterModel()
-    @ObservedObject var positiveCasesViewModel = PositiveCasesViewModel()
-    @ObservedObject var currentlyHospitalizedViewModel = MDCurrentlyHospitalizedViewModel()
     @State var show = false
     @State var showCard = false
     @State var bottomState = CGSize.zero

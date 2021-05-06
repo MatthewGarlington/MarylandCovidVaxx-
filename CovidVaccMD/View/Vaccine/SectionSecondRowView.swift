@@ -9,7 +9,6 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct SectionSecondRowView: View {
-    @ObservedObject var store = CourseStore()
     var index: Int
     var section: SectionSecondRow
     var width: CGFloat = 275
@@ -71,8 +70,6 @@ struct SectionSecondRowView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(height: 125)
-                   //.padding(.bottom, 20)
-                   //.blendMode(.darken)
                 }
                 
         }
